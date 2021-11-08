@@ -1136,9 +1136,7 @@
         "x": 150,
         "y": 720,
         "wires": [
-            [
-                "c35e61ae9dc92146"
-            ],
+            [],
             [],
             []
         ]
@@ -1216,7 +1214,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_on",
-        "entityId": "light.landing_light",
+        "entityId": "light.lounge_light",
         "data": "",
         "dataType": "json",
         "mergecontext": "",
@@ -3036,9 +3034,7 @@
         "y": 1020,
         "wires": [
             [],
-            [
-                "9637fd97fca06cc2"
-            ]
+            []
         ]
     },
     {
