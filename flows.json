@@ -440,7 +440,7 @@
         "type": "light-scheduler-filter",
         "z": "afb0f186.cfb0d",
         "settings": "f26da246.74a7f",
-        "events": "[{\"start\":{\"dow\":1,\"mod\":900},\"end\":{\"dow\":2,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":900},\"end\":{\"dow\":3,\"mod\":0}},{\"start\":{\"dow\":3,\"mod\":900},\"end\":{\"dow\":4,\"mod\":0}},{\"start\":{\"dow\":4,\"mod\":900},\"end\":{\"dow\":5,\"mod\":0}},{\"start\":{\"dow\":5,\"mod\":900},\"end\":{\"dow\":6,\"mod\":0}},{\"start\":{\"dow\":6,\"mod\":900},\"end\":{\"dow\":0,\"mod\":0}},{\"start\":{\"dow\":0,\"mod\":900},\"end\":{\"dow\":1,\"mod\":0}},{\"start\":{\"dow\":0,\"mod\":1400},\"end\":{\"dow\":1,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":0},\"end\":{\"dow\":2,\"mod\":120}},{\"start\":{\"dow\":3,\"mod\":0},\"end\":{\"dow\":3,\"mod\":120}},{\"start\":{\"dow\":4,\"mod\":0},\"end\":{\"dow\":4,\"mod\":120}},{\"start\":{\"dow\":5,\"mod\":0},\"end\":{\"dow\":5,\"mod\":120}},{\"start\":{\"dow\":6,\"mod\":0},\"end\":{\"dow\":6,\"mod\":120}},{\"start\":{\"dow\":0,\"mod\":0},\"end\":{\"dow\":0,\"mod\":120}}]",
+        "events": "[{\"start\":{\"dow\":1,\"mod\":900},\"end\":{\"dow\":2,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":900},\"end\":{\"dow\":3,\"mod\":0}},{\"start\":{\"dow\":3,\"mod\":900},\"end\":{\"dow\":4,\"mod\":0}},{\"start\":{\"dow\":4,\"mod\":900},\"end\":{\"dow\":5,\"mod\":0}},{\"start\":{\"dow\":5,\"mod\":900},\"end\":{\"dow\":6,\"mod\":0}},{\"start\":{\"dow\":6,\"mod\":900},\"end\":{\"dow\":0,\"mod\":0}},{\"start\":{\"dow\":0,\"mod\":900},\"end\":{\"dow\":1,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":0},\"end\":{\"dow\":2,\"mod\":120}},{\"start\":{\"dow\":3,\"mod\":0},\"end\":{\"dow\":3,\"mod\":120}},{\"start\":{\"dow\":4,\"mod\":0},\"end\":{\"dow\":4,\"mod\":120}},{\"start\":{\"dow\":5,\"mod\":0},\"end\":{\"dow\":5,\"mod\":120}},{\"start\":{\"dow\":6,\"mod\":0},\"end\":{\"dow\":6,\"mod\":120}},{\"start\":{\"dow\":0,\"mod\":0},\"end\":{\"dow\":0,\"mod\":120}},{\"start\":{\"dow\":1,\"mod\":0},\"end\":{\"dow\":1,\"mod\":120}}]",
         "name": "dark? (filter)",
         "onlyWhenDark": true,
         "scheduleRndMax": 0,
@@ -559,7 +559,7 @@
         "type": "light-scheduler-filter",
         "z": "afb0f186.cfb0d",
         "settings": "f26da246.74a7f",
-        "events": "[{\"start\":{\"dow\":1,\"mod\":900},\"end\":{\"dow\":2,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":900},\"end\":{\"dow\":3,\"mod\":0}},{\"start\":{\"dow\":3,\"mod\":900},\"end\":{\"dow\":4,\"mod\":0}},{\"start\":{\"dow\":4,\"mod\":900},\"end\":{\"dow\":5,\"mod\":0}},{\"start\":{\"dow\":5,\"mod\":900},\"end\":{\"dow\":6,\"mod\":0}},{\"start\":{\"dow\":6,\"mod\":900},\"end\":{\"dow\":0,\"mod\":0}},{\"start\":{\"dow\":0,\"mod\":900},\"end\":{\"dow\":1,\"mod\":0}}]",
+        "events": "[{\"start\":{\"dow\":2,\"mod\":5},\"end\":{\"dow\":2,\"mod\":1435}},{\"start\":{\"dow\":3,\"mod\":5},\"end\":{\"dow\":3,\"mod\":1435}},{\"start\":{\"dow\":4,\"mod\":5},\"end\":{\"dow\":4,\"mod\":1435}},{\"start\":{\"dow\":5,\"mod\":5},\"end\":{\"dow\":5,\"mod\":1435}},{\"start\":{\"dow\":6,\"mod\":5},\"end\":{\"dow\":6,\"mod\":1435}},{\"start\":{\"dow\":0,\"mod\":5},\"end\":{\"dow\":0,\"mod\":1435}},{\"start\":{\"dow\":1,\"mod\":5},\"end\":{\"dow\":1,\"mod\":1435}}]",
         "name": "dark? (filter)",
         "onlyWhenDark": true,
         "scheduleRndMax": 0,
@@ -569,25 +569,9 @@
         "y": 200,
         "wires": [
             [
-                "fb2ec35f829581bc"
+                "af8fbf12a24d0f13"
             ],
             []
-        ]
-    },
-    {
-        "id": "fb2ec35f829581bc",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "turn_on",
-        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 640,
-        "y": 200,
-        "wires": [
-            [
-                "af8fbf12a24d0f13"
-            ]
         ]
     },
     {
@@ -598,8 +582,8 @@
         "server": "8b52884a.b76658",
         "version": 3,
         "debugenabled": false,
-        "service_domain": "switch",
-        "service": "",
+        "service_domain": "light",
+        "service": "turn_on",
         "entityId": "light.hallway",
         "data": "",
         "dataType": "json",
@@ -614,7 +598,7 @@
             }
         ],
         "queue": "none",
-        "x": 850,
+        "x": 650,
         "y": 200,
         "wires": [
             []
@@ -1538,6 +1522,35 @@
                 "440159ca8dd6ff77"
             ],
             []
+        ]
+    },
+    {
+        "id": "f182740c31e250db",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 260,
+        "wires": [
+            [
+                "e2881d687528b305"
+            ]
         ]
     },
     {
