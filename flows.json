@@ -1169,26 +1169,6 @@
         ]
     },
     {
-        "id": "825bcfeaf6ace04e",
-        "type": "light-scheduler-filter",
-        "z": "afb0f186.cfb0d",
-        "settings": "f26da246.74a7f",
-        "events": "[{\"start\":{\"dow\":1,\"mod\":900},\"end\":{\"dow\":2,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":900},\"end\":{\"dow\":3,\"mod\":0}},{\"start\":{\"dow\":3,\"mod\":900},\"end\":{\"dow\":4,\"mod\":0}},{\"start\":{\"dow\":4,\"mod\":900},\"end\":{\"dow\":5,\"mod\":0}},{\"start\":{\"dow\":5,\"mod\":900},\"end\":{\"dow\":6,\"mod\":0}},{\"start\":{\"dow\":6,\"mod\":900},\"end\":{\"dow\":0,\"mod\":0}},{\"start\":{\"dow\":0,\"mod\":900},\"end\":{\"dow\":1,\"mod\":0}},{\"start\":{\"dow\":0,\"mod\":1400},\"end\":{\"dow\":1,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":0},\"end\":{\"dow\":2,\"mod\":120}},{\"start\":{\"dow\":3,\"mod\":0},\"end\":{\"dow\":3,\"mod\":120}},{\"start\":{\"dow\":4,\"mod\":0},\"end\":{\"dow\":4,\"mod\":120}},{\"start\":{\"dow\":5,\"mod\":0},\"end\":{\"dow\":5,\"mod\":120}},{\"start\":{\"dow\":6,\"mod\":0},\"end\":{\"dow\":6,\"mod\":120}},{\"start\":{\"dow\":0,\"mod\":0},\"end\":{\"dow\":0,\"mod\":120}}]",
-        "name": "dark? (filter)",
-        "onlyWhenDark": true,
-        "scheduleRndMax": 0,
-        "sunElevationThreshold": "0",
-        "sunShowElevationInStatus": true,
-        "x": 130,
-        "y": 940,
-        "wires": [
-            [
-                "2f83921a8de3c8f4"
-            ],
-            []
-        ]
-    },
-    {
         "id": "6961a37b9fcbe07d",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
@@ -1342,7 +1322,7 @@
         "atstart": true,
         "odd": false,
         "even": false,
-        "x": 140,
+        "x": 120,
         "y": 1020,
         "wires": [
             [
@@ -1386,7 +1366,7 @@
         "id": "2f83921a8de3c8f4",
         "type": "api-current-state",
         "z": "afb0f186.cfb0d",
-        "name": "not home?",
+        "name": "home?",
         "server": "8b52884a.b76658",
         "version": 2,
         "outputs": 2,
@@ -1416,7 +1396,7 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 370,
+        "x": 350,
         "y": 940,
         "wires": [
             [
@@ -1518,9 +1498,7 @@
         "x": 140,
         "y": 580,
         "wires": [
-            [
-                "440159ca8dd6ff77"
-            ],
+            [],
             []
         ]
     },
@@ -1550,6 +1528,31 @@
         "wires": [
             [
                 "e2881d687528b305"
+            ]
+        ]
+    },
+    {
+        "id": "cc3f2a6d4b923938",
+        "type": "light-scheduler",
+        "z": "afb0f186.cfb0d",
+        "settings": "f26da246.74a7f",
+        "events": "[{\"start\":{\"dow\":1,\"mod\":5},\"end\":{\"dow\":1,\"mod\":1435}},{\"start\":{\"dow\":2,\"mod\":10},\"end\":{\"dow\":2,\"mod\":1435}},{\"start\":{\"dow\":3,\"mod\":5},\"end\":{\"dow\":3,\"mod\":1435}},{\"start\":{\"dow\":4,\"mod\":5},\"end\":{\"dow\":4,\"mod\":1435}},{\"start\":{\"dow\":5,\"mod\":5},\"end\":{\"dow\":5,\"mod\":1435}},{\"start\":{\"dow\":6,\"mod\":5},\"end\":{\"dow\":6,\"mod\":1435}},{\"start\":{\"dow\":0,\"mod\":5},\"end\":{\"dow\":0,\"mod\":1435}}]",
+        "topic": "",
+        "name": "dark?",
+        "onPayload": "ON",
+        "onPayloadType": "str",
+        "offPayload": "OFF",
+        "offPayloadType": "str",
+        "onlyWhenDark": true,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": "0",
+        "sunShowElevationInStatus": false,
+        "outputfreq": "output.statechange.startup",
+        "x": 130,
+        "y": 940,
+        "wires": [
+            [
+                "2f83921a8de3c8f4"
             ]
         ]
     },
