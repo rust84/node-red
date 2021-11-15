@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "cf24db3435ba68ad",
+        "type": "tab",
+        "label": "Heating",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "43703bf3.b01b24",
         "type": "subflow",
         "name": "turn off lights",
@@ -90,6 +98,9 @@
         "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
         "outputs": 1,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 200,
         "y": 80,
         "wires": [
@@ -667,7 +678,7 @@
         "name": "",
         "env": [],
         "x": 410,
-        "y": 320,
+        "y": 340,
         "wires": []
     },
     {
@@ -3678,6 +3689,553 @@
             [
                 "d1dcac1eeeb1de5c"
             ]
+        ]
+    },
+    {
+        "id": "f92e64aaa31fb31c",
+        "type": "mqtt in",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "topic": "zigbee2mqtt/heating_controller",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "649859a4.a17818",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "70f75775e660535b"
+            ]
+        ]
+    },
+    {
+        "id": "70f75775e660535b",
+        "type": "json",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 460,
+        "y": 60,
+        "wires": [
+            [
+                "f1549a3d6d78367a",
+                "5b3374647f98755c",
+                "496540910ac73230",
+                "1ec2762dc71884a5"
+            ]
+        ]
+    },
+    {
+        "id": "f1549a3d6d78367a",
+        "type": "change",
+        "z": "cf24db3435ba68ad",
+        "name": "Current Setpoint",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.current_heating_setpoint",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b3374647f98755c",
+        "type": "change",
+        "z": "cf24db3435ba68ad",
+        "name": "Local temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.local_temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "496540910ac73230",
+        "type": "switch",
+        "z": "cf24db3435ba68ad",
+        "name": "Preset != hold",
+        "property": "payload.preset_mode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "hold",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 80,
+        "wires": [
+            [
+                "ee442106bfadffb7"
+            ]
+        ]
+    },
+    {
+        "id": "ee442106bfadffb7",
+        "type": "template",
+        "z": "cf24db3435ba68ad",
+        "name": "Set preset to hold",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"preset\": \"hold\"}",
+        "output": "str",
+        "x": 920,
+        "y": 80,
+        "wires": [
+            [
+                "ebec1787363df97e"
+            ]
+        ]
+    },
+    {
+        "id": "ebec1787363df97e",
+        "type": "delay",
+        "z": "cf24db3435ba68ad",
+        "name": "limit 5 msg/s",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 80,
+        "wires": [
+            [
+                "89cf13b4556cb961"
+            ]
+        ]
+    },
+    {
+        "id": "89cf13b4556cb961",
+        "type": "mqtt out",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "topic": "zigbee2mqtt/heating_controller/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "649859a4.a17818",
+        "x": 1510,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1ec2762dc71884a5",
+        "type": "change",
+        "z": "cf24db3435ba68ad",
+        "name": "Set system mode",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload.system_mode",
+                "pt": "msg",
+                "from": "heat",
+                "fromt": "str",
+                "to": "{\"service\":\"turn_on\"}",
+                "tot": "json"
+            },
+            {
+                "t": "change",
+                "p": "payload.system_mode",
+                "pt": "msg",
+                "from": "off",
+                "fromt": "str",
+                "to": "{\"service\":\"turn_off\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.system_mode",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "9f125b711ee6c3e4"
+            ]
+        ]
+    },
+    {
+        "id": "d841ce2f97c502f8",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "Heating schedule on/off",
+        "server": "8b52884a.b76658",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "input_boolean.enable_heating_schedules",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 0,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": false,
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "4aed068020384b78"
+            ],
+            [
+                "2447d1c9ace3b941"
+            ]
+        ]
+    },
+    {
+        "id": "4aed068020384b78",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Turn off heating schedules",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "group.heating_schedules",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 530,
+        "y": 340,
+        "wires": [
+            [
+                "f7e32eb6d1c2e7d6"
+            ]
+        ]
+    },
+    {
+        "id": "2447d1c9ace3b941",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Turn on heating schedules",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "group.heating_schedules",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 530,
+        "y": 480,
+        "wires": [
+            [
+                "424007945ad5ab08"
+            ]
+        ]
+    },
+    {
+        "id": "dcc7804597eb25ec",
+        "type": "template",
+        "z": "cf24db3435ba68ad",
+        "name": "Wrap System Mode",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"system_mode\": \"{{payload}}\"}",
+        "output": "str",
+        "x": 1260,
+        "y": 320,
+        "wires": [
+            [
+                "89cf13b4556cb961"
+            ]
+        ]
+    },
+    {
+        "id": "9f125b711ee6c3e4",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Switch on or off",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "input_boolean",
+        "service": "",
+        "entityId": "input_boolean.heating_mode",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 920,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "424007945ad5ab08",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Run schedule",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "scheduler",
+        "service": "run_action",
+        "entityId": "climate.heating_controller",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 790,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7e32eb6d1c2e7d6",
+        "type": "function",
+        "z": "cf24db3435ba68ad",
+        "name": "turn_off",
+        "func": "msg.payload = \"off\"\n\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 340,
+        "wires": [
+            [
+                "dcc7804597eb25ec"
+            ]
+        ]
+    },
+    {
+        "id": "ce29b54fee8ac32e",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "home -> not_home",
+        "server": "8b52884a.b76658",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "sensor.anyone_home",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "4aed068020384b78"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1b39e02438a1c605",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "not_home -> home",
+        "server": "8b52884a.b76658",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "sensor.anyone_home",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 180,
+        "y": 500,
+        "wires": [
+            [
+                "2447d1c9ace3b941"
+            ],
+            []
         ]
     }
 ]
