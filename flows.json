@@ -457,7 +457,7 @@
         "scheduleRndMax": 0,
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": true,
-        "x": 570,
+        "x": 590,
         "y": 60,
         "wires": [
             [
@@ -557,7 +557,7 @@
         "state_type": "str",
         "enableInput": true,
         "x": 150,
-        "y": 200,
+        "y": 160,
         "wires": [
             [
                 "e2881d687528b305"
@@ -577,7 +577,7 @@
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": true,
         "x": 410,
-        "y": 200,
+        "y": 160,
         "wires": [
             [
                 "af8fbf12a24d0f13"
@@ -610,7 +610,7 @@
         ],
         "queue": "none",
         "x": 650,
-        "y": 200,
+        "y": 160,
         "wires": [
             []
         ]
@@ -663,7 +663,7 @@
         "state_type": "str",
         "enableInput": true,
         "x": 150,
-        "y": 320,
+        "y": 300,
         "wires": [
             [
                 "53bc270379b36276"
@@ -678,7 +678,7 @@
         "name": "",
         "env": [],
         "x": 410,
-        "y": 340,
+        "y": 300,
         "wires": []
     },
     {
@@ -737,7 +737,7 @@
             }
         ],
         "x": 170,
-        "y": 500,
+        "y": 740,
         "wires": [
             [
                 "440159ca8dd6ff77"
@@ -770,7 +770,7 @@
         ],
         "queue": "none",
         "x": 970,
-        "y": 420,
+        "y": 660,
         "wires": [
             []
         ]
@@ -793,7 +793,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 410,
-        "y": 420,
+        "y": 660,
         "wires": [
             [
                 "de7ec5fa0d844b3e"
@@ -859,7 +859,7 @@
             }
         ],
         "x": 130,
-        "y": 420,
+        "y": 660,
         "wires": [
             [
                 "18fde90dc9b35867"
@@ -879,7 +879,7 @@
         "finalize": "",
         "libs": [],
         "x": 780,
-        "y": 520,
+        "y": 760,
         "wires": [
             [
                 "de7ec5fa0d844b3e"
@@ -925,8 +925,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 410,
-        "y": 760,
+        "x": 390,
+        "y": 860,
         "wires": [
             [
                 "c318632dfc738833"
@@ -944,8 +944,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 760,
+        "x": 630,
+        "y": 860,
         "wires": [
             [
                 "da51086532dd9913"
@@ -969,8 +969,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 820,
-        "y": 760,
+        "x": 800,
+        "y": 860,
         "wires": [
             []
         ]
@@ -996,144 +996,12 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 820,
+        "x": 140,
+        "y": 860,
         "wires": [
             [
                 "c35e61ae9dc92146"
             ]
-        ]
-    },
-    {
-        "id": "02398b2343c71782",
-        "type": "bigtimer",
-        "z": "afb0f186.cfb0d",
-        "outtopic": "",
-        "outpayload1": "1",
-        "outpayload2": "",
-        "name": "11.30am every day",
-        "comment": "",
-        "lat": "51.32063880734896",
-        "lon": "-2.2089664938383327",
-        "starttime": "690",
-        "endtime": "705",
-        "starttime2": 0,
-        "endtime2": 0,
-        "startoff": 0,
-        "endoff": 0,
-        "startoff2": 0,
-        "endoff2": 0,
-        "offs": 0,
-        "outtext1": "",
-        "outtext2": "",
-        "timeout": 1440,
-        "sun": true,
-        "mon": true,
-        "tue": true,
-        "wed": true,
-        "thu": true,
-        "fri": true,
-        "sat": true,
-        "jan": true,
-        "feb": true,
-        "mar": true,
-        "apr": true,
-        "may": true,
-        "jun": true,
-        "jul": true,
-        "aug": true,
-        "sep": true,
-        "oct": true,
-        "nov": true,
-        "dec": true,
-        "day1": 0,
-        "month1": 0,
-        "day2": 0,
-        "month2": 0,
-        "day3": 0,
-        "month3": 0,
-        "day4": 0,
-        "month4": 0,
-        "day5": 0,
-        "month5": 0,
-        "day6": 0,
-        "month6": 0,
-        "day7": 0,
-        "month7": 0,
-        "day8": 0,
-        "month8": 0,
-        "day9": 0,
-        "month9": 0,
-        "day10": 0,
-        "month10": 0,
-        "day11": 0,
-        "month11": 0,
-        "day12": 0,
-        "month12": 0,
-        "d1": 0,
-        "w1": 0,
-        "d2": 0,
-        "w2": 0,
-        "d3": 0,
-        "w3": 0,
-        "d4": 0,
-        "w4": 0,
-        "d5": 0,
-        "w5": 0,
-        "d6": 0,
-        "w6": 0,
-        "xday1": 0,
-        "xmonth1": 0,
-        "xday2": 0,
-        "xmonth2": 0,
-        "xday3": 0,
-        "xmonth3": 0,
-        "xday4": 0,
-        "xmonth4": 0,
-        "xday5": 0,
-        "xmonth5": 0,
-        "xday6": 0,
-        "xmonth6": 0,
-        "xday7": 0,
-        "xmonth7": 0,
-        "xday8": 0,
-        "xmonth8": 0,
-        "xday9": 0,
-        "xmonth9": 0,
-        "xday10": 0,
-        "xmonth10": 0,
-        "xday11": 0,
-        "xmonth11": 0,
-        "xday12": 0,
-        "xmonth12": 0,
-        "xd1": 0,
-        "xw1": 0,
-        "xd2": 0,
-        "xw2": 0,
-        "xd3": 0,
-        "xw3": 0,
-        "xd4": 0,
-        "xw4": 0,
-        "xd5": 0,
-        "xw5": 0,
-        "xd6": 0,
-        "xw6": 0,
-        "suspend": false,
-        "random": false,
-        "randon1": false,
-        "randoff1": false,
-        "randon2": false,
-        "randoff2": false,
-        "repeat": false,
-        "atstart": true,
-        "odd": false,
-        "even": false,
-        "x": 150,
-        "y": 720,
-        "wires": [
-            [],
-            [],
-            []
         ]
     },
     {
@@ -1171,7 +1039,7 @@
             }
         ],
         "x": 520,
-        "y": 520,
+        "y": 760,
         "wires": [
             [
                 "950397684a6e4399"
@@ -1203,8 +1071,8 @@
             }
         ],
         "queue": "none",
-        "x": 590,
-        "y": 940,
+        "x": 610,
+        "y": 380,
         "wires": [
             []
         ]
@@ -1333,8 +1201,8 @@
         "atstart": true,
         "odd": false,
         "even": false,
-        "x": 120,
-        "y": 1020,
+        "x": 140,
+        "y": 480,
         "wires": [
             [
                 "f4d8b50cab484717"
@@ -1367,8 +1235,8 @@
             }
         ],
         "queue": "none",
-        "x": 590,
-        "y": 1020,
+        "x": 610,
+        "y": 480,
         "wires": [
             []
         ]
@@ -1407,8 +1275,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 350,
-        "y": 940,
+        "x": 370,
+        "y": 380,
         "wires": [
             [
                 "6961a37b9fcbe07d"
@@ -1450,66 +1318,12 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 370,
-        "y": 1020,
+        "x": 390,
+        "y": 480,
         "wires": [
             [
                 "622ad5815186c1e3"
             ],
-            []
-        ]
-    },
-    {
-        "id": "13ce45684b6f0243",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "office -> not office",
-        "server": "8b52884a.b76658",
-        "version": 1,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.pixel_4a_room_presence",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is_not",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "office",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "office",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 140,
-        "y": 580,
-        "wires": [
-            [],
             []
         ]
     },
@@ -1535,7 +1349,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 220,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
                 "e2881d687528b305"
@@ -1559,13 +1373,169 @@
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": false,
         "outputfreq": "output.statechange.startup",
-        "x": 130,
-        "y": 940,
+        "x": 150,
+        "y": 380,
         "wires": [
             [
                 "2f83921a8de3c8f4"
             ]
         ]
+    },
+    {
+        "id": "b43cd58e779f418f",
+        "type": "http request",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "https://habitica.com/api/v3/tasks/ae90a17b-597f-44e6-80b0-69e194896bc7/score/up",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 710,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d41c143bd102136",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "format",
+        "func": "var key = msg.key\nvar user = msg.user\n\n//msg.payload = \"data to post\";\nmsg.headers = {};\nmsg.headers['x-api-user'] = user;\nmsg.headers['x-api-key'] = key;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1000,
+        "wires": [
+            [
+                "b43cd58e779f418f"
+            ]
+        ]
+    },
+    {
+        "id": "8895c40ab576f5c2",
+        "type": "credentials",
+        "z": "afb0f186.cfb0d",
+        "name": "credentials",
+        "props": [
+            {
+                "value": "key",
+                "type": "msg"
+            },
+            {
+                "value": "user",
+                "type": "msg"
+            }
+        ],
+        "x": 350,
+        "y": 1000,
+        "wires": [
+            [
+                "5d41c143bd102136"
+            ]
+        ]
+    },
+    {
+        "id": "88aa0195e7d957cd",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "push button",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.push_button_action",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "single",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "8895c40ab576f5c2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a2d9e6910b6bf68b",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Habitica complete task",
+        "info": "",
+        "x": 150,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "11d10cf26cd0621d",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Lighting",
+        "info": "",
+        "x": 110,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "60f4252274bd52d5",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Office automation",
+        "info": "",
+        "x": 140,
+        "y": 600,
+        "wires": []
     },
     {
         "id": "6cb23d50.77ced4",
@@ -2912,8 +2882,8 @@
             }
         ],
         "queue": "none",
-        "x": 1200,
-        "y": 1180,
+        "x": 1140,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -2952,55 +2922,6 @@
         "x": 390,
         "y": 60,
         "wires": []
-    },
-    {
-        "id": "88ed4484.87c648",
-        "type": "function",
-        "z": "4aedf9e8.044e08",
-        "name": "Alarm Triggerred discord msg",
-        "func": "var action = msg.payload\nvar message = \"<@65851793686405120> 🚨 ALARM HAS TRIGGERED 🚨\\n\" + action + \" \\n OMG WTFBBQ!!!!!11 :fire:\"\nvar target = [\"782247274029776937\", \"65851793686405120\"]\nmsg.payload = {\n    \"data\": {\n        message,\n        target,\n        // data: {\n        //     attachments: [\n        //         {\n        //             title: \"Front Camera\",\n        //             image_url: \"https://hass.eviljungle.com/local/camera/camera.front.jpg\"\n        //         },\n        //         {\n        //             title: \"Driveway Camera\",\n        //             image_url: \"https://hass.eviljungle.com/local/camera/camera.driveway.jpg\"\n        //         },\n        //         {\n        //             title: \"Porch Camera\",\n        //             image_url: \"https://hass.eviljungle.com/local/camera/camera.porch.jpg\"\n        //         },\n        //         {\n        //             title: \"Pool Camera\",\n        //             image_url: \"https://hass.eviljungle.com/local/camera/camera.pool.jpg\"\n        //         },\n        //         {\n        //             title: \"Basement Camera\",\n        //             image_url: \"https://hass.eviljungle.com/local/camera/camera.basement.jpg\"\n        //         },\n        //         ]\n        // }\n    }\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1070,
-        "y": 1260,
-        "wires": [
-            [
-                "253e7337.0501fc"
-            ]
-        ]
-    },
-    {
-        "id": "253e7337.0501fc",
-        "type": "api-call-service",
-        "z": "4aedf9e8.044e08",
-        "name": "Notify discord",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "notify",
-        "service": "discord",
-        "entityId": "",
-        "data": "",
-        "dataType": "json",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 1390,
-        "y": 1260,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "e021dad5f8f45d4e",
@@ -3692,6 +3613,46 @@
         ]
     },
     {
+        "id": "7617c5a77ae8e5fb",
+        "type": "comment",
+        "z": "4aedf9e8.044e08",
+        "name": "Triggers",
+        "info": "",
+        "x": 100,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "8030f590b2e88311",
+        "type": "comment",
+        "z": "4aedf9e8.044e08",
+        "name": "Activate alarm",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5dffbd88127b7314",
+        "type": "comment",
+        "z": "4aedf9e8.044e08",
+        "name": "Deactivate alarm",
+        "info": "",
+        "x": 120,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f69bf36c5d17a719",
+        "type": "comment",
+        "z": "4aedf9e8.044e08",
+        "name": "Notifications",
+        "info": "",
+        "x": 110,
+        "y": 640,
+        "wires": []
+    },
+    {
         "id": "f92e64aaa31fb31c",
         "type": "mqtt in",
         "z": "cf24db3435ba68ad",
@@ -3917,7 +3878,7 @@
         "id": "d841ce2f97c502f8",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
-        "name": "Heating schedule on/off",
+        "name": "Heating schedule toggle",
         "server": "8b52884a.b76658",
         "version": 1,
         "exposeToHomeAssistant": false,
