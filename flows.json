@@ -510,62 +510,6 @@
         ]
     },
     {
-        "id": "c8e4383063a0aa59",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "not_home -> home",
-        "server": "8b52884a.b76658",
-        "version": 1,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 150,
-        "y": 160,
-        "wires": [
-            [
-                "e2881d687528b305"
-            ],
-            []
-        ]
-    },
-    {
         "id": "e2881d687528b305",
         "type": "light-scheduler-filter",
         "z": "afb0f186.cfb0d",
@@ -580,38 +524,8 @@
         "y": 160,
         "wires": [
             [
-                "af8fbf12a24d0f13"
+                "8193de22b9225b89"
             ],
-            []
-        ]
-    },
-    {
-        "id": "af8fbf12a24d0f13",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "hallway light",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_on",
-        "entityId": "light.hallway",
-        "data": "",
-        "dataType": "json",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 650,
-        "y": 160,
-        "wires": [
             []
         ]
     },
@@ -1536,6 +1450,128 @@
         "x": 140,
         "y": 600,
         "wires": []
+    },
+    {
+        "id": "eae36b37750c19e9",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "front door",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.front_door_contact_sensor_contact",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [],
+            [
+                "e2881d687528b305"
+            ]
+        ]
+    },
+    {
+        "id": "ad4f6520ab385207",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "hallway light",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "",
+        "entityId": "light.hallway",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 870,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8193de22b9225b89",
+        "type": "trigger",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "op1": "{\"service\":\"turn_on\"}",
+        "op2": "{\"service\":\"turn_off\"}",
+        "op1type": "json",
+        "op2type": "json",
+        "duration": "300",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 630,
+        "y": 160,
+        "wires": [
+            [
+                "ad4f6520ab385207"
+            ],
+            [
+                "ad4f6520ab385207"
+            ]
+        ]
     },
     {
         "id": "6cb23d50.77ced4",
@@ -2844,7 +2880,7 @@
         "type": "function",
         "z": "4aedf9e8.044e08",
         "name": "Alarm Triggerred Android msg",
-        "func": "var category = \"alarm\"\nvar title = \"🚨 ALARM TRIGGERED! 🚨\"\nvar message = \"THE ALARM HAS TRIGGERED! OMG WTFBBQ!!!!111 🔥 \\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
+        "func": "var category = \"alarm\"\nvar title = \"🚨 INTRUDER ALARM TRIGGERED! 🚨\"\nvar message = \"INTRUDER ALARM HAS TRIGGERED! OMG WTFBBQ!!!!111 🔥 \\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3022,8 +3058,8 @@
             }
         ],
         "queue": "none",
-        "x": 730,
-        "y": 1080,
+        "x": 770,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -3641,11 +3677,183 @@
         "syntax": "mustache",
         "template": "{\n    \"warning\": {\n        \"mode\": \"stop\"\n    }\n}",
         "output": "str",
-        "x": 520,
+        "x": 540,
         "y": 760,
         "wires": [
             [
                 "581603c66ffcc56c"
+            ]
+        ]
+    },
+    {
+        "id": "f77b8eb2c40d940c",
+        "type": "server-state-changed",
+        "z": "4aedf9e8.044e08",
+        "name": "office smoke",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.smoke_detector_office_smoke",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "office",
+                "valueType": "str"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 990,
+        "y": 1060,
+        "wires": [
+            [],
+            [
+                "6202624186e1ae93"
+            ]
+        ]
+    },
+    {
+        "id": "57fe37a14360d316",
+        "type": "server-state-changed",
+        "z": "4aedf9e8.044e08",
+        "name": "front bedroom smoke",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.smoke_detector_server_smoke",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "server",
+                "valueType": "str"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 1020,
+        "y": 1140,
+        "wires": [
+            [],
+            [
+                "6202624186e1ae93"
+            ]
+        ]
+    },
+    {
+        "id": "298ba567d33e1abb",
+        "type": "delay",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1600,
+        "y": 1060,
+        "wires": [
+            [
+                "aeafe637.1aeaf8"
+            ]
+        ]
+    },
+    {
+        "id": "6202624186e1ae93",
+        "type": "function",
+        "z": "4aedf9e8.044e08",
+        "name": "Alarm Triggerred Android msg",
+        "func": "var detector = msg.payload\nvar category = \"alarm\"\nvar title = \"🔥 FIRE ALARM TRIGGERED! 🔥\"\nvar message = detector + \" FIRE ALARM HAS TRIGGERED! OMG WTFBBQ!!!!111 🔥 \\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1350,
+        "y": 1060,
+        "wires": [
+            [
+                "298ba567d33e1abb"
             ]
         ]
     },
