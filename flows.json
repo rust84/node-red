@@ -2163,7 +2163,7 @@
             }
         ],
         "queue": "none",
-        "x": 1320,
+        "x": 1800,
         "y": 680,
         "wires": [
             []
@@ -2270,9 +2270,7 @@
         "x": 530,
         "y": 680,
         "wires": [
-            [
-                "fe046407.ab0868"
-            ],
+            [],
             [
                 "fe046407.ab0868"
             ]
@@ -2656,7 +2654,8 @@
         "wires": [
             [],
             [
-                "7cf2a0d2.f39ae"
+                "7cf2a0d2.f39ae",
+                "c28e839a592e1ad9"
             ]
         ]
     },
@@ -2699,7 +2698,8 @@
         "wires": [
             [],
             [
-                "8af4ba1c.44a458"
+                "8af4ba1c.44a458",
+                "c7a9e7a495ed59d3"
             ]
         ]
     },
@@ -2850,42 +2850,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 840,
+        "x": 890,
+        "y": 920,
         "wires": [
             [
                 "e2f0bf60.7c222"
             ]
-        ]
-    },
-    {
-        "id": "ee5938d2.5f5108",
-        "type": "api-call-service",
-        "z": "4aedf9e8.044e08",
-        "name": "Red alert",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "media_player",
-        "service": "play_media",
-        "entityId": "all",
-        "data": "{\"media_content_id\":\"amzn_sfx_scifi_alarm_04\",\"media_content_type\":\"sound\"}",
-        "dataType": "json",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 1140,
-        "y": 1160,
-        "wires": [
-            []
         ]
     },
     {
@@ -2905,8 +2875,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 1080,
-        "y": 840,
+        "x": 1300,
+        "y": 920,
         "wires": [
             [
                 "aeafe637.1aeaf8"
@@ -3055,9 +3025,7 @@
         "x": 730,
         "y": 1080,
         "wires": [
-            [
-                "c7a9e7a495ed59d3"
-            ]
+            []
         ]
     },
     {
@@ -3542,35 +3510,6 @@
         ]
     },
     {
-        "id": "7e51c3fef7ce6fa1",
-        "type": "inject",
-        "z": "4aedf9e8.044e08",
-        "name": "force-run",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "wubalubadubdub",
-        "payloadType": "str",
-        "x": 740,
-        "y": 1200,
-        "wires": [
-            [
-                "c7a9e7a495ed59d3"
-            ]
-        ]
-    },
-    {
         "id": "d1dcac1eeeb1de5c",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
@@ -3587,10 +3526,12 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 1190,
-        "y": 1060,
+        "x": 910,
+        "y": 820,
         "wires": [
-            []
+            [
+                "a16755e15d896fc1"
+            ]
         ]
     },
     {
@@ -3604,8 +3545,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
-        "y": 1060,
+        "x": 680,
+        "y": 820,
         "wires": [
             [
                 "d1dcac1eeeb1de5c"
@@ -3651,6 +3592,62 @@
         "x": 110,
         "y": 640,
         "wires": []
+    },
+    {
+        "id": "581603c66ffcc56c",
+        "type": "mqtt out",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "topic": "zigbee2mqtt/alarm_siren/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "649859a4.a17818",
+        "x": 1420,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a16755e15d896fc1",
+        "type": "template",
+        "z": "4aedf9e8.044e08",
+        "name": "Sound siren",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"warning\": {\n        \"level\": \"high\",\n        \"duration\": 300, \n        \"mode\": \"emergency\", \n        \"strobe\": true,\n        \"strobe_duty_cycle\": 1,\n        \"strobe_level\": \"very_high\"\n    }\n}",
+        "output": "str",
+        "x": 1170,
+        "y": 820,
+        "wires": [
+            [
+                "581603c66ffcc56c"
+            ]
+        ]
+    },
+    {
+        "id": "c28e839a592e1ad9",
+        "type": "template",
+        "z": "4aedf9e8.044e08",
+        "name": "Stop siren",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"warning\": {\n        \"mode\": \"stop\"\n    }\n}",
+        "output": "str",
+        "x": 520,
+        "y": 760,
+        "wires": [
+            [
+                "581603c66ffcc56c"
+            ]
+        ]
     },
     {
         "id": "f92e64aaa31fb31c",
