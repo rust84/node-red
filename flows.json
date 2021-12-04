@@ -596,70 +596,6 @@
         "wires": []
     },
     {
-        "id": "3b97a0f497cfa6ca",
-        "type": "server-state-changed",
-        "z": "afb0f186.cfb0d",
-        "name": "no desk motion for 15 min",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.office_motion_sensor_occupancy",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "outputs": 2,
-        "output_only_on_state_change": true,
-        "for": "15",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 170,
-        "y": 740,
-        "wires": [
-            [
-                "440159ca8dd6ff77"
-            ],
-            []
-        ]
-    },
-    {
         "id": "de7ec5fa0d844b3e",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
@@ -669,7 +605,7 @@
         "debugenabled": false,
         "service_domain": "switch",
         "service": "",
-        "entityId": "switch.smart_plug",
+        "entityId": "switch.sonoff_plug2",
         "data": "",
         "dataType": "json",
         "mergecontext": "",
@@ -683,8 +619,8 @@
             }
         ],
         "queue": "none",
-        "x": 970,
-        "y": 660,
+        "x": 690,
+        "y": 720,
         "wires": [
             []
         ]
@@ -707,96 +643,15 @@
         "topic": "topic",
         "outputs": 2,
         "x": 410,
-        "y": 660,
+        "y": 680,
         "wires": [
             [
-                "de7ec5fa0d844b3e"
+                "de7ec5fa0d844b3e",
+                "05c46eac7eddc30f"
             ],
             [
-                "440159ca8dd6ff77"
-            ]
-        ]
-    },
-    {
-        "id": "3e19b963a4a8ac40",
-        "type": "server-state-changed",
-        "z": "afb0f186.cfb0d",
-        "name": "desk motion",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.office_motion_sensor_occupancy",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is_not",
-        "outputs": 2,
-        "output_only_on_state_change": true,
-        "for": "",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 130,
-        "y": 660,
-        "wires": [
-            [
-                "18fde90dc9b35867"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "950397684a6e4399",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "turn_off",
-        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 780,
-        "y": 760,
-        "wires": [
-            [
-                "de7ec5fa0d844b3e"
+                "de7ec5fa0d844b3e",
+                "05c46eac7eddc30f"
             ]
         ]
     },
@@ -840,7 +695,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 390,
-        "y": 860,
+        "y": 800,
         "wires": [
             [
                 "c318632dfc738833"
@@ -859,7 +714,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 860,
+        "y": 800,
         "wires": [
             [
                 "da51086532dd9913"
@@ -884,7 +739,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 800,
-        "y": 860,
+        "y": 800,
         "wires": [
             []
         ]
@@ -911,54 +766,11 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 860,
+        "y": 800,
         "wires": [
             [
                 "c35e61ae9dc92146"
             ]
-        ]
-    },
-    {
-        "id": "440159ca8dd6ff77",
-        "type": "api-current-state",
-        "z": "afb0f186.cfb0d",
-        "name": "in office?",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "outputs": 2,
-        "halt_if": "office",
-        "halt_if_type": "str",
-        "halt_if_compare": "is_not",
-        "entity_id": "sensor.pixel_4a_room_presence",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 520,
-        "y": 760,
-        "wires": [
-            [
-                "950397684a6e4399"
-            ],
-            []
         ]
     },
     {
@@ -1310,7 +1122,7 @@
         "authType": "",
         "senderr": false,
         "x": 710,
-        "y": 1000,
+        "y": 940,
         "wires": [
             []
         ]
@@ -1327,7 +1139,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 1000,
+        "y": 940,
         "wires": [
             [
                 "b43cd58e779f418f"
@@ -1350,7 +1162,7 @@
             }
         ],
         "x": 350,
-        "y": 1000,
+        "y": 940,
         "wires": [
             [
                 "5d41c143bd102136"
@@ -1413,7 +1225,7 @@
             }
         ],
         "x": 130,
-        "y": 1000,
+        "y": 940,
         "wires": [
             [
                 "8895c40ab576f5c2"
@@ -1428,7 +1240,7 @@
         "name": "Habitica complete task",
         "info": "",
         "x": 150,
-        "y": 940,
+        "y": 880,
         "wires": []
     },
     {
@@ -1571,6 +1383,100 @@
             [
                 "ad4f6520ab385207"
             ]
+        ]
+    },
+    {
+        "id": "1982bbc53713e747",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "office occupancy",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.office_person",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "1",
+        "halt_if_type": "num",
+        "halt_if_compare": "gte",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 140,
+        "y": 680,
+        "wires": [
+            [
+                "18fde90dc9b35867"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "05c46eac7eddc30f",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "warp core",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "",
+        "entityId": "switch.sonoff_plug1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 680,
+        "y": 640,
+        "wires": [
+            []
         ]
     },
     {
