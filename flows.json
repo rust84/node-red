@@ -1360,7 +1360,7 @@
         "id": "1982bbc53713e747",
         "type": "server-state-changed",
         "z": "afb0f186.cfb0d",
-        "name": "office occupancy",
+        "name": "russell office occupancy",
         "server": "8b52884a.b76658",
         "version": 3,
         "exposeToHomeAssistant": false,
@@ -1374,15 +1374,15 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "sensor.office_person",
+        "entityidfilter": "sensor.double_take_russell",
         "entityidfiltertype": "exact",
         "outputinitially": false,
         "state_type": "str",
-        "haltifstate": "1",
-        "halt_if_type": "num",
-        "halt_if_compare": "gte",
+        "haltifstate": "office",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "output_only_on_state_change": false,
         "for": "",
         "forType": "num",
         "forUnits": "minutes",
@@ -1411,7 +1411,7 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 140,
+        "x": 160,
         "y": 680,
         "wires": [
             [
@@ -3984,6 +3984,16 @@
         ]
     },
     {
+        "id": "ac34c90be2e2b3f2",
+        "type": "comment",
+        "z": "4aedf9e8.044e08",
+        "name": "Fire alarm",
+        "info": "",
+        "x": 960,
+        "y": 1020,
+        "wires": []
+    },
+    {
         "id": "f92e64aaa31fb31c",
         "type": "mqtt in",
         "z": "cf24db3435ba68ad",
@@ -4342,36 +4352,6 @@
             [
                 "89cf13b4556cb961"
             ]
-        ]
-    },
-    {
-        "id": "9f125b711ee6c3e4",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "name": "Switch on or off",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "input_boolean",
-        "service": "",
-        "entityId": "input_boolean.heating_mode",
-        "data": "",
-        "dataType": "json",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 920,
-        "y": 200,
-        "wires": [
-            []
         ]
     },
     {
