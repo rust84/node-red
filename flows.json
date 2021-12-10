@@ -110,7 +110,7 @@
                 "39b8136a.8621ec",
                 "e046403e0a1ed907",
                 "da8d24c5.0c87e8",
-                "a580f0de2be33007"
+                "6e9963f67c54ca70"
             ]
         ]
     },
@@ -169,7 +169,7 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 220,
+        "y": 160,
         "wires": [
             []
         ]
@@ -199,7 +199,7 @@
         ],
         "queue": "none",
         "x": 400,
-        "y": 280,
+        "y": 220,
         "wires": [
             []
         ]
@@ -229,7 +229,7 @@
         ],
         "queue": "none",
         "x": 420,
-        "y": 340,
+        "y": 280,
         "wires": [
             []
         ]
@@ -259,7 +259,7 @@
         ],
         "queue": "none",
         "x": 420,
-        "y": 400,
+        "y": 340,
         "wires": [
             []
         ]
@@ -289,22 +289,22 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 160,
+        "y": 100,
         "wires": [
             []
         ]
     },
     {
-        "id": "a580f0de2be33007",
+        "id": "6e9963f67c54ca70",
         "type": "api-call-service",
         "z": "43703bf3.b01b24",
-        "name": "office plug",
+        "name": "office wled",
         "server": "8b52884a.b76658",
         "version": 3,
         "debugenabled": false,
-        "service_domain": "switch",
+        "service_domain": "light",
         "service": "",
-        "entityId": "group.office_lights",
+        "entityId": "light.wled",
         "data": "",
         "dataType": "json",
         "mergecontext": "",
@@ -319,7 +319,7 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 100,
+        "y": 400,
         "wires": [
             []
         ]
@@ -797,7 +797,7 @@
             }
         ],
         "queue": "none",
-        "x": 610,
+        "x": 570,
         "y": 380,
         "wires": [
             []
@@ -1001,7 +1001,7 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 370,
+        "x": 330,
         "y": 380,
         "wires": [
             [
@@ -1070,7 +1070,7 @@
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": false,
         "outputfreq": "output.statechange.startup",
-        "x": 150,
+        "x": 110,
         "y": 380,
         "wires": [
             [
@@ -1451,18 +1451,195 @@
         ]
     },
     {
+        "id": "20c8b5997b63e7ed",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Enable/Disable Hyperion",
+        "info": "",
+        "x": 150,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "ba93f0e29b5d98a1",
+        "type": "http request",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "http://10.20.0.82:8090/json-rpc",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 770,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a308ec0c72ccb31",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "format",
+        "func": "command = msg.payload;\nmsg.headers = {};\nmsg.headers[\"Content-Type\"] = \"application/json\";\nmsg.payload = {\n     \"command\":\"componentstate\",\n     \"componentstate\":{\n       \"component\":\"ALL\",\n       \"state\":command\n     }\n    };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1080,
+        "wires": [
+            [
+                "ba93f0e29b5d98a1"
+            ]
+        ]
+    },
+    {
+        "id": "5011bb28d1cbb57d",
+        "type": "change",
+        "z": "afb0f186.cfb0d",
+        "name": "playing state boolean",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "off",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "playing",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "standby",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "idle",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "paused",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 1080,
+        "wires": [
+            [
+                "7a308ec0c72ccb31"
+            ]
+        ]
+    },
+    {
+        "id": "dd17a9ab4546b537",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "shield state",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "media_player.living_room_nvidia_shield",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 130,
+        "y": 1080,
+        "wires": [
+            [
+                "5011bb28d1cbb57d"
+            ]
+        ]
+    },
+    {
         "id": "6cb23d50.77ced4",
         "type": "bigtimer",
         "z": "4aedf9e8.044e08",
         "outtopic": "",
         "outpayload1": "1",
         "outpayload2": "",
-        "name": "2am every day",
+        "name": "2.30am every day",
         "comment": "",
         "lat": "51.32063880734896",
         "lon": "-2.2089664938383327",
-        "starttime": "120",
-        "endtime": "135",
+        "starttime": "150",
+        "endtime": "165",
         "starttime2": "0",
         "endtime2": "0",
         "startoff": "0",
@@ -1574,7 +1751,7 @@
         "atstart": true,
         "odd": false,
         "even": false,
-        "x": 120,
+        "x": 130,
         "y": 140,
         "wires": [
             [
@@ -3533,7 +3710,7 @@
         "fieldType": "msg",
         "format": "json",
         "syntax": "mustache",
-        "template": "{\n    \"warning\": {\n        \"level\": \"high\",\n        \"duration\": 300, \n        \"mode\": \"emergency\", \n        \"strobe\": true,\n        \"strobe_duty_cycle\": 1,\n        \"strobe_level\": \"very_high\"\n    }\n}",
+        "template": "{\n    \"warning\": {\n        \"level\": \"low\",\n        \"duration\": 300, \n        \"mode\": \"emergency\", \n        \"strobe\": true,\n        \"strobe_duty_cycle\": 1,\n        \"strobe_level\": \"very_high\"\n    }\n}",
         "output": "str",
         "x": 1170,
         "y": 820,
