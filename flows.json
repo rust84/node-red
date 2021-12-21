@@ -142,8 +142,7 @@
                 "10d4db91.a75214",
                 "39b8136a.8621ec",
                 "e046403e0a1ed907",
-                "da8d24c5.0c87e8",
-                "6e9963f67c54ca70"
+                "da8d24c5.0c87e8"
             ]
         ]
     },
@@ -323,36 +322,6 @@
         "queue": "none",
         "x": 410,
         "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6e9963f67c54ca70",
-        "type": "api-call-service",
-        "z": "43703bf3.b01b24",
-        "name": "office wled",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "",
-        "entityId": "light.wled",
-        "data": "",
-        "dataType": "json",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 410,
-        "y": 400,
         "wires": [
             []
         ]
@@ -1929,10 +1898,12 @@
         "y": 1080,
         "wires": [
             [
-                "88da13a932af2a88"
+                "88da13a932af2a88",
+                "8413af08543d1e42"
             ],
             [
-                "e8173119d19d6f79"
+                "e8173119d19d6f79",
+                "6c6a87d14dae701a"
             ]
         ]
     },
@@ -1999,6 +1970,84 @@
                 "60e2e97cef1390a9"
             ]
         ]
+    },
+    {
+        "id": "685c4449f9f482aa",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "subwoofer",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "",
+        "entityId": "switch.smart_plug",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 1190,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8413af08543d1e42",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_off",
+        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 980,
+        "wires": [
+            [
+                "685c4449f9f482aa"
+            ]
+        ]
+    },
+    {
+        "id": "6c6a87d14dae701a",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_on",
+        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 1040,
+        "wires": [
+            [
+                "685c4449f9f482aa"
+            ]
+        ]
+    },
+    {
+        "id": "1ba6338379dbad97",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "subwoofer",
+        "info": "",
+        "x": 980,
+        "y": 920,
+        "wires": []
     },
     {
         "id": "6cb23d50.77ced4",
