@@ -2256,11 +2256,11 @@
         "outputinitially": false,
         "state_type": "str",
         "enableInput": true,
-        "x": 1070,
-        "y": 640,
+        "x": 1050,
+        "y": 700,
         "wires": [
             [
-                "7241c0a1ae04f48c"
+                "25c599bac7b31880"
             ],
             []
         ]
@@ -2269,12 +2269,12 @@
         "id": "7241c0a1ae04f48c",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
-        "name": "turn off backlight",
+        "name": "monitor ambilight",
         "server": "8b52884a.b76658",
         "version": 3,
         "debugenabled": false,
         "service_domain": "switch",
-        "service": "turn_off",
+        "service": "",
         "entityId": "switch.sonoff_s26_1_relay",
         "data": "",
         "dataType": "json",
@@ -2289,8 +2289,8 @@
             }
         ],
         "queue": "none",
-        "x": 1380,
-        "y": 640,
+        "x": 1530,
+        "y": 660,
         "wires": [
             []
         ]
@@ -2342,42 +2342,12 @@
         "outputinitially": false,
         "state_type": "str",
         "enableInput": true,
-        "x": 1070,
-        "y": 720,
+        "x": 1050,
+        "y": 620,
         "wires": [
             [
-                "5810f589edb9f8ac"
+                "c20243ef2bd23940"
             ],
-            []
-        ]
-    },
-    {
-        "id": "5810f589edb9f8ac",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "turn on backlight",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "turn_on",
-        "entityId": "switch.sonoff_s26_1_relay",
-        "data": "",
-        "dataType": "json",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 1380,
-        "y": 720,
-        "wires": [
             []
         ]
     },
@@ -2922,6 +2892,354 @@
         "x": 130,
         "y": 1560,
         "wires": []
+    },
+    {
+        "id": "c20243ef2bd23940",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_on",
+        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1300,
+        "y": 620,
+        "wires": [
+            [
+                "7241c0a1ae04f48c"
+            ]
+        ]
+    },
+    {
+        "id": "25c599bac7b31880",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_off",
+        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1300,
+        "y": 700,
+        "wires": [
+            [
+                "7241c0a1ae04f48c"
+            ]
+        ]
+    },
+    {
+        "id": "e596f0c0c19b29c2",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Door bell",
+        "info": "",
+        "x": 100,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "1d62b3d3e768bc6e",
+        "type": "trigger-state",
+        "z": "afb0f186.cfb0d",
+        "name": "press off -> on",
+        "server": "8b52884a.b76658",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "light.friedland_57399aa6_1",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 110,
+        "y": 2080,
+        "wires": [
+            [
+                "74dea37d901958f9",
+                "26d6d10d7af28c12"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5faeb6aacee4c978",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "State on",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "light.friedland_57399aa6_1",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 100,
+        "y": 2240,
+        "wires": [
+            [
+                "ee3e45ea1fca96cc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ee3e45ea1fca96cc",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Turn off",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.friedland_57399aa6_1",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 300,
+        "y": 2240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89b8ee7cc03fec61",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "notify Russell android",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "mobile_app_pixel_4a",
+        "entityId": "",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 1240,
+        "y": 2060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "26d6d10d7af28c12",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "Message",
+        "func": "var message = \"Someone is at the door\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2120,
+        "wires": [
+            [
+                "7dc7d1c6d76cbc49"
+            ]
+        ]
+    },
+    {
+        "id": "7dc7d1c6d76cbc49",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Door Alexa message",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "alexa_media_office_echo",
+        "entityId": "",
+        "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 640,
+        "y": 2120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "62dc0308d6967c76",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "Format notification",
+        "func": "frigate_external_url = \"https://frigate.microserver.space\"\nha_external_url  = \"https://hass.microserver.space\";\n\nmsg.event_id     = msg.payload;\nmsg.clip         = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/driveway\" + \"/clip.mp4\";\nmsg.thumbnail    = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/thumbnail.jpg?format=android\";\nmsg.uri          = \"https://frigate.microserver.space/api/driveway?h=1080\";\nmsg.message     = \"Someone is at the door\";\nmsg.payload     = { data: {'message': msg.message, data: {'image': msg.thumbnail, 'clickAction': msg.clip, 'sticky': true,'color': \"#2DF56D\", 'actions': [{'action': \"URI\",'title': \"Watch Live Stream\", 'uri': msg.uri  }],'ttl': 0, 'group': \"motion-group\", 'priority': \"High\"  }}};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 2060,
+        "wires": [
+            [
+                "89b8ee7cc03fec61"
+            ]
+        ]
+    },
+    {
+        "id": "74dea37d901958f9",
+        "type": "http request",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://frigate.default.svc:5000/api/events?camera=driveway&limit=1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 370,
+        "y": 2060,
+        "wires": [
+            [
+                "c1627889623a1856"
+            ]
+        ]
+    },
+    {
+        "id": "c1627889623a1856",
+        "type": "json",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 2060,
+        "wires": [
+            [
+                "d55eced5cfec1646"
+            ]
+        ]
+    },
+    {
+        "id": "d55eced5cfec1646",
+        "type": "change",
+        "z": "afb0f186.cfb0d",
+        "name": "event id",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.0.id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 2060,
+        "wires": [
+            [
+                "62dc0308d6967c76"
+            ]
+        ]
     },
     {
         "id": "6cb23d50.77ced4",
