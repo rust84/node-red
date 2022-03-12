@@ -1231,7 +1231,7 @@
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "15",
+        "duration": "30",
         "extend": true,
         "overrideDelay": false,
         "units": "min",
@@ -1243,12 +1243,10 @@
         "y": 680,
         "wires": [
             [
-                "de7ec5fa0d844b3e",
-                "05c46eac7eddc30f"
+                "de7ec5fa0d844b3e"
             ],
             [
-                "de7ec5fa0d844b3e",
-                "05c46eac7eddc30f"
+                "de7ec5fa0d844b3e"
             ]
         ]
     },
@@ -2930,7 +2928,7 @@
         ],
         "queue": "none",
         "x": 1560,
-        "y": 2060,
+        "y": 2140,
         "wires": [
             []
         ]
@@ -2942,7 +2940,7 @@
         "name": "RF-Link",
         "info": "",
         "x": 90,
-        "y": 1900,
+        "y": 1920,
         "wires": []
     },
     {
@@ -3119,7 +3117,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 1160,
-        "y": 2060,
+        "y": 2140,
         "wires": [
             [
                 "43b507f0a4c03a0c"
@@ -3141,7 +3139,7 @@
         "finalize": "",
         "libs": [],
         "x": 1380,
-        "y": 2100,
+        "y": 2180,
         "wires": [
             [
                 "216eeb1e6b3d9e94"
@@ -3160,7 +3158,7 @@
         "finalize": "",
         "libs": [],
         "x": 1380,
-        "y": 2020,
+        "y": 2100,
         "wires": [
             [
                 "216eeb1e6b3d9e94"
@@ -3202,7 +3200,7 @@
             }
         ],
         "x": 820,
-        "y": 2180,
+        "y": 2260,
         "wires": [
             [],
             [
@@ -3222,7 +3220,7 @@
             }
         ],
         "x": 1050,
-        "y": 2180,
+        "y": 2260,
         "wires": [
             [
                 "06360ca603140fd6"
@@ -3254,7 +3252,7 @@
         ],
         "queue": "none",
         "x": 1250,
-        "y": 2180,
+        "y": 2260,
         "wires": [
             []
         ]
@@ -3331,8 +3329,8 @@
             }
         ],
         "queue": "none",
-        "x": 1660,
-        "y": 1860,
+        "x": 1680,
+        "y": 1920,
         "wires": [
             []
         ]
@@ -3349,7 +3347,7 @@
         "finalize": "",
         "libs": [],
         "x": 780,
-        "y": 1960,
+        "y": 2060,
         "wires": [
             [
                 "7dc7d1c6d76cbc49"
@@ -3365,7 +3363,7 @@
         "version": 3,
         "debugenabled": false,
         "service_domain": "notify",
-        "service": "alexa_media_everywhere",
+        "service": "alexa_media_office_echo",
         "entityId": "",
         "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
         "dataType": "json",
@@ -3374,7 +3372,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 1030,
-        "y": 1960,
+        "y": 2060,
         "wires": [
             []
         ]
@@ -3390,8 +3388,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1860,
+        "x": 1450,
+        "y": 1920,
         "wires": [
             [
                 "89b8ee7cc03fec61"
@@ -3412,8 +3410,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 790,
-        "y": 1860,
+        "x": 950,
+        "y": 1920,
         "wires": [
             [
                 "c1627889623a1856"
@@ -3428,8 +3426,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 990,
-        "y": 1860,
+        "x": 1110,
+        "y": 1920,
         "wires": [
             [
                 "d55eced5cfec1646"
@@ -3455,8 +3453,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1180,
-        "y": 1860,
+        "x": 1260,
+        "y": 1920,
         "wires": [
             [
                 "62dc0308d6967c76"
@@ -3498,7 +3496,7 @@
             }
         ],
         "x": 140,
-        "y": 1960,
+        "y": 2020,
         "wires": [
             [
                 "deef176193c829dd"
@@ -3525,7 +3523,7 @@
         "to": "",
         "reg": false,
         "x": 980,
-        "y": 2060,
+        "y": 2140,
         "wires": [
             [
                 "ce9f1927ecf0b77c"
@@ -3550,7 +3548,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 790,
-        "y": 2060,
+        "y": 2140,
         "wires": [
             [
                 "6fb50a6d90e7016a"
@@ -3595,11 +3593,12 @@
         "repair": false,
         "outputs": 5,
         "x": 460,
-        "y": 1960,
+        "y": 2020,
         "wires": [
             [
-                "74dea37d901958f9",
-                "26d6d10d7af28c12"
+                "26d6d10d7af28c12",
+                "731b30d4df389a06",
+                "c61a5fe61b8e0a04"
             ],
             [
                 "aa0889237fb55e03"
@@ -3609,6 +3608,54 @@
             ],
             [],
             []
+        ]
+    },
+    {
+        "id": "731b30d4df389a06",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "event log",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "logbook",
+        "service": "log",
+        "entityId": "switch.friedland_57399aa6_1",
+        "data": "{\"name\": \"doorbell\",\"message\": \"was pressed\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 780,
+        "y": 1980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c61a5fe61b8e0a04",
+        "type": "delay",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 780,
+        "y": 1920,
+        "wires": [
+            [
+                "74dea37d901958f9"
+            ]
         ]
     },
     {
@@ -5954,6 +6001,35 @@
             ],
             [
                 "7cf0445018385919"
+            ]
+        ]
+    },
+    {
+        "id": "48d10daf5fd167e4",
+        "type": "inject",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 720,
+        "y": 500,
+        "wires": [
+            [
+                "81c2d258.033ce"
             ]
         ]
     },
