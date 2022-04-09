@@ -248,7 +248,7 @@
     {
         "id": "06a202b01db68d7e",
         "type": "plex-ws-server",
-        "hostname": "plex-kube-plex",
+        "hostname": "plex.media.svc",
         "port": "32400",
         "timeout": "1000",
         "token": "Pad-1jGpBx1ASuVeSVHw",
@@ -1216,7 +1216,7 @@
             }
         ],
         "queue": "none",
-        "x": 670,
+        "x": 690,
         "y": 720,
         "wires": [
             []
@@ -1231,7 +1231,7 @@
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "30",
+        "duration": "10",
         "extend": true,
         "overrideDelay": false,
         "units": "min",
@@ -1239,8 +1239,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 410,
-        "y": 680,
+        "x": 450,
+        "y": 720,
         "wires": [
             [
                 "de7ec5fa0d844b3e"
@@ -1290,7 +1290,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 390,
-        "y": 800,
+        "y": 900,
         "wires": [
             [
                 "c318632dfc738833"
@@ -1309,7 +1309,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 800,
+        "y": 900,
         "wires": [
             [
                 "da51086532dd9913"
@@ -1334,7 +1334,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 800,
-        "y": 800,
+        "y": 900,
         "wires": [
             []
         ]
@@ -1361,7 +1361,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 800,
+        "y": 900,
         "wires": [
             [
                 "c35e61ae9dc92146"
@@ -1688,7 +1688,7 @@
         "authType": "",
         "senderr": false,
         "x": 710,
-        "y": 940,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -1705,7 +1705,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "b43cd58e779f418f"
@@ -1728,7 +1728,7 @@
             }
         ],
         "x": 350,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "5d41c143bd102136"
@@ -1791,7 +1791,7 @@
             }
         ],
         "x": 130,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "8895c40ab576f5c2"
@@ -1806,7 +1806,7 @@
         "name": "Habitica complete task",
         "info": "",
         "x": 150,
-        "y": 880,
+        "y": 960,
         "wires": []
     },
     {
@@ -1969,13 +1969,13 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "sensor.double_take_russell",
+        "entityidfilter": "sensor.office_person",
         "entityidfiltertype": "exact",
         "outputinitially": true,
         "state_type": "str",
-        "haltifstate": "office",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "haltifstate": "1",
+        "halt_if_type": "num",
+        "halt_if_compare": "gte",
         "outputs": 2,
         "output_only_on_state_change": false,
         "for": "",
@@ -2007,41 +2007,11 @@
             }
         ],
         "x": 160,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "18fde90dc9b35867"
             ],
-            []
-        ]
-    },
-    {
-        "id": "05c46eac7eddc30f",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "ambilight",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "",
-        "entityId": "switch.sonoff_s26_1_relay",
-        "data": "",
-        "dataType": "json",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 680,
-        "y": 640,
-        "wires": [
             []
         ]
     },
@@ -2052,7 +2022,7 @@
         "name": "Hyperion",
         "info": "",
         "x": 120,
-        "y": 1020,
+        "y": 1100,
         "wires": []
     },
     {
@@ -2070,7 +2040,7 @@
         "authType": "",
         "senderr": false,
         "x": 1930,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -2087,7 +2057,7 @@
         "finalize": "",
         "libs": [],
         "x": 1730,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "ba93f0e29b5d98a1"
@@ -2152,7 +2122,7 @@
         "to": "",
         "reg": false,
         "x": 360,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "ec466215da40f150"
@@ -2215,7 +2185,7 @@
             }
         ],
         "x": 130,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "5011bb28d1cbb57d"
@@ -2278,7 +2248,7 @@
             }
         ],
         "x": 110,
-        "y": 1200,
+        "y": 1280,
         "wires": [
             [
                 "8cabbd8c69169c8b"
@@ -2308,7 +2278,7 @@
         "repair": false,
         "outputs": 2,
         "x": 350,
-        "y": 1200,
+        "y": 1280,
         "wires": [
             [
                 "5492281fa2ad67c8"
@@ -2337,7 +2307,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1220,
-        "y": 1180,
+        "y": 1260,
         "wires": [
             [
                 "88da13a932af2a88"
@@ -2366,7 +2336,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1170,
-        "y": 1380,
+        "y": 1460,
         "wires": [
             [
                 "0c03cce0ff0b29cf"
@@ -2388,7 +2358,7 @@
         "finalize": "",
         "libs": [],
         "x": 1430,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2407,7 +2377,7 @@
         "finalize": "",
         "libs": [],
         "x": 1430,
-        "y": 1260,
+        "y": 1340,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2433,7 +2403,7 @@
         "repair": false,
         "outputs": 2,
         "x": 670,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "88da13a932af2a88",
@@ -2457,7 +2427,7 @@
         "finalize": "",
         "libs": [],
         "x": 1440,
-        "y": 1480,
+        "y": 1560,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2476,7 +2446,7 @@
         "finalize": "",
         "libs": [],
         "x": 1440,
-        "y": 1360,
+        "y": 1440,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2489,7 +2459,7 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "x": 670,
-        "y": 1160,
+        "y": 1240,
         "wires": [
             [
                 "2094b6cd173dd527"
@@ -2502,7 +2472,7 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "x": 670,
-        "y": 1240,
+        "y": 1320,
         "wires": [
             [
                 "60e2e97cef1390a9"
@@ -2534,7 +2504,7 @@
         ],
         "queue": "none",
         "x": 1190,
-        "y": 980,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -2551,7 +2521,7 @@
         "finalize": "",
         "libs": [],
         "x": 980,
-        "y": 980,
+        "y": 1060,
         "wires": [
             [
                 "685c4449f9f482aa"
@@ -2570,7 +2540,7 @@
         "finalize": "",
         "libs": [],
         "x": 980,
-        "y": 1040,
+        "y": 1120,
         "wires": [
             [
                 "685c4449f9f482aa"
@@ -2584,7 +2554,7 @@
         "name": "subwoofer",
         "info": "",
         "x": 980,
-        "y": 920,
+        "y": 1000,
         "wires": []
     },
     {
@@ -2738,7 +2708,7 @@
         "allowUpdates": false,
         "filters": [],
         "x": 810,
-        "y": 1460,
+        "y": 1540,
         "wires": [
             [
                 "b9b61a1431198f1e"
@@ -2758,7 +2728,7 @@
         "property": "session.Media[0].videoProfile",
         "topi": "topic",
         "x": 990,
-        "y": 1460,
+        "y": 1540,
         "wires": [
             [
                 "d8f8aaaf9a8cf60c"
@@ -2788,7 +2758,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1190,
-        "y": 1460,
+        "y": 1540,
         "wires": [
             [
                 "0c03cce0ff0b29cf"
@@ -2812,7 +2782,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 1760,
+        "y": 1840,
         "wires": [
             [
                 "37baf9f4f0e0aba2"
@@ -2839,7 +2809,7 @@
         "to": "",
         "reg": false,
         "x": 500,
-        "y": 1760,
+        "y": 1840,
         "wires": [
             [
                 "53e039d412778ed1"
@@ -2855,7 +2825,7 @@
         "action": "",
         "pretty": false,
         "x": 320,
-        "y": 1760,
+        "y": 1840,
         "wires": [
             [
                 "7e80e50f61bf41ff"
@@ -2895,7 +2865,7 @@
         "repair": false,
         "outputs": 4,
         "x": 670,
-        "y": 1760,
+        "y": 1840,
         "wires": [
             [],
             [],
@@ -2928,7 +2898,7 @@
         ],
         "queue": "none",
         "x": 1560,
-        "y": 2140,
+        "y": 2220,
         "wires": [
             []
         ]
@@ -2940,7 +2910,7 @@
         "name": "RF-Link",
         "info": "",
         "x": 90,
-        "y": 1920,
+        "y": 2000,
         "wires": []
     },
     {
@@ -2957,7 +2927,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 1620,
+        "y": 1700,
         "wires": [
             [
                 "b58d74431b44736b"
@@ -2973,7 +2943,7 @@
         "action": "",
         "pretty": false,
         "x": 310,
-        "y": 1620,
+        "y": 1700,
         "wires": [
             [
                 "81757dde80fa153e"
@@ -3000,7 +2970,7 @@
         "to": "",
         "reg": false,
         "x": 490,
-        "y": 1620,
+        "y": 1700,
         "wires": [
             [
                 "5fa53ed157de8be1"
@@ -3035,7 +3005,7 @@
         "repair": false,
         "outputs": 3,
         "x": 720,
-        "y": 1620,
+        "y": 1700,
         "wires": [
             [
                 "54ca7ed186be6f53"
@@ -3061,7 +3031,7 @@
         "expiry": "",
         "broker": "649859a4.a17818",
         "x": 1340,
-        "y": 1620,
+        "y": 1700,
         "wires": []
     },
     {
@@ -3076,7 +3046,7 @@
         "template": "{\"active\": true}",
         "output": "str",
         "x": 960,
-        "y": 1620,
+        "y": 1700,
         "wires": [
             [
                 "8c3154f1147332c8"
@@ -3117,7 +3087,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 1160,
-        "y": 2140,
+        "y": 2220,
         "wires": [
             [
                 "43b507f0a4c03a0c"
@@ -3139,7 +3109,7 @@
         "finalize": "",
         "libs": [],
         "x": 1380,
-        "y": 2180,
+        "y": 2260,
         "wires": [
             [
                 "216eeb1e6b3d9e94"
@@ -3158,7 +3128,7 @@
         "finalize": "",
         "libs": [],
         "x": 1380,
-        "y": 2100,
+        "y": 2180,
         "wires": [
             [
                 "216eeb1e6b3d9e94"
@@ -3200,7 +3170,7 @@
             }
         ],
         "x": 820,
-        "y": 2260,
+        "y": 2340,
         "wires": [
             [],
             [
@@ -3220,7 +3190,7 @@
             }
         ],
         "x": 1050,
-        "y": 2260,
+        "y": 2340,
         "wires": [
             [
                 "06360ca603140fd6"
@@ -3252,7 +3222,7 @@
         ],
         "queue": "none",
         "x": 1250,
-        "y": 2260,
+        "y": 2340,
         "wires": [
             []
         ]
@@ -3264,7 +3234,7 @@
         "name": "OpenMQTTGateway",
         "info": "",
         "x": 130,
-        "y": 1560,
+        "y": 1640,
         "wires": []
     },
     {
@@ -3330,7 +3300,7 @@
         ],
         "queue": "none",
         "x": 1680,
-        "y": 1920,
+        "y": 2000,
         "wires": [
             []
         ]
@@ -3347,7 +3317,7 @@
         "finalize": "",
         "libs": [],
         "x": 780,
-        "y": 2060,
+        "y": 2140,
         "wires": [
             [
                 "7dc7d1c6d76cbc49"
@@ -3372,7 +3342,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 1030,
-        "y": 2060,
+        "y": 2140,
         "wires": [
             []
         ]
@@ -3389,7 +3359,7 @@
         "finalize": "",
         "libs": [],
         "x": 1450,
-        "y": 1920,
+        "y": 2000,
         "wires": [
             [
                 "89b8ee7cc03fec61"
@@ -3411,7 +3381,7 @@
         "authType": "",
         "senderr": false,
         "x": 950,
-        "y": 1920,
+        "y": 2000,
         "wires": [
             [
                 "c1627889623a1856"
@@ -3427,7 +3397,7 @@
         "action": "",
         "pretty": false,
         "x": 1110,
-        "y": 1920,
+        "y": 2000,
         "wires": [
             [
                 "d55eced5cfec1646"
@@ -3454,7 +3424,7 @@
         "to": "",
         "reg": false,
         "x": 1260,
-        "y": 1920,
+        "y": 2000,
         "wires": [
             [
                 "62dc0308d6967c76"
@@ -3496,7 +3466,7 @@
             }
         ],
         "x": 140,
-        "y": 2020,
+        "y": 2100,
         "wires": [
             [
                 "deef176193c829dd"
@@ -3523,7 +3493,7 @@
         "to": "",
         "reg": false,
         "x": 980,
-        "y": 2140,
+        "y": 2220,
         "wires": [
             [
                 "ce9f1927ecf0b77c"
@@ -3548,7 +3518,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 790,
-        "y": 2140,
+        "y": 2220,
         "wires": [
             [
                 "6fb50a6d90e7016a"
@@ -3593,7 +3563,7 @@
         "repair": false,
         "outputs": 5,
         "x": 460,
-        "y": 2020,
+        "y": 2100,
         "wires": [
             [
                 "26d6d10d7af28c12",
@@ -3628,7 +3598,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 780,
-        "y": 1980,
+        "y": 2060,
         "wires": [
             []
         ]
@@ -3651,7 +3621,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 780,
-        "y": 1920,
+        "y": 2000,
         "wires": [
             [
                 "74dea37d901958f9"
