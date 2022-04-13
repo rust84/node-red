@@ -1217,7 +1217,7 @@
         ],
         "queue": "none",
         "x": 690,
-        "y": 720,
+        "y": 680,
         "wires": [
             []
         ]
@@ -1231,7 +1231,7 @@
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "10",
+        "duration": "30",
         "extend": true,
         "overrideDelay": false,
         "units": "min",
@@ -1240,7 +1240,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 450,
-        "y": 720,
+        "y": 680,
         "wires": [
             [
                 "de7ec5fa0d844b3e"
@@ -2007,7 +2007,7 @@
             }
         ],
         "x": 160,
-        "y": 720,
+        "y": 680,
         "wires": [
             [
                 "18fde90dc9b35867"
@@ -3626,6 +3626,186 @@
             [
                 "74dea37d901958f9"
             ]
+        ]
+    },
+    {
+        "id": "789faa8144a6a6d9",
+        "type": "trigger-state",
+        "z": "afb0f186.cfb0d",
+        "name": "light off -> on",
+        "server": "8b52884a.b76658",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "switch.office_light_switch",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 130,
+        "y": 760,
+        "wires": [
+            [
+                "28eedb1a15fe78af"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "21798118eab977e3",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "office group",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "",
+        "entityId": "group.office_group",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 550,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dff7b73afaabfd9a",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_off",
+        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 800,
+        "wires": [
+            [
+                "21798118eab977e3"
+            ]
+        ]
+    },
+    {
+        "id": "28eedb1a15fe78af",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_on",
+        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 760,
+        "wires": [
+            [
+                "21798118eab977e3"
+            ]
+        ]
+    },
+    {
+        "id": "0d8ab1639238873e",
+        "type": "trigger-state",
+        "z": "afb0f186.cfb0d",
+        "name": "light on -> off",
+        "server": "8b52884a.b76658",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "switch.office_light_switch",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 130,
+        "y": 820,
+        "wires": [
+            [
+                "dff7b73afaabfd9a"
+            ],
+            []
         ]
     },
     {
