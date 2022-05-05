@@ -3374,7 +3374,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://frigate.default.svc:5000/api/events?camera=driveway&limit=1",
+        "url": "http://frigate.home.svc:5000/api/events?camera=driveway&limit=1",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -3678,9 +3678,7 @@
         "x": 130,
         "y": 760,
         "wires": [
-            [
-                "28eedb1a15fe78af"
-            ],
+            [],
             []
         ]
     },
@@ -3802,10 +3800,37 @@
         "x": 130,
         "y": 820,
         "wires": [
-            [
-                "dff7b73afaabfd9a"
-            ],
+            [],
             []
+        ]
+    },
+    {
+        "id": "2130ad3742a16c60",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 860,
+        "y": 1900,
+        "wires": [
+            [
+                "74dea37d901958f9"
+            ]
         ]
     },
     {
