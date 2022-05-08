@@ -1243,10 +1243,12 @@
         "y": 680,
         "wires": [
             [
-                "de7ec5fa0d844b3e"
+                "de7ec5fa0d844b3e",
+                "770f3ce294ac2d3c"
             ],
             [
-                "de7ec5fa0d844b3e"
+                "de7ec5fa0d844b3e",
+                "770f3ce294ac2d3c"
             ]
         ]
     },
@@ -2438,7 +2440,7 @@
         "id": "0c03cce0ff0b29cf",
         "type": "function",
         "z": "afb0f186.cfb0d",
-        "name": "HDR Mode On",
+        "name": "HDR Mode Off",
         "func": "msg = {payload: {state: false, \"component\": \"HDR\"}}\nreturn [ msg ];\n",
         "outputs": 1,
         "noerr": 0,
@@ -3805,6 +3807,36 @@
         ]
     },
     {
+        "id": "770f3ce294ac2d3c",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "ambilight",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "",
+        "entityId": "switch.sonoff_s26_1_relay",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 700,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "2130ad3742a16c60",
         "type": "inject",
         "z": "afb0f186.cfb0d",
@@ -3825,8 +3857,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 860,
-        "y": 1900,
+        "x": 760,
+        "y": 1940,
         "wires": [
             [
                 "74dea37d901958f9"
