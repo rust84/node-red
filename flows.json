@@ -273,7 +273,8 @@
                 "10d4db91.a75214",
                 "39b8136a.8621ec",
                 "da8d24c5.0c87e8",
-                "61b4bf0b24758188"
+                "61b4bf0b24758188",
+                "e8260f6eeb45d8e6"
             ]
         ]
     },
@@ -283,14 +284,18 @@
         "z": "43703bf3.b01b24",
         "name": "office light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "switch",
         "service": "",
-        "entityId": "group.office_group",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "group.office_group"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -313,14 +318,18 @@
         "z": "43703bf3.b01b24",
         "name": "lounge light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.lounge_light",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -331,7 +340,7 @@
             }
         ],
         "queue": "none",
-        "x": 410,
+        "x": 630,
         "y": 160,
         "wires": [
             []
@@ -343,14 +352,18 @@
         "z": "43703bf3.b01b24",
         "name": "hall light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.hallway",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.hallway"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -373,14 +386,18 @@
         "z": "43703bf3.b01b24",
         "name": "bedroom light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.bedroom_light",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.bedroom_light"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -403,14 +420,18 @@
         "z": "43703bf3.b01b24",
         "name": "bathroom light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.bathroom_light",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.bathroom_light"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -433,14 +454,18 @@
         "z": "43703bf3.b01b24",
         "name": "landing light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.landing_light",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.landing_light"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -455,6 +480,26 @@
         "y": 100,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "e8260f6eeb45d8e6",
+        "type": "light-scheduler-filter",
+        "z": "43703bf3.b01b24",
+        "settings": "f26da246.74a7f",
+        "events": "[{\"start\":{\"dow\":2,\"mod\":5},\"end\":{\"dow\":2,\"mod\":1435}},{\"start\":{\"dow\":3,\"mod\":5},\"end\":{\"dow\":3,\"mod\":1435}},{\"start\":{\"dow\":4,\"mod\":5},\"end\":{\"dow\":4,\"mod\":1435}},{\"start\":{\"dow\":5,\"mod\":5},\"end\":{\"dow\":5,\"mod\":1435}},{\"start\":{\"dow\":6,\"mod\":5},\"end\":{\"dow\":6,\"mod\":1435}},{\"start\":{\"dow\":0,\"mod\":5},\"end\":{\"dow\":0,\"mod\":1435}},{\"start\":{\"dow\":1,\"mod\":5},\"end\":{\"dow\":1,\"mod\":1435}}]",
+        "name": "dark? (filter)",
+        "onlyWhenDark": true,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": "0",
+        "sunShowElevationInStatus": true,
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [],
+            [
+                "89834abb.4ef668"
+            ]
         ]
     },
     {
@@ -927,7 +972,7 @@
         "z": "afb0f186.cfb0d",
         "name": "landing motion",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -991,14 +1036,18 @@
         "z": "afb0f186.cfb0d",
         "name": "landing light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.landing_light",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.landing_light"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -1069,7 +1118,7 @@
         "z": "afb0f186.cfb0d",
         "name": "stairs lights off?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -1097,6 +1146,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 360,
         "y": 60,
         "wires": [
@@ -1132,7 +1184,7 @@
         "z": "afb0f186.cfb0d",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -1177,7 +1229,8 @@
         "y": 300,
         "wires": [
             [
-                "53bc270379b36276"
+                "53bc270379b36276",
+                "12c65d4193e6b2ab"
             ],
             []
         ]
@@ -1188,8 +1241,8 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "env": [],
-        "x": 410,
-        "y": 300,
+        "x": 390,
+        "y": 320,
         "wires": []
     },
     {
@@ -1198,14 +1251,18 @@
         "z": "afb0f186.cfb0d",
         "name": "clock",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "",
-        "entityId": "switch.sonoff_s26_2_relay",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.sonoff_s26_2_relay"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -1258,14 +1315,18 @@
         "z": "afb0f186.cfb0d",
         "name": "turn on lounge light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "turn_on",
-        "entityId": "light.lounge_light",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -1422,14 +1483,18 @@
         "z": "afb0f186.cfb0d",
         "name": "turn off lounge light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "turn_off",
-        "entityId": "light.lounge_light",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -1452,7 +1517,7 @@
         "z": "afb0f186.cfb0d",
         "name": "home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "home",
         "halt_if_type": "str",
@@ -1480,6 +1545,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 330,
         "y": 380,
         "wires": [
@@ -1495,7 +1563,7 @@
         "z": "afb0f186.cfb0d",
         "name": "in lounge?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "lounge",
         "halt_if_type": "str",
@@ -1523,6 +1591,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 390,
         "y": 480,
         "wires": [
@@ -1625,7 +1696,7 @@
         "z": "afb0f186.cfb0d",
         "name": "push button",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -1719,7 +1790,7 @@
         "z": "afb0f186.cfb0d",
         "name": "front door",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -1783,14 +1854,18 @@
         "z": "afb0f186.cfb0d",
         "name": "hallway light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.hallway",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.hallway"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -1841,7 +1916,7 @@
         "z": "afb0f186.cfb0d",
         "name": "russell office occupancy",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -1924,7 +1999,7 @@
         "authType": "",
         "senderr": false,
         "x": 1930,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             []
         ]
@@ -1941,7 +2016,7 @@
         "finalize": "",
         "libs": [],
         "x": 1730,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
                 "ba93f0e29b5d98a1"
@@ -1960,8 +2035,8 @@
                 "pt": "msg",
                 "from": "off",
                 "fromt": "str",
-                "to": "false",
-                "tot": "bool"
+                "to": "turn_off",
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -1969,8 +2044,8 @@
                 "pt": "msg",
                 "from": "playing",
                 "fromt": "str",
-                "to": "true",
-                "tot": "bool"
+                "to": "turn_on",
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -1978,8 +2053,8 @@
                 "pt": "msg",
                 "from": "standby",
                 "fromt": "str",
-                "to": "true",
-                "tot": "bool"
+                "to": "turn_on",
+                "tot": "msg"
             },
             {
                 "t": "change",
@@ -1987,8 +2062,8 @@
                 "pt": "msg",
                 "from": "idle",
                 "fromt": "str",
-                "to": "true",
-                "tot": "bool"
+                "to": "turn_on",
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -1996,8 +2071,8 @@
                 "pt": "msg",
                 "from": "paused",
                 "fromt": "str",
-                "to": "true",
-                "tot": "bool"
+                "to": "turn_on",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -2006,10 +2081,11 @@
         "to": "",
         "reg": false,
         "x": 360,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
-                "ec466215da40f150"
+                "ec466215da40f150",
+                "8413af08543d1e42"
             ]
         ]
     },
@@ -2019,7 +2095,7 @@
         "z": "afb0f186.cfb0d",
         "name": "shield state",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -2031,7 +2107,7 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "media_player.living_room_nvidia_shield",
+        "entityidfilter": "media_player.android_tv_10_20_0_83",
         "entityidfiltertype": "exact",
         "outputinitially": true,
         "state_type": "str",
@@ -2069,7 +2145,7 @@
             }
         ],
         "x": 130,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
                 "5011bb28d1cbb57d"
@@ -2082,7 +2158,7 @@
         "z": "afb0f186.cfb0d",
         "name": "button",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -2132,7 +2208,7 @@
             }
         ],
         "x": 110,
-        "y": 1280,
+        "y": 1300,
         "wires": [
             [
                 "8cabbd8c69169c8b"
@@ -2162,7 +2238,7 @@
         "repair": false,
         "outputs": 2,
         "x": 350,
-        "y": 1280,
+        "y": 1300,
         "wires": [
             [
                 "5492281fa2ad67c8"
@@ -2191,7 +2267,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1220,
-        "y": 1260,
+        "y": 1280,
         "wires": [
             [
                 "88da13a932af2a88"
@@ -2220,7 +2296,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1170,
-        "y": 1460,
+        "y": 1480,
         "wires": [
             [
                 "0c03cce0ff0b29cf"
@@ -2242,7 +2318,7 @@
         "finalize": "",
         "libs": [],
         "x": 1430,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2261,7 +2337,7 @@
         "finalize": "",
         "libs": [],
         "x": 1430,
-        "y": 1340,
+        "y": 1360,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2277,7 +2353,9 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "false"
+                "t": "eq",
+                "v": "turn_off",
+                "vt": "str"
             },
             {
                 "t": "true"
@@ -2287,15 +2365,13 @@
         "repair": false,
         "outputs": 2,
         "x": 670,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
-                "88da13a932af2a88",
-                "8413af08543d1e42"
+                "88da13a932af2a88"
             ],
             [
-                "e8173119d19d6f79",
-                "6c6a87d14dae701a"
+                "e8173119d19d6f79"
             ]
         ]
     },
@@ -2311,7 +2387,7 @@
         "finalize": "",
         "libs": [],
         "x": 1440,
-        "y": 1560,
+        "y": 1580,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2330,7 +2406,7 @@
         "finalize": "",
         "libs": [],
         "x": 1440,
-        "y": 1440,
+        "y": 1460,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2343,7 +2419,7 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "x": 670,
-        "y": 1240,
+        "y": 1260,
         "wires": [
             [
                 "2094b6cd173dd527"
@@ -2356,7 +2432,7 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "x": 670,
-        "y": 1320,
+        "y": 1340,
         "wires": [
             [
                 "60e2e97cef1390a9"
@@ -2369,14 +2445,18 @@
         "z": "afb0f186.cfb0d",
         "name": "subwoofer",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "",
-        "entityId": "switch.smart_plug",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.smart_plug"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -2387,8 +2467,8 @@
             }
         ],
         "queue": "none",
-        "x": 1190,
-        "y": 1060,
+        "x": 870,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -2397,49 +2477,20 @@
         "id": "8413af08543d1e42",
         "type": "function",
         "z": "afb0f186.cfb0d",
-        "name": "turn_off",
-        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "name": "wrapper",
+        "func": "var service = msg.payload\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 980,
-        "y": 1060,
+        "x": 680,
+        "y": 1100,
         "wires": [
             [
                 "685c4449f9f482aa"
             ]
         ]
-    },
-    {
-        "id": "6c6a87d14dae701a",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "turn_on",
-        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 980,
-        "y": 1120,
-        "wires": [
-            [
-                "685c4449f9f482aa"
-            ]
-        ]
-    },
-    {
-        "id": "1ba6338379dbad97",
-        "type": "comment",
-        "z": "afb0f186.cfb0d",
-        "name": "subwoofer",
-        "info": "",
-        "x": 980,
-        "y": 1000,
-        "wires": []
     },
     {
         "id": "163fae7b64cbab94",
@@ -2447,7 +2498,7 @@
         "z": "afb0f186.cfb0d",
         "name": "desktop on -> desktop off",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -2503,14 +2554,18 @@
         "z": "afb0f186.cfb0d",
         "name": "monitor ambilight",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "",
-        "entityId": "switch.sonoff_s26_1_relay",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.sonoff_s26_1_relay"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -2533,7 +2588,7 @@
         "z": "afb0f186.cfb0d",
         "name": "desktop off -> desktop on",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -2592,7 +2647,7 @@
         "allowUpdates": false,
         "filters": [],
         "x": 810,
-        "y": 1540,
+        "y": 1560,
         "wires": [
             [
                 "b9b61a1431198f1e"
@@ -2612,7 +2667,7 @@
         "property": "session.Media[0].videoProfile",
         "topi": "topic",
         "x": 990,
-        "y": 1540,
+        "y": 1560,
         "wires": [
             [
                 "d8f8aaaf9a8cf60c"
@@ -2642,7 +2697,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1190,
-        "y": 1540,
+        "y": 1560,
         "wires": [
             [
                 "0c03cce0ff0b29cf"
@@ -2763,14 +2818,18 @@
         "z": "afb0f186.cfb0d",
         "name": "office light",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "",
-        "entityId": "switch.office_light_switch",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.office_light_switch"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -2943,7 +3002,7 @@
         "z": "afb0f186.cfb0d",
         "name": "light off?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "off",
         "halt_if_type": "str",
@@ -2965,6 +3024,9 @@
                 "valueType": "entity"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "override_topic": false,
         "state_location": "payload",
         "override_payload": "msg",
@@ -3025,7 +3087,7 @@
         "z": "afb0f186.cfb0d",
         "name": "alarm not disarmed?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "disarmed",
         "halt_if_type": "str",
@@ -3053,6 +3115,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 820,
         "y": 2220,
         "wires": [
@@ -3087,14 +3152,18 @@
         "z": "afb0f186.cfb0d",
         "name": "disarm alarm",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "alarm_control_panel",
+        "domain": "alarm_control_panel",
         "service": "alarm_disarm",
-        "entityId": "alarm_control_panel.alarm_panel",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "alarm_control_panel.alarm_panel"
+        ],
         "data": "{\"code\":\"{{ alarm_code }}\"}",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -3165,14 +3234,16 @@
         "z": "afb0f186.cfb0d",
         "name": "notify Russell android",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "notify",
+        "domain": "notify",
         "service": "mobile_app_pixel_4a",
-        "entityId": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -3214,14 +3285,16 @@
         "z": "afb0f186.cfb0d",
         "name": "Alexa notify",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "notify",
+        "domain": "notify",
         "service": "alexa_media_office_echo",
-        "entityId": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
         "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
@@ -3470,14 +3543,18 @@
         "z": "afb0f186.cfb0d",
         "name": "event log",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "logbook",
+        "domain": "logbook",
         "service": "log",
-        "entityId": "switch.friedland_57399aa6_1",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.friedland_57399aa6_1"
+        ],
         "data": "{\"name\": \"doorbell\",\"message\": \"was pressed\"}",
         "dataType": "jsonata",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
@@ -3518,7 +3595,7 @@
         "z": "afb0f186.cfb0d",
         "name": "light off -> on",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -3574,14 +3651,18 @@
         "z": "afb0f186.cfb0d",
         "name": "office group",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "",
-        "entityId": "group.office_group",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "group.office_group"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -3642,7 +3723,7 @@
         "z": "afb0f186.cfb0d",
         "name": "light on -> off",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -3698,14 +3779,18 @@
         "z": "afb0f186.cfb0d",
         "name": "ambilight",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "",
-        "entityId": "switch.sonoff_s26_1_relay",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.sonoff_s26_1_relay"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -3750,6 +3835,43 @@
                 "74dea37d901958f9"
             ]
         ]
+    },
+    {
+        "id": "12c65d4193e6b2ab",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Turn off aircon",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_hvac_mode",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.midea_ac_42880953513406"
+        ],
+        "data": "{\"hvac_mode\":\"off\"}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4689ae8c779902cc",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Leave home routing",
+        "info": "",
+        "x": 150,
+        "y": 240,
+        "wires": []
     },
     {
         "id": "6cb23d50.77ced4",
@@ -3892,7 +4014,7 @@
         "z": "4aedf9e8.044e08",
         "name": "home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "home",
         "halt_if_type": "str",
@@ -3920,6 +4042,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 530,
         "y": 140,
         "wires": [
@@ -4097,7 +4222,7 @@
         "z": "4aedf9e8.044e08",
         "name": "home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "home",
         "halt_if_type": "str",
@@ -4125,6 +4250,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 530,
         "y": 420,
         "wires": [
@@ -4168,7 +4296,7 @@
         "z": "4aedf9e8.044e08",
         "name": "alarm disarmed?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "disarmed",
         "halt_if_type": "str",
@@ -4196,6 +4324,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 750,
         "y": 140,
         "wires": [
@@ -4211,7 +4342,7 @@
         "z": "4aedf9e8.044e08",
         "name": "alarm not disarmed?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "disarmed",
         "halt_if_type": "str",
@@ -4239,6 +4370,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 800,
         "y": 420,
         "wires": [
@@ -4254,7 +4388,7 @@
         "z": "4aedf9e8.044e08",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -4282,6 +4416,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 350,
         "y": 140,
         "wires": [
@@ -4297,7 +4434,7 @@
         "z": "4aedf9e8.044e08",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -4325,6 +4462,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 350,
         "y": 420,
         "wires": [
@@ -4359,14 +4499,16 @@
         "z": "4aedf9e8.044e08",
         "name": "notify Russell android",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "notify",
+        "domain": "notify",
         "service": "mobile_app_pixel_4a",
-        "entityId": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -4389,7 +4531,7 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Triggered",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -4453,7 +4595,7 @@
         "z": "4aedf9e8.044e08",
         "name": "not home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "home",
         "halt_if_type": "str",
@@ -4481,6 +4623,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 530,
         "y": 680,
         "wires": [
@@ -4496,7 +4641,7 @@
         "z": "4aedf9e8.044e08",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -4552,7 +4697,7 @@
         "z": "4aedf9e8.044e08",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -4580,6 +4725,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 350,
         "y": 300,
         "wires": [
@@ -4614,14 +4762,18 @@
         "z": "4aedf9e8.044e08",
         "name": "arm alarm away",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "alarm_control_panel",
+        "domain": "alarm_control_panel",
         "service": "alarm_arm_away",
-        "entityId": "alarm_control_panel.alarm_panel",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "alarm_control_panel.alarm_panel"
+        ],
         "data": "{\"code\":\"{{ alarm_code }}\"}",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -4644,7 +4796,7 @@
         "z": "4aedf9e8.044e08",
         "name": "not_home -> home",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -4700,7 +4852,7 @@
         "z": "4aedf9e8.044e08",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -4728,6 +4880,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 350,
         "y": 560,
         "wires": [
@@ -4762,14 +4917,18 @@
         "z": "4aedf9e8.044e08",
         "name": "disarm alarm",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "alarm_control_panel",
+        "domain": "alarm_control_panel",
         "service": "alarm_disarm",
-        "entityId": "alarm_control_panel.alarm_panel",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "alarm_control_panel.alarm_panel"
+        ],
         "data": "{\"code\":\"{{ alarm_code }}\"}",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -4792,7 +4951,7 @@
         "z": "4aedf9e8.044e08",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -4820,6 +4979,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 330,
         "y": 680,
         "wires": [
@@ -4835,7 +4997,7 @@
         "z": "4aedf9e8.044e08",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -4863,6 +5025,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 330,
         "y": 760,
         "wires": [
@@ -4880,7 +5045,7 @@
         "z": "4aedf9e8.044e08",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "on",
         "halt_if_type": "str",
@@ -4908,6 +5073,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 470,
         "y": 900,
         "wires": [
@@ -4924,7 +5092,7 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Status",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 1,
         "halt_if": "",
         "halt_if_type": "str",
@@ -4952,6 +5120,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 710,
         "y": 680,
         "wires": [
@@ -4966,7 +5137,7 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Disarmed",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "entityid": "alarm_control_panel.alarm_panel",
         "entityidfiltertype": "exact",
         "debugenabled": false,
@@ -5013,7 +5184,7 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Armed",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "entityid": "alarm_control_panel.alarm_panel",
         "entityidfiltertype": "exact",
         "debugenabled": false,
@@ -5114,7 +5285,7 @@
         "z": "4aedf9e8.044e08",
         "name": "landing motion",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5176,7 +5347,7 @@
         "z": "4aedf9e8.044e08",
         "name": "alarm armed home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "armed_home",
         "halt_if_type": "str",
@@ -5204,6 +5375,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 480,
         "y": 1100,
         "wires": [
@@ -5219,14 +5393,18 @@
         "z": "4aedf9e8.044e08",
         "name": "trigger",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "alarm_control_panel",
+        "domain": "alarm_control_panel",
         "service": "alarm_trigger",
-        "entityId": "alarm_control_panel.alarm_panel",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "alarm_control_panel.alarm_panel"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -5249,7 +5427,7 @@
         "z": "4aedf9e8.044e08",
         "name": "alarm armed away?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "armed_away",
         "halt_if_type": "str",
@@ -5277,6 +5455,9 @@
                 "valueType": "triggerId"
             }
         ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 470,
         "y": 1240,
         "wires": [
@@ -5292,7 +5473,7 @@
         "z": "4aedf9e8.044e08",
         "name": "office motion",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5356,7 +5537,7 @@
         "z": "4aedf9e8.044e08",
         "name": "lounge motion",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5421,7 +5602,7 @@
         "z": "4aedf9e8.044e08",
         "name": "front door",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5486,7 +5667,7 @@
         "z": "4aedf9e8.044e08",
         "name": "kitchen door",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5551,7 +5732,7 @@
         "z": "4aedf9e8.044e08",
         "name": "office WIndow",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5616,7 +5797,7 @@
         "z": "4aedf9e8.044e08",
         "name": "lounge WIndow",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5681,14 +5862,18 @@
         "z": "4aedf9e8.044e08",
         "name": "arm alarm home",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "alarm_control_panel",
+        "domain": "alarm_control_panel",
         "service": "alarm_arm_home",
-        "entityId": "alarm_control_panel.alarm_panel",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "alarm_control_panel.alarm_panel"
+        ],
         "data": "{\"code\":\"{{ alarm_code }}\"}",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -5730,14 +5915,16 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm triggered Alexa message",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "notify",
+        "domain": "notify",
         "service": "alexa_media_everywhere",
-        "entityId": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
         "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
@@ -5870,7 +6057,7 @@
         "z": "4aedf9e8.044e08",
         "name": "office smoke",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5894,9 +6081,9 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
+        "ignorePrevStateNull": true,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
         "ignoreCurrentStateUnknown": false,
         "ignoreCurrentStateUnavailable": false,
         "outputProperties": [
@@ -5934,7 +6121,7 @@
         "z": "4aedf9e8.044e08",
         "name": "front bedroom smoke",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -5958,9 +6145,9 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
+        "ignorePrevStateNull": true,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
         "ignoreCurrentStateUnknown": false,
         "ignoreCurrentStateUnavailable": false,
         "outputProperties": [
@@ -6052,14 +6239,18 @@
         "z": "4aedf9e8.044e08",
         "name": "Hallway green",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "light",
+        "domain": "light",
         "service": "",
-        "entityId": "light.hallway",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.hallway"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
@@ -6352,7 +6543,7 @@
         "z": "cf24db3435ba68ad",
         "name": "Heating schedule toggle",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -6410,14 +6601,18 @@
         "z": "cf24db3435ba68ad",
         "name": "Turn off heating schedules",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "turn_off",
-        "entityId": "group.heating_schedules",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "group.heating_schedules"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -6442,14 +6637,18 @@
         "z": "cf24db3435ba68ad",
         "name": "Turn on heating schedules",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "switch",
+        "domain": "switch",
         "service": "turn_on",
-        "entityId": "group.heating_schedules",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "group.heating_schedules"
+        ],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
@@ -6479,8 +6678,8 @@
         "syntax": "mustache",
         "template": "{\"system_mode\": \"{{payload}}\"}",
         "output": "str",
-        "x": 1260,
-        "y": 320,
+        "x": 1250,
+        "y": 340,
         "wires": [
             [
                 "89cf13b4556cb961"
@@ -6493,14 +6692,18 @@
         "z": "cf24db3435ba68ad",
         "name": "Run schedule",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "scheduler",
+        "domain": "scheduler",
         "service": "run_action",
-        "entityId": "climate.heating_controller",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.heating_controller"
+        ],
         "data": "",
         "dataType": "jsonata",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
@@ -6535,7 +6738,7 @@
         "z": "cf24db3435ba68ad",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -6591,7 +6794,7 @@
         "z": "cf24db3435ba68ad",
         "name": "not_home -> home",
         "server": "8b52884a.b76658",
-        "version": 1,
+        "version": 2,
         "exposeToHomeAssistant": false,
         "haConfig": [
             {
@@ -6642,6 +6845,472 @@
         ]
     },
     {
+        "id": "066749878081405d",
+        "type": "comment",
+        "z": "cf24db3435ba68ad",
+        "name": "Aircon",
+        "info": "",
+        "x": 130,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a3258b5588c62c7c",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "off -> auto",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "climate.midea_ac_42880953513406",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "auto"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 140,
+        "y": 720,
+        "wires": [
+            [
+                "f0c9108db605c58f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "be27bd4df8ea1392",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Enable swing mode",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_swing_mode",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.midea_ac_42880953513406"
+        ],
+        "data": "{\"swing_mode\":\"Vertical\"}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 590,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8374a52df1ce549",
+        "type": "trigger",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "op1": "{\"data\":{\"temperature\":\"24\"}}",
+        "op2": "{\"data\":{\"temperature\":\"30\"}}",
+        "op1type": "json",
+        "op2type": "json",
+        "duration": "15",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 810,
+        "y": 920,
+        "wires": [
+            [
+                "b6d7d911d1472f3a"
+            ],
+            [
+                "b6d7d911d1472f3a"
+            ]
+        ]
+    },
+    {
+        "id": "3127fde85c63721b",
+        "type": "server-state-changed",
+        "z": "cf24db3435ba68ad",
+        "name": "russell office occupancy",
+        "server": "8b52884a.b76658",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.office_person",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "1",
+        "halt_if_type": "num",
+        "halt_if_compare": "gte",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 920,
+        "wires": [
+            [
+                "77cb539139b1e947"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3ea5060cd8bc497d",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Set temperature",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_temperature",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.midea_ac_42880953513406"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1380,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "77cb539139b1e947",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.auto_set_aircon_temperature",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 410,
+        "y": 920,
+        "wires": [
+            [
+                "88e8c50a4d8547c3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f0c9108db605c58f",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.auto_enable_aircon_swing_mode",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 370,
+        "y": 720,
+        "wires": [
+            [
+                "be27bd4df8ea1392"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cdd7e2012c671703",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "off -> cool",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "climate.midea_ac_42880953513406",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "cool",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 140,
+        "y": 780,
+        "wires": [
+            [
+                "f0c9108db605c58f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "88e8c50a4d8547c3",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "aircon on?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "climate.midea_ac_42880953513406",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 590,
+        "y": 920,
+        "wires": [
+            [
+                "d8374a52df1ce549"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b6d7d911d1472f3a",
+        "type": "rbe",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1010,
+        "y": 920,
+        "wires": [
+            [
+                "4d9ec18e72d683ad"
+            ]
+        ]
+    },
+    {
+        "id": "4d9ec18e72d683ad",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "aircon on?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "climate.midea_ac_42880953513406",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 1170,
+        "y": 920,
+        "wires": [
+            [
+                "3ea5060cd8bc497d"
+            ],
+            []
+        ]
+    },
+    {
         "id": "9c1da9ccdd10d1fd",
         "type": "function",
         "z": "f987904ca78a23d7",
@@ -6666,7 +7335,7 @@
         "z": "f987904ca78a23d7",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "off",
         "halt_if_type": "str",
@@ -6675,6 +7344,9 @@
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 470,
         "y": 40,
         "wires": [
@@ -6777,7 +7449,7 @@
         "z": "f987904ca78a23d7",
         "name": "home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "home",
         "halt_if_type": "str",
@@ -6786,6 +7458,9 @@
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 630,
         "y": 160,
         "wires": [
@@ -6803,7 +7478,7 @@
         "z": "f987904ca78a23d7",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "off",
         "halt_if_type": "str",
@@ -6812,6 +7487,9 @@
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 470,
         "y": 160,
         "wires": [
@@ -6870,7 +7548,7 @@
         "z": "f987904ca78a23d7",
         "name": "home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "home",
         "halt_if_type": "str",
@@ -6879,6 +7557,9 @@
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 630,
         "y": 240,
         "wires": [
@@ -6896,7 +7577,7 @@
         "z": "f987904ca78a23d7",
         "name": "run?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "off",
         "halt_if_type": "str",
@@ -6905,6 +7586,9 @@
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 470,
         "y": 240,
         "wires": [
@@ -6979,7 +7663,7 @@
         "z": "f987904ca78a23d7",
         "name": "home?",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
         "outputs": 2,
         "halt_if": "home",
         "halt_if_type": "str",
@@ -6988,6 +7672,9 @@
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
         "x": 470,
         "y": 360,
         "wires": [
@@ -7063,14 +7750,16 @@
         "z": "f987904ca78a23d7",
         "name": "Notify (Android)",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 5,
         "debugenabled": false,
-        "service_domain": "notify",
+        "domain": "notify",
         "service": "mobile_app_pixel_4a",
-        "entityId": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
         "data": "",
         "dataType": "json",
-        "mergecontext": "",
+        "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [
             {
