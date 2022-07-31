@@ -2423,7 +2423,7 @@
         "outputinitially": false,
         "state_type": "str",
         "enableInput": true,
-        "x": 1050,
+        "x": 1070,
         "y": 700,
         "wires": [
             [
@@ -2460,7 +2460,7 @@
             }
         ],
         "queue": "none",
-        "x": 1530,
+        "x": 1550,
         "y": 660,
         "wires": [
             []
@@ -2513,7 +2513,7 @@
         "outputinitially": false,
         "state_type": "str",
         "enableInput": true,
-        "x": 1050,
+        "x": 1070,
         "y": 620,
         "wires": [
             [
@@ -3085,7 +3085,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1300,
+        "x": 1320,
         "y": 620,
         "wires": [
             [
@@ -3104,7 +3104,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1300,
+        "x": 1320,
         "y": 700,
         "wires": [
             [
