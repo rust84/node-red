@@ -3732,7 +3732,7 @@
         "id": "91f387a44ca991a3",
         "type": "switch",
         "z": "afb0f186.cfb0d",
-        "name": "1. off 2.playing 3. standby 4. idle, 5. paused",
+        "name": "1. off -> 2.playing  -> 3. standby -> 4. idle -> 5. paused",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
@@ -3765,7 +3765,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 5,
-        "x": 450,
+        "x": 460,
         "y": 1180,
         "wires": [
             [
