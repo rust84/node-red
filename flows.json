@@ -203,14 +203,23 @@
         "id": "8b52884a.b76658",
         "type": "server",
         "name": "Home Assistant",
-        "version": 2,
+        "version": 4,
         "addon": false,
         "rejectUnauthorizedCerts": true,
         "ha_boolean": "y|yes|true|on|home|open",
         "connectionDelay": true,
         "cacheJson": true,
         "heartbeat": false,
-        "heartbeatInterval": "30"
+        "heartbeatInterval": "30",
+        "areaSelector": "friendlyName",
+        "deviceSelector": "friendlyName",
+        "entitySelector": "friendlyName",
+        "statusSeparator": "at: ",
+        "statusYear": "hidden",
+        "statusMonth": "short",
+        "statusDay": "numeric",
+        "statusHourCycle": "h23",
+        "statusTimeFormat": "h:m"
     },
     {
         "id": "649859a4.a17818",
@@ -6237,35 +6246,6 @@
             ],
             [
                 "7cf0445018385919"
-            ]
-        ]
-    },
-    {
-        "id": "48d10daf5fd167e4",
-        "type": "inject",
-        "z": "4aedf9e8.044e08",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 720,
-        "y": 500,
-        "wires": [
-            [
-                "81c2d258.033ce"
             ]
         ]
     },
