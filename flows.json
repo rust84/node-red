@@ -200,6 +200,18 @@
         "color": "#DDAA99"
     },
     {
+        "id": "e0582fb7de854436",
+        "type": "junction",
+        "z": "afb0f186.cfb0d",
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "12c65d4193e6b2ab"
+            ]
+        ]
+    },
+    {
         "id": "8b52884a.b76658",
         "type": "server",
         "name": "Home Assistant",
@@ -260,7 +272,7 @@
         "hostname": "plex.media.svc",
         "port": "32400",
         "timeout": "1000",
-        "token": "Pad-1jGpBx1ASuVeSVHw",
+        "token": "1VHgvvssHeNS8ZATAdxE",
         "secure": false
     },
     {
@@ -282,8 +294,9 @@
                 "10d4db91.a75214",
                 "39b8136a.8621ec",
                 "da8d24c5.0c87e8",
-                "61b4bf0b24758188",
-                "e8260f6eeb45d8e6"
+                "e8260f6eeb45d8e6",
+                "781791cde34ea320",
+                "61b4bf0b24758188"
             ]
         ]
     },
@@ -291,7 +304,7 @@
         "id": "da8d24c5.0c87e8",
         "type": "api-call-service",
         "z": "43703bf3.b01b24",
-        "name": "office light",
+        "name": "office group",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
@@ -315,7 +328,7 @@
             }
         ],
         "queue": "none",
-        "x": 400,
+        "x": 410,
         "y": 40,
         "wires": [
             []
@@ -486,7 +499,7 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 100,
+        "y": 400,
         "wires": [
             []
         ]
@@ -510,6 +523,52 @@
                 "89834abb.4ef668"
             ]
         ]
+    },
+    {
+        "id": "781791cde34ea320",
+        "type": "api-call-service",
+        "z": "43703bf3.b01b24",
+        "name": "office light switch",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "",
+        "areaId": [],
+        "deviceId": [
+            "eb5fd5389eefaad9e3c3ac3b49f464d9"
+        ],
+        "entityId": [
+            "group.office_group"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 430,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f44f0a0e605d7fb",
+        "type": "comment",
+        "z": "43703bf3.b01b24",
+        "name": "Do not loop :)",
+        "info": "",
+        "x": 590,
+        "y": 40,
+        "wires": []
     },
     {
         "id": "403394b42c104bf5",
@@ -1239,7 +1298,7 @@
         "wires": [
             [
                 "53bc270379b36276",
-                "12c65d4193e6b2ab"
+                "e0582fb7de854436"
             ],
             []
         ]
@@ -1251,7 +1310,7 @@
         "name": "",
         "env": [],
         "x": 390,
-        "y": 320,
+        "y": 300,
         "wires": []
     },
     {
@@ -1282,8 +1341,8 @@
             }
         ],
         "queue": "none",
-        "x": 690,
-        "y": 680,
+        "x": 650,
+        "y": 700,
         "wires": [
             []
         ]
@@ -1305,8 +1364,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 450,
-        "y": 680,
+        "x": 430,
+        "y": 660,
         "wires": [
             [
                 "de7ec5fa0d844b3e",
@@ -1975,7 +2034,7 @@
             }
         ],
         "x": 160,
-        "y": 680,
+        "y": 660,
         "wires": [
             [
                 "18fde90dc9b35867"
@@ -2280,7 +2339,7 @@
         "finalize": "",
         "libs": [],
         "x": 1130,
-        "y": 1240,
+        "y": 1260,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2299,7 +2358,7 @@
         "finalize": "",
         "libs": [],
         "x": 1140,
-        "y": 1380,
+        "y": 1420,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2318,7 +2377,7 @@
         "finalize": "",
         "libs": [],
         "x": 1140,
-        "y": 1320,
+        "y": 1340,
         "wires": [
             [
                 "7a308ec0c72ccb31"
@@ -2535,7 +2594,7 @@
         "id": "2e5a11d811c61dc2",
         "type": "plex-ws-playing",
         "z": "afb0f186.cfb0d",
-        "name": "",
+        "name": "Plex",
         "server": "06a202b01db68d7e",
         "allowUpdates": false,
         "filters": [],
@@ -3508,19 +3567,19 @@
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
+                "propertyValue": "new_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "on",
-                "propertyValue": "new_state.state"
+                "comparatorValue": "on"
             },
             {
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "off",
-                "propertyValue": "old_state.state"
+                "comparatorValue": "off"
             }
         ],
         "inputs": 1,
@@ -3530,12 +3589,14 @@
         "state_type": "str",
         "enableInput": true,
         "x": 130,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "28eedb1a15fe78af"
             ],
-            []
+            [
+                "dff7b73afaabfd9a"
+            ]
         ]
     },
     {
@@ -3611,62 +3672,6 @@
         ]
     },
     {
-        "id": "0d8ab1639238873e",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "light on -> off",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "switch.office_light_switch",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "on",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 130,
-        "y": 820,
-        "wires": [
-            [
-                "dff7b73afaabfd9a"
-            ],
-            []
-        ]
-    },
-    {
         "id": "770f3ce294ac2d3c",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
@@ -3694,35 +3699,8 @@
             }
         ],
         "queue": "none",
-        "x": 700,
+        "x": 660,
         "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "12c65d4193e6b2ab",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "Turn off aircon",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "climate",
-        "service": "set_hvac_mode",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.midea_ac_42880953513406"
-        ],
-        "data": "{\"hvac_mode\":\"off\"}",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 400,
-        "y": 240,
         "wires": [
             []
         ]
@@ -3832,6 +3810,33 @@
                 "88da13a932af2a88",
                 "685c4449f9f482aa"
             ]
+        ]
+    },
+    {
+        "id": "12c65d4193e6b2ab",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Turn off aircon",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_hvac_mode",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.midea_ac_42880953513406"
+        ],
+        "data": "{\"hvac_mode\":\"off\"}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 620,
+        "y": 300,
+        "wires": [
+            []
         ]
     },
     {
