@@ -6478,7 +6478,7 @@
         "id": "d841ce2f97c502f8",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
-        "name": "Heating schedule toggle",
+        "name": "Schedule override toggle",
         "server": "8b52884a.b76658",
         "version": 2,
         "exposeToHomeAssistant": false,
@@ -6500,19 +6500,19 @@
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
+                "propertyValue": "new_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "off",
-                "propertyValue": "new_state.state"
+                "comparatorValue": "off"
             },
             {
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "on",
-                "propertyValue": "old_state.state"
+                "comparatorValue": "on"
             }
         ],
         "inputs": 0,
@@ -6521,7 +6521,7 @@
         "outputinitially": false,
         "state_type": "str",
         "enableInput": false,
-        "x": 170,
+        "x": 190,
         "y": 400,
         "wires": [
             [
@@ -6536,7 +6536,7 @@
         "id": "4aed068020384b78",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
-        "name": "Turn off heating schedules",
+        "name": "Disable schedules",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
@@ -6545,7 +6545,8 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.heating_schedules"
+            "switch.schedule_weekday",
+            "switch.schedule_weekend"
         ],
         "data": "",
         "dataType": "json",
@@ -6560,7 +6561,7 @@
             }
         ],
         "queue": "none",
-        "x": 530,
+        "x": 650,
         "y": 340,
         "wires": [
             [
@@ -6572,7 +6573,7 @@
         "id": "2447d1c9ace3b941",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
-        "name": "Turn on heating schedules",
+        "name": "Enable schedules",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
@@ -6581,7 +6582,8 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.heating_schedules"
+            "switch.schedule_weekday",
+            "switch.schedule_weekend"
         ],
         "data": "",
         "dataType": "json",
@@ -6596,7 +6598,7 @@
             }
         ],
         "queue": "none",
-        "x": 530,
+        "x": 650,
         "y": 480,
         "wires": [
             [
@@ -6644,7 +6646,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 790,
+        "x": 920,
         "y": 480,
         "wires": [
             []
@@ -6716,11 +6718,11 @@
         "outputinitially": false,
         "state_type": "str",
         "enableInput": true,
-        "x": 180,
+        "x": 190,
         "y": 300,
         "wires": [
             [
-                "4aed068020384b78"
+                "bd1afed023a81c58"
             ],
             []
         ]
@@ -6772,11 +6774,11 @@
         "outputinitially": false,
         "state_type": "str",
         "enableInput": true,
-        "x": 180,
+        "x": 190,
         "y": 500,
         "wires": [
             [
-                "2447d1c9ace3b941"
+                "dde8862116e0100f"
             ],
             []
         ]
@@ -7243,6 +7245,98 @@
         "wires": [
             [
                 "3ea5060cd8bc497d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bd1afed023a81c58",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.heating_schedule_away",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "4aed068020384b78"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "dde8862116e0100f",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.heating_schedule_away",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "2447d1c9ace3b941"
             ],
             []
         ]
