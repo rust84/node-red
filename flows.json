@@ -212,6 +212,42 @@
         ]
     },
     {
+        "id": "5be2ecb5576efb75",
+        "type": "junction",
+        "z": "f987904ca78a23d7",
+        "x": 360,
+        "y": 360,
+        "wires": [
+            [
+                "7d14421895ba3bd2"
+            ]
+        ]
+    },
+    {
+        "id": "7c18013c40d0c4e7",
+        "type": "junction",
+        "z": "f987904ca78a23d7",
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "7d14421895ba3bd2"
+            ]
+        ]
+    },
+    {
+        "id": "d3e9ebbaa7917aca",
+        "type": "junction",
+        "z": "f987904ca78a23d7",
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "cb33c256a819acda"
+            ]
+        ]
+    },
+    {
         "id": "8b52884a.b76658",
         "type": "server",
         "name": "Home Assistant",
@@ -7651,20 +7687,20 @@
         "id": "5eae183d2e8a0d8e",
         "type": "subflow:ebce7e9e955e453a",
         "z": "f987904ca78a23d7",
-        "name": "",
-        "x": 250,
+        "name": "1. driveway 2. lounge 3. office",
+        "x": 180,
         "y": 160,
         "wires": [
             [
-                "cb33c256a819acda"
+                "d3e9ebbaa7917aca"
             ],
             [
                 "2c1b1b8da47eed7b",
-                "7d14421895ba3bd2"
+                "7c18013c40d0c4e7"
             ],
             [
                 "d61d36be2dadb8a9",
-                "7d14421895ba3bd2"
+                "5be2ecb5576efb75"
             ]
         ]
     },
