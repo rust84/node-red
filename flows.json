@@ -3876,6 +3876,35 @@
         ]
     },
     {
+        "id": "c57344b469fc3dd1",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 600,
+        "wires": [
+            [
+                "18fde90dc9b35867"
+            ]
+        ]
+    },
+    {
         "id": "6cb23d50.77ced4",
         "type": "bigtimer",
         "z": "4aedf9e8.044e08",
@@ -4375,7 +4404,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 800,
+        "x": 760,
         "y": 420,
         "wires": [
             [],
@@ -4750,7 +4779,7 @@
                 "type": "msg"
             }
         ],
-        "x": 1030,
+        "x": 1010,
         "y": 300,
         "wires": [
             [
@@ -4786,7 +4815,7 @@
             }
         ],
         "queue": "none",
-        "x": 1280,
+        "x": 1260,
         "y": 300,
         "wires": [
             []
@@ -4905,7 +4934,7 @@
                 "type": "msg"
             }
         ],
-        "x": 990,
+        "x": 1010,
         "y": 560,
         "wires": [
             [
@@ -6232,7 +6261,7 @@
         "name": "Fire alarm",
         "info": "",
         "x": 960,
-        "y": 1080,
+        "y": 1060,
         "wires": []
     },
     {
