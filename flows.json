@@ -1273,8 +1273,8 @@
         "scheduleRndMax": 0,
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": true,
-        "x": 410,
-        "y": 160,
+        "x": 430,
+        "y": 140,
         "wires": [
             [
                 "8193de22b9225b89"
@@ -1991,7 +1991,7 @@
         "type": "trigger",
         "z": "afb0f186.cfb0d",
         "name": "",
-        "op1": "{\"service\":\"turn_on\",\"data\":{\"brightness\":181,\"rgbw_color\":[255,191,127,255],\"white_value\":255}}",
+        "op1": "{\"service\":\"turn_on\",\"data\":{\"brightness\":181,\"rgbw_color\":[255,191,127,255]}}",
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
@@ -3901,6 +3901,35 @@
         "wires": [
             [
                 "18fde90dc9b35867"
+            ]
+        ]
+    },
+    {
+        "id": "4556807f8e3d8622",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 200,
+        "wires": [
+            [
+                "8193de22b9225b89"
             ]
         ]
     },
@@ -6300,7 +6329,7 @@
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "120",
+        "duration": "300",
         "extend": true,
         "overrideDelay": false,
         "units": "s",
