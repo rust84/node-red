@@ -4013,11 +4013,11 @@
         "odd": false,
         "even": false,
         "x": 130,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
                 "cd1caa8c.300358",
-                "910caaaf.b41098"
+                "a03fb84252a9d218"
             ],
             [],
             []
@@ -4089,8 +4089,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 200,
+        "x": 200,
+        "y": 240,
         "wires": [
             [
                 "cd1caa8c.300358"
@@ -4434,7 +4434,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 350,
+        "x": 370,
         "y": 140,
         "wires": [
             [],
@@ -4763,7 +4763,7 @@
                 "type": "msg"
             }
         ],
-        "x": 1010,
+        "x": 550,
         "y": 300,
         "wires": [
             [
@@ -4799,7 +4799,7 @@
             }
         ],
         "queue": "none",
-        "x": 1260,
+        "x": 800,
         "y": 300,
         "wires": [
             []
@@ -5290,7 +5290,7 @@
         "z": "4aedf9e8.044e08",
         "name": "",
         "env": [],
-        "x": 390,
+        "x": 550,
         "y": 60,
         "wires": []
     },
@@ -5899,7 +5899,7 @@
             }
         ],
         "queue": "none",
-        "x": 1260,
+        "x": 1220,
         "y": 140,
         "wires": [
             []
@@ -5916,7 +5916,7 @@
                 "type": "msg"
             }
         ],
-        "x": 1010,
+        "x": 990,
         "y": 140,
         "wires": [
             [
@@ -6300,6 +6300,42 @@
             ],
             [
                 "7cf0445018385919"
+            ]
+        ]
+    },
+    {
+        "id": "a03fb84252a9d218",
+        "type": "api-call-service",
+        "z": "4aedf9e8.044e08",
+        "name": "lounge light",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "light",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "910caaaf.b41098"
             ]
         ]
     },
