@@ -1339,7 +1339,7 @@
         "id": "de7ec5fa0d844b3e",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
-        "name": "clock",
+        "name": "warpcore lamp",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
@@ -1363,7 +1363,7 @@
             }
         ],
         "queue": "none",
-        "x": 650,
+        "x": 680,
         "y": 700,
         "wires": [
             []
@@ -3663,7 +3663,7 @@
         "id": "770f3ce294ac2d3c",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
-        "name": "ambilight",
+        "name": "pacman lamp",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
@@ -3687,7 +3687,7 @@
             }
         ],
         "queue": "none",
-        "x": 660,
+        "x": 680,
         "y": 620,
         "wires": [
             []
