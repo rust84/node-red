@@ -203,12 +203,10 @@
         "id": "e0582fb7de854436",
         "type": "junction",
         "z": "afb0f186.cfb0d",
-        "x": 400,
-        "y": 260,
+        "x": 540,
+        "y": 300,
         "wires": [
-            [
-                "12c65d4193e6b2ab"
-            ]
+            []
         ]
     },
     {
@@ -619,8 +617,10 @@
         "tls": "",
         "persist": false,
         "proxy": "",
+        "insecureHTTPParser": false,
         "authType": "",
         "senderr": false,
+        "headers": [],
         "x": 390,
         "y": 80,
         "wires": [
@@ -1294,19 +1294,19 @@
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
+                "propertyValue": "new_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "new_state.state"
+                "comparatorValue": "not_home"
             },
             {
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "old_state.state"
+                "comparatorValue": "home"
             }
         ],
         "inputs": 1,
@@ -1319,8 +1319,7 @@
         "y": 300,
         "wires": [
             [
-                "53bc270379b36276",
-                "e0582fb7de854436"
+                "53bc270379b36276"
             ],
             []
         ]
@@ -1595,8 +1594,8 @@
             }
         ],
         "queue": "none",
-        "x": 610,
-        "y": 480,
+        "x": 630,
+        "y": 460,
         "wires": [
             []
         ]
@@ -1642,7 +1641,8 @@
         "y": 380,
         "wires": [
             [
-                "6961a37b9fcbe07d"
+                "6961a37b9fcbe07d",
+                "1c0627d534419005"
             ],
             []
         ]
@@ -1688,7 +1688,8 @@
         "y": 480,
         "wires": [
             [
-                "622ad5815186c1e3"
+                "622ad5815186c1e3",
+                "4cc5088fb2f4b971"
             ],
             []
         ]
@@ -2447,7 +2448,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "switch.smart_plug"
+            "switch.living_room_plug"
         ],
         "data": "",
         "dataType": "json",
@@ -3148,9 +3149,7 @@
         "x": 1320,
         "y": 620,
         "wires": [
-            [
-                "7241c0a1ae04f48c"
-            ]
+            []
         ]
     },
     {
@@ -3167,9 +3166,7 @@
         "x": 1320,
         "y": 700,
         "wires": [
-            [
-                "7241c0a1ae04f48c"
-            ]
+            []
         ]
     },
     {
@@ -3825,7 +3822,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 620,
+        "x": 600,
         "y": 300,
         "wires": [
             []
@@ -3887,6 +3884,288 @@
             [
                 "8193de22b9225b89"
             ]
+        ]
+    },
+    {
+        "id": "7d6a77d9e130baab",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "Parking reminder",
+        "func": "var category = \"location\"\nvar title = \"Parking reminder\"\nvar message = \"Validate parking 🚗\\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 2360,
+        "wires": [
+            [
+                "d1cd0f1f276d176d"
+            ]
+        ]
+    },
+    {
+        "id": "d1cd0f1f276d176d",
+        "type": "delay",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 620,
+        "y": 2360,
+        "wires": [
+            [
+                "77b71968d0e6d7b4"
+            ]
+        ]
+    },
+    {
+        "id": "77b71968d0e6d7b4",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "notify Russell android",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "notify",
+        "service": "mobile_app_pixel_4a",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 860,
+        "y": 2360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f9286a3bcc74f537",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "I have the memory of a goldfish",
+        "info": "",
+        "x": 210,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "4cc5088fb2f4b971",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "turn off christmas tree",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [
+            "c1a7f292e7254e3bf762b0f2c609d928"
+        ],
+        "entityId": [],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 640,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c0627d534419005",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "turn on christmas tree",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [
+            "c1a7f292e7254e3bf762b0f2c609d928"
+        ],
+        "entityId": [],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 840,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f99c3256bebf7885",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "russell arrive at gym",
+        "server": "8b52884a.b76658",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "person.russell",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "gym",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 130,
+        "y": 2360,
+        "wires": [
+            [
+                "7d6a77d9e130baab"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "816969ebe39a8692",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "russell arrive at rose flat",
+        "server": "8b52884a.b76658",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "person.russell",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "Rose Flat",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 140,
+        "y": 2440,
+        "wires": [
+            [
+                "7d6a77d9e130baab"
+            ],
+            []
         ]
     },
     {
@@ -4776,12 +5055,12 @@
         "id": "c901e347.7a1dc",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
-        "name": "arm alarm away",
+        "name": "arm alarm home",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
         "domain": "alarm_control_panel",
-        "service": "alarm_arm_away",
+        "service": "alarm_arm_home",
         "areaId": [],
         "deviceId": [],
         "entityId": [
@@ -6097,7 +6376,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "ignorePrevStateNull": false,
+        "ignorePrevStateNull": true,
         "ignorePrevStateUnknown": true,
         "ignorePrevStateUnavailable": true,
         "ignoreCurrentStateUnknown": false,
@@ -6161,7 +6440,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "ignorePrevStateNull": false,
+        "ignorePrevStateNull": true,
         "ignorePrevStateUnknown": true,
         "ignorePrevStateUnavailable": true,
         "ignoreCurrentStateUnknown": false,
@@ -6339,6 +6618,16 @@
                 "910caaaf.b41098"
             ]
         ]
+    },
+    {
+        "id": "df83a7ccb6c51af7",
+        "type": "comment",
+        "z": "4aedf9e8.044e08",
+        "name": "arm_home for dog",
+        "info": "",
+        "x": 990,
+        "y": 300,
+        "wires": []
     },
     {
         "id": "f92e64aaa31fb31c",
@@ -7793,9 +8082,7 @@
         "x": 470,
         "y": 360,
         "wires": [
-            [
-                "7cc8738b703f76a1"
-            ],
+            [],
             [
                 "0b5ecb7b1876c42c"
             ]
@@ -7918,26 +8205,6 @@
         "wires": [
             [
                 "2da225051b82f6e6"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "7cc8738b703f76a1",
-        "type": "time-range-switch",
-        "z": "f987904ca78a23d7",
-        "name": "3am-8am",
-        "lat": "33.95092",
-        "lon": "-84.44805",
-        "startTime": "03:00",
-        "endTime": "08:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 680,
-        "y": 320,
-        "wires": [
-            [
-                "0b5ecb7b1876c42c"
             ],
             []
         ]
