@@ -200,16 +200,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "e0582fb7de854436",
-        "type": "junction",
-        "z": "afb0f186.cfb0d",
-        "x": 540,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "5be2ecb5576efb75",
         "type": "junction",
         "z": "f987904ca78a23d7",
@@ -1424,8 +1414,8 @@
             }
         ],
         "queue": "none",
-        "x": 570,
-        "y": 380,
+        "x": 630,
+        "y": 340,
         "wires": [
             []
         ]
@@ -2468,152 +2458,6 @@
         ]
     },
     {
-        "id": "163fae7b64cbab94",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "desktop on -> desktop off",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "device_tracker.desktop_7s8160f",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 1070,
-        "y": 700,
-        "wires": [
-            [
-                "25c599bac7b31880"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "7241c0a1ae04f48c",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "monitor ambilight",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "switch",
-        "service": "",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "switch.sonoff_s26_1_relay"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 1590,
-        "y": 660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d6c52e76115a7ede",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "desktop off -> desktop on",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "device_tracker.desktop_7s8160f",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 1070,
-        "y": 620,
-        "wires": [
-            [
-                "c20243ef2bd23940"
-            ],
-            []
-        ]
-    },
-    {
         "id": "2e5a11d811c61dc2",
         "type": "plex-ws-playing",
         "z": "afb0f186.cfb0d",
@@ -3132,40 +2976,6 @@
         "x": 130,
         "y": 1560,
         "wires": []
-    },
-    {
-        "id": "c20243ef2bd23940",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "turn_on",
-        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1320,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "25c599bac7b31880",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "turn_off",
-        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1320,
-        "y": 700,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "89b8ee7cc03fec61",
@@ -3800,33 +3610,6 @@
         ]
     },
     {
-        "id": "12c65d4193e6b2ab",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "Turn off aircon",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "climate",
-        "service": "set_hvac_mode",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.midea_ac_42880953513406"
-        ],
-        "data": "{\"hvac_mode\":\"off\"}",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 600,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "c57344b469fc3dd1",
         "type": "inject",
         "z": "afb0f186.cfb0d",
@@ -4032,8 +3815,8 @@
             }
         ],
         "queue": "none",
-        "x": 840,
-        "y": 380,
+        "x": 640,
+        "y": 400,
         "wires": [
             []
         ]
