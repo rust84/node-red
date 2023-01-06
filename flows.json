@@ -1389,12 +1389,10 @@
         "y": 660,
         "wires": [
             [
-                "de7ec5fa0d844b3e",
-                "770f3ce294ac2d3c"
+                "de7ec5fa0d844b3e"
             ],
             [
-                "de7ec5fa0d844b3e",
-                "770f3ce294ac2d3c"
+                "de7ec5fa0d844b3e"
             ]
         ]
     },
@@ -3966,10 +3964,10 @@
         "id": "f9286a3bcc74f537",
         "type": "comment",
         "z": "afb0f186.cfb0d",
-        "name": "I have the memory of a goldfish",
+        "name": "Parking",
         "info": "",
-        "x": 210,
-        "y": 2280,
+        "x": 90,
+        "y": 2300,
         "wires": []
     },
     {
@@ -4164,6 +4162,317 @@
         "wires": [
             [
                 "7d6a77d9e130baab"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ce6172e6b70ce45d",
+        "type": "time-range-switch",
+        "z": "afb0f186.cfb0d",
+        "name": "5pm-6pm",
+        "lat": "51.298530532198356",
+        "lon": "-2.2305447589418095",
+        "startTime": "17:00",
+        "endTime": "18:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 340,
+        "y": 2600,
+        "wires": [
+            [
+                "9a81dec186e071ac"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7ba869440b93e2df",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "format Alexa",
+        "func": "var bin = msg.payload\nvar message = \"Remember to put out the \" + bin\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 2600,
+        "wires": [
+            [
+                "683ca2738de7a2a0"
+            ]
+        ]
+    },
+    {
+        "id": "76b1b01bd11dde9e",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Alexa notify",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "notify",
+        "service": "alexa_media_everywhere",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1310,
+        "y": 2600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "683ca2738de7a2a0",
+        "type": "delay",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 2600,
+        "wires": [
+            [
+                "76b1b01bd11dde9e"
+            ]
+        ]
+    },
+    {
+        "id": "51e77ba5691fca49",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Russell android notify",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "notify",
+        "service": "mobile_app_pixel_4a",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 1340,
+        "y": 2720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "49620fe597046cdb",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "format Android",
+        "func": "var category = \"time\"\nvar title = \"Bins reminder\"\nvar message = \"Put out the \" + msg.payload + \" 🗑\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 2720,
+        "wires": [
+            [
+                "36109e7738361659"
+            ]
+        ]
+    },
+    {
+        "id": "9a81dec186e071ac",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "recycling",
+        "func": "msg.payload = \"recycling\"\n\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 2600,
+        "wires": [
+            [
+                "7ba869440b93e2df",
+                "49620fe597046cdb"
+            ]
+        ]
+    },
+    {
+        "id": "500927a9fbe19a5c",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "household waste",
+        "func": "msg.payload = \"household waste\"\n\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 2720,
+        "wires": [
+            [
+                "7ba869440b93e2df",
+                "49620fe597046cdb"
+            ]
+        ]
+    },
+    {
+        "id": "36109e7738361659",
+        "type": "delay",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 2720,
+        "wires": [
+            [
+                "51e77ba5691fca49"
+            ]
+        ]
+    },
+    {
+        "id": "ae50607a2737d8ee",
+        "type": "poll-state",
+        "z": "afb0f186.cfb0d",
+        "name": "Household waste",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "updateinterval": "3600",
+        "updateIntervalType": "num",
+        "updateIntervalUnits": "seconds",
+        "outputinitially": true,
+        "outputonchanged": true,
+        "entity_id": "sensor.waste_collection_household",
+        "state_type": "str",
+        "halt_if": "TOMORROW",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "x": 120,
+        "y": 2720,
+        "wires": [
+            [
+                "df68f8446cb4b10b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "44c37607e0fd11dd",
+        "type": "poll-state",
+        "z": "afb0f186.cfb0d",
+        "name": "Recycling waste",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "updateinterval": "3600",
+        "updateIntervalType": "num",
+        "updateIntervalUnits": "seconds",
+        "outputinitially": true,
+        "outputonchanged": true,
+        "entity_id": "sensor.waste_collection_recycling",
+        "state_type": "str",
+        "halt_if": "TOMORROW",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "x": 120,
+        "y": 2600,
+        "wires": [
+            [
+                "ce6172e6b70ce45d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bae7e1cdf2bf377e",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Bins",
+        "info": "",
+        "x": 90,
+        "y": 2540,
+        "wires": []
+    },
+    {
+        "id": "df68f8446cb4b10b",
+        "type": "time-range-switch",
+        "z": "afb0f186.cfb0d",
+        "name": "5pm-6pm",
+        "lat": "51.298530532198356",
+        "lon": "-2.2305447589418095",
+        "startTime": "17:00",
+        "endTime": "18:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 340,
+        "y": 2720,
+        "wires": [
+            [
+                "500927a9fbe19a5c"
             ],
             []
         ]
@@ -6560,7 +6869,7 @@
         "type": "trigger",
         "z": "4aedf9e8.044e08",
         "name": "",
-        "op1": "{\"service\":\"turn_on\",\"data\":{\"brightness\":181,\"rgbw_color\":[0,255,64,0],\"white_value\":0}}",
+        "op1": "{\"service\":\"turn_on\",\"data\":{\"brightness\":181,\"rgbw_color\":[0,255,64,0]}}",
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
@@ -6630,6 +6939,45 @@
         "wires": []
     },
     {
+        "id": "38ac8f49864ec03c",
+        "type": "inject",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 840,
+        "wires": [
+            [
+                "2d021432e7e8a5b2"
+            ]
+        ]
+    },
+    {
+        "id": "2e87d1b84fb9baf4",
+        "type": "comment",
+        "z": "4aedf9e8.044e08",
+        "name": "FIX: white_value not supported",
+        "info": "",
+        "x": 1030,
+        "y": 800,
+        "wires": []
+    },
+    {
         "id": "f92e64aaa31fb31c",
         "type": "mqtt in",
         "z": "cf24db3435ba68ad",
@@ -6651,20 +6999,6 @@
                 "f1549a3d6d78367a",
                 "1ec2762dc71884a5"
             ]
-        ]
-    },
-    {
-        "id": "70f75775e660535b",
-        "type": "json",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 450,
-        "y": 160,
-        "wires": [
-            []
         ]
     },
     {
@@ -7832,8 +8166,8 @@
         "type": "time-range-switch",
         "z": "f987904ca78a23d7",
         "name": "3am-8am",
-        "lat": "33.95092",
-        "lon": "-84.44805",
+        "lat": "51.298530532198356",
+        "lon": "-2.2305447589418095",
         "startTime": "03:00",
         "endTime": "08:00",
         "startOffset": 0,
@@ -8046,8 +8380,8 @@
         "type": "time-range-switch",
         "z": "f987904ca78a23d7",
         "name": "3am-8am",
-        "lat": "33.95092",
-        "lon": "-84.44805",
+        "lat": "51.298530532198356",
+        "lon": "-2.2305447589418095",
         "startTime": "03:00",
         "endTime": "08:00",
         "startOffset": 0,
@@ -8214,8 +8548,8 @@
         "type": "time-range-switch",
         "z": "f987904ca78a23d7",
         "name": "3am-8am",
-        "lat": "33.95092",
-        "lon": "-84.44805",
+        "lat": "51.298530532198356",
+        "lon": "-2.2305447589418095",
         "startTime": "03:00",
         "endTime": "08:00",
         "startOffset": 0,
