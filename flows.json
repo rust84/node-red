@@ -1080,7 +1080,6 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "binary_sensor.landing_motion_sensor_occupancy",
         "entityidfiltertype": "exact",
         "outputinitially": false,
         "state_type": "str",
@@ -3229,12 +3228,8 @@
         "x": 130,
         "y": 780,
         "wires": [
-            [
-                "28eedb1a15fe78af"
-            ],
-            [
-                "dff7b73afaabfd9a"
-            ]
+            [],
+            []
         ]
     },
     {
@@ -4021,6 +4016,16 @@
                 "8895c40ab576f5c2"
             ]
         ]
+    },
+    {
+        "id": "6bdf57667c5ce622",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "DISABLED",
+        "info": "",
+        "x": 200,
+        "y": 740,
+        "wires": []
     },
     {
         "id": "6cb23d50.77ced4",
