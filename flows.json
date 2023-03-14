@@ -2025,7 +2025,7 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "media_player.android_tv_10_20_0_83",
+        "entityidfilter": "media_player.android_tv_10_30_0_83",
         "entityidfiltertype": "exact",
         "outputinitially": true,
         "state_type": "str",
