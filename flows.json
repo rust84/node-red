@@ -5452,7 +5452,7 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "binary_sensor.landing_motion",
+        "entityidfilter": "binary_sensor.landing_motion_sensor_occupancy",
         "entityidfiltertype": "exact",
         "outputinitially": false,
         "state_type": "str",
@@ -5493,7 +5493,9 @@
         "y": 1080,
         "wires": [
             [],
-            []
+            [
+                "9637fd97fca06cc2"
+            ]
         ]
     },
     {
@@ -5746,8 +5748,7 @@
         "wires": [
             [],
             [
-                "9637fd97fca06cc2",
-                "57d24fab2cc21bf7"
+                "9637fd97fca06cc2"
             ]
         ]
     },
