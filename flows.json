@@ -535,15 +535,15 @@
         "id": "781791cde34ea320",
         "type": "api-call-service",
         "z": "43703bf3.b01b24",
-        "name": "office light switch",
+        "name": "office light",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
-        "domain": "switch",
+        "domain": "light",
         "service": "",
         "areaId": [],
         "deviceId": [
-            "eb5fd5389eefaad9e3c3ac3b49f464d9"
+            "50d461f59d1ef1bfc239179d38bc487b"
         ],
         "entityId": [
             "group.office_group"
@@ -561,7 +561,7 @@
             }
         ],
         "queue": "none",
-        "x": 430,
+        "x": 400,
         "y": 100,
         "wires": [
             []
