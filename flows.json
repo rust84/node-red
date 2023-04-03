@@ -320,7 +320,6 @@
                 "10d4db91.a75214",
                 "39b8136a.8621ec",
                 "da8d24c5.0c87e8",
-                "781791cde34ea320",
                 "61b4bf0b24758188",
                 "8c9d4e0639f258ad",
                 "89834abb.4ef668"
@@ -390,7 +389,7 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 160,
+        "y": 100,
         "wires": [
             []
         ]
@@ -424,7 +423,7 @@
         ],
         "queue": "none",
         "x": 400,
-        "y": 280,
+        "y": 220,
         "wires": [
             []
         ]
@@ -458,7 +457,7 @@
         ],
         "queue": "none",
         "x": 420,
-        "y": 340,
+        "y": 280,
         "wires": [
             []
         ]
@@ -492,7 +491,7 @@
         ],
         "queue": "none",
         "x": 420,
-        "y": 400,
+        "y": 340,
         "wires": [
             []
         ]
@@ -526,56 +525,10 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 460,
+        "y": 400,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "781791cde34ea320",
-        "type": "api-call-service",
-        "z": "43703bf3.b01b24",
-        "name": "office light",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "light",
-        "service": "",
-        "areaId": [],
-        "deviceId": [
-            "50d461f59d1ef1bfc239179d38bc487b"
-        ],
-        "entityId": [
-            "group.office_group"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 400,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3f44f0a0e605d7fb",
-        "type": "comment",
-        "z": "43703bf3.b01b24",
-        "name": "Do not loop :)",
-        "info": "",
-        "x": 590,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "8c9d4e0639f258ad",
@@ -606,7 +559,7 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 220,
+        "y": 160,
         "wires": [
             []
         ]
