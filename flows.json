@@ -321,8 +321,7 @@
                 "39b8136a.8621ec",
                 "da8d24c5.0c87e8",
                 "61b4bf0b24758188",
-                "8c9d4e0639f258ad",
-                "89834abb.4ef668"
+                "8c9d4e0639f258ad"
             ]
         ]
     },
@@ -356,40 +355,6 @@
         "queue": "none",
         "x": 410,
         "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "89834abb.4ef668",
-        "type": "api-call-service",
-        "z": "43703bf3.b01b24",
-        "name": "lounge light",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "light",
-        "service": "",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "light.lounge_light"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 410,
-        "y": 100,
         "wires": [
             []
         ]
@@ -563,6 +528,50 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "89834abb.4ef668",
+        "type": "api-call-service",
+        "z": "43703bf3.b01b24",
+        "name": "lounge light",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "light",
+        "service": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 410,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf834f57adf1a90c",
+        "type": "comment",
+        "z": "43703bf3.b01b24",
+        "name": "Uses own schedule",
+        "info": "",
+        "x": 610,
+        "y": 100,
+        "wires": []
     },
     {
         "id": "403394b42c104bf5",
@@ -1319,8 +1328,8 @@
             }
         ],
         "queue": "none",
-        "x": 610,
-        "y": 380,
+        "x": 730,
+        "y": 400,
         "wires": [
             []
         ]
@@ -1530,11 +1539,11 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 390,
-        "y": 380,
+        "x": 290,
+        "y": 400,
         "wires": [
             [
-                "6961a37b9fcbe07d"
+                "291e7bff21a777fc"
             ],
             []
         ]
@@ -1557,7 +1566,7 @@
         "sunShowElevationInStatus": false,
         "outputfreq": "output.statechange.startup",
         "x": 110,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "2f83921a8de3c8f4"
@@ -3302,64 +3311,6 @@
         ]
     },
     {
-        "id": "c57344b469fc3dd1",
-        "type": "inject",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 600,
-        "wires": [
-            [
-                "18fde90dc9b35867"
-            ]
-        ]
-    },
-    {
-        "id": "4556807f8e3d8622",
-        "type": "inject",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 440,
-        "y": 200,
-        "wires": [
-            [
-                "8193de22b9225b89"
-            ]
-        ]
-    },
-    {
         "id": "7d6a77d9e130baab",
         "type": "function",
         "z": "afb0f186.cfb0d",
@@ -3978,6 +3929,26 @@
             [],
             [
                 "9a771d738291330e"
+            ]
+        ]
+    },
+    {
+        "id": "291e7bff21a777fc",
+        "type": "time-range-switch",
+        "z": "afb0f186.cfb0d",
+        "name": "12am-8am",
+        "lat": "51.298530532198356",
+        "lon": "-2.2305447589418095",
+        "startTime": "00:00",
+        "endTime": "08:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 490,
+        "y": 400,
+        "wires": [
+            [],
+            [
+                "6961a37b9fcbe07d"
             ]
         ]
     },
