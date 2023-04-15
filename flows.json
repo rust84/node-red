@@ -3461,70 +3461,6 @@
         ]
     },
     {
-        "id": "816969ebe39a8692",
-        "type": "server-state-changed",
-        "z": "afb0f186.cfb0d",
-        "name": "russell arrive at rose flat",
-        "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "person.russell",
-        "entityidfiltertype": "exact",
-        "outputinitially": true,
-        "state_type": "str",
-        "haltifstate": "Rose Flat",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "outputs": 2,
-        "output_only_on_state_change": true,
-        "for": "",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 140,
-        "y": 2440,
-        "wires": [
-            [
-                "7d6a77d9e130baab"
-            ],
-            []
-        ]
-    },
-    {
         "id": "7ba869440b93e2df",
         "type": "function",
         "z": "afb0f186.cfb0d",
@@ -4844,7 +4780,7 @@
         "version": 5,
         "debugenabled": false,
         "domain": "alarm_control_panel",
-        "service": "alarm_arm_home",
+        "service": "alarm_arm_away",
         "areaId": [],
         "deviceId": [],
         "entityId": [
