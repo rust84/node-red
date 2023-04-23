@@ -2175,7 +2175,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "switch.living_room_plug"
+            "switch.localbytes_plug_pm_dc3584"
         ],
         "data": "",
         "dataType": "json",
@@ -3885,6 +3885,35 @@
             [],
             [
                 "6961a37b9fcbe07d"
+            ]
+        ]
+    },
+    {
+        "id": "aef2e0b31024e94d",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 520,
+        "y": 1080,
+        "wires": [
+            [
+                "ac1068a7cc5d90b2"
             ]
         ]
     },
