@@ -2173,7 +2173,9 @@
         "domain": "switch",
         "service": "",
         "areaId": [],
-        "deviceId": [],
+        "deviceId": [
+            "183749c90d59028b1f4a15f19fae6d68"
+        ],
         "entityId": [
             "switch.localbytes_plug_pm_dc3584"
         ],
