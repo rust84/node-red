@@ -1266,8 +1266,8 @@
             }
         ],
         "queue": "none",
-        "x": 680,
-        "y": 660,
+        "x": 660,
+        "y": 640,
         "wires": [
             []
         ]
@@ -1281,7 +1281,7 @@
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "30",
+        "duration": "10",
         "extend": true,
         "overrideDelay": false,
         "units": "min",
@@ -1289,8 +1289,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 430,
-        "y": 660,
+        "x": 410,
+        "y": 640,
         "wires": [
             [
                 "de7ec5fa0d844b3e"
@@ -1797,7 +1797,7 @@
         "id": "1982bbc53713e747",
         "type": "server-state-changed",
         "z": "afb0f186.cfb0d",
-        "name": "russell office occupancy",
+        "name": "office occupancy",
         "server": "8b52884a.b76658",
         "version": 4,
         "exposeToHomeAssistant": false,
@@ -1811,13 +1811,13 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "sensor.office_person_count",
+        "entityidfilter": "binary_sensor.office_occupancy",
         "entityidfiltertype": "exact",
         "outputinitially": true,
         "state_type": "str",
-        "haltifstate": "1",
+        "haltifstate": "on",
         "halt_if_type": "num",
-        "halt_if_compare": "gte",
+        "halt_if_compare": "is",
         "outputs": 2,
         "output_only_on_state_change": false,
         "for": "",
@@ -1848,8 +1848,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 160,
-        "y": 660,
+        "x": 140,
+        "y": 640,
         "wires": [
             [
                 "18fde90dc9b35867"
@@ -7019,70 +7019,6 @@
         ]
     },
     {
-        "id": "3127fde85c63721b",
-        "type": "server-state-changed",
-        "z": "cf24db3435ba68ad",
-        "name": "russell office occupancy",
-        "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "sensor.office_person",
-        "entityidfiltertype": "exact",
-        "outputinitially": true,
-        "state_type": "str",
-        "haltifstate": "1",
-        "halt_if_type": "num",
-        "halt_if_compare": "gte",
-        "outputs": 2,
-        "output_only_on_state_change": false,
-        "for": "",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 180,
-        "y": 920,
-        "wires": [
-            [
-                "77cb539139b1e947"
-            ],
-            []
-        ]
-    },
-    {
         "id": "3ea5060cd8bc497d",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
@@ -7103,7 +7039,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 1380,
+        "x": 1200,
         "y": 920,
         "wires": [
             []
@@ -7319,48 +7255,8 @@
         "y": 920,
         "wires": [
             [
-                "4d9ec18e72d683ad"
-            ]
-        ]
-    },
-    {
-        "id": "4d9ec18e72d683ad",
-        "type": "api-current-state",
-        "z": "cf24db3435ba68ad",
-        "name": "aircon on?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is_not",
-        "entity_id": "climate.midea_ac_42880953513406",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 1170,
-        "y": 920,
-        "wires": [
-            [
                 "3ea5060cd8bc497d"
-            ],
-            []
+            ]
         ]
     },
     {
@@ -7586,6 +7482,70 @@
                 "f7e32eb6d1c2e7d6"
             ],
             [],
+            []
+        ]
+    },
+    {
+        "id": "4017bebefa976bd2",
+        "type": "server-state-changed",
+        "z": "cf24db3435ba68ad",
+        "name": "russell office occupancy",
+        "server": "8b52884a.b76658",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.office_person_count",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "1",
+        "halt_if_type": "num",
+        "halt_if_compare": "gte",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 920,
+        "wires": [
+            [
+                "77cb539139b1e947"
+            ],
             []
         ]
     },
@@ -7968,7 +7928,7 @@
         "type": "function",
         "z": "f987904ca78a23d7",
         "name": "Format notification",
-        "func": "const ha_external_url  = \"https://hass.microserver.space\";\nconst frigate_external_url = \"https://frigate.microserver.space\"\n\nmsg.event_id     = msg.payload.after.id;\nmsg.clip         = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/\" + msg.payload.after.camera + \"/clip.mp4\";\nmsg.thumbnail    = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/thumbnail.jpg?format=android\";\nmsg.topic        = msg.payload.after.camera + \"-\" + msg.payload.after.label;\nmsg.relativetime = msg.relativetime || \"7 minutes\";\n\nswitch (msg.payload.after.camera) {\n    case('office'):\n        msg.verb = \"at\";\n        msg.location = 'office';\n        msg.uri = frigate_external_url + \"/api/office?h=1080\";\n        break;\n    case('driveway'):\n        msg.verb = \"in\";\n        msg.location = \"driveway\";\n        msg.uri = frigate_external_url + \"/api/garage?h=1080\";\n        break;    \n    case('lounge'):\n        msg.verb = \"in\";\n        msg.location = \"lounge\";\n        msg.uri = frigate_external_url + \"/api/garage?h=1080\";\n        break;\n\n    default:\n        msg.verb = \"in\";\n        msg.location = msg.payload.after.camera;\n}\n\nmsg.message     = \"A \" + msg.payload.after.label + \" is \" + msg.verb + \" the \" + msg.location;\n\nmsg.payload     = { data: {'message': msg.message, data: {'image': msg.thumbnail, 'clickAction': msg.clip, 'sticky': true,'color': \"#2DF56D\", 'actions': [{'action': \"URI\",'title': \"Watch Live Stream\", 'uri': msg.uri  }],'ttl': 0, 'group': \"motion-group\", 'priority': \"High\"  }}};\nreturn msg;",
+        "func": "const ha_external_url  = \"https://hass.microserver.space\";\nconst frigate_external_url = \"https://frigate.microserver.space\"\n\nmsg.event_id     = msg.payload.after.id;\nmsg.clip         = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/\" + msg.payload.after.camera + \"/clip.mp4\";\nmsg.thumbnail    = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/thumbnail.jpg?format=android\";\nmsg.topic        = msg.payload.after.camera + \"-\" + msg.payload.after.label;\nmsg.relativetime = msg.relativetime || \"7 minutes\";\n\nswitch (msg.payload.after.camera) {\n    case('office'):\n        msg.verb = \"at\";\n        msg.location = 'office';\n        msg.uri = frigate_external_url + \"/api/office?h=1080\";\n        break;\n    case('driveway'):\n        msg.verb = \"in\";\n        msg.location = \"driveway\";\n        msg.uri = frigate_external_url + \"/api/driveway?h=1080\";\n        break;    \n    case('lounge'):\n        msg.verb = \"in\";\n        msg.location = \"lounge\";\n        msg.uri = frigate_external_url + \"/api/lounge?h=1080\";\n        break;\n\n    default:\n        msg.verb = \"in\";\n        msg.location = msg.payload.after.camera;\n}\n\nmsg.message     = \"A \" + msg.payload.after.label + \" is \" + msg.verb + \" the \" + msg.location;\n\nmsg.payload     = { data: {'message': msg.message, data: {'image': msg.thumbnail, 'clickAction': msg.clip, 'sticky': true,'color': \"#2DF56D\", 'actions': [{'action': \"URI\",'title': \"Watch Live Stream\", 'uri': msg.uri  }],'ttl': 0, 'group': \"motion-group\", 'priority': \"High\"  }}};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
