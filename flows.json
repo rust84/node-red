@@ -1462,7 +1462,8 @@
         "y": 480,
         "wires": [
             [
-                "622ad5815186c1e3"
+                "622ad5815186c1e3",
+                "e5c417a27e9298ce"
             ],
             [],
             []
@@ -1481,7 +1482,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "light.lounge_light"
+            "group.lounge_group"
         ],
         "data": "",
         "dataType": "json",
@@ -1497,7 +1498,7 @@
         ],
         "queue": "none",
         "x": 410,
-        "y": 480,
+        "y": 500,
         "wires": [
             []
         ]
@@ -3917,6 +3918,40 @@
             [
                 "ac1068a7cc5d90b2"
             ]
+        ]
+    },
+    {
+        "id": "e5c417a27e9298ce",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "turn off fairylights",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "group.lounge_group"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 650,
+        "y": 480,
+        "wires": [
+            []
         ]
     },
     {
