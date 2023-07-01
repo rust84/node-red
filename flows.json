@@ -8,17 +8,17 @@
         "env": []
     },
     {
-        "id": "4aedf9e8.044e08",
+        "id": "cf24db3435ba68ad",
         "type": "tab",
-        "label": "Alarm",
+        "label": "Heating",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "cf24db3435ba68ad",
+        "id": "4aedf9e8.044e08",
         "type": "tab",
-        "label": "Heating",
+        "label": "Alarm",
         "disabled": false,
         "info": "",
         "env": []
@@ -1266,38 +1266,10 @@
             }
         ],
         "queue": "none",
-        "x": 660,
-        "y": 640,
+        "x": 900,
+        "y": 760,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "18fde90dc9b35867",
-        "type": "trigger",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "op1": "{\"service\":\"turn_on\"}",
-        "op2": "{\"service\":\"turn_off\"}",
-        "op1type": "json",
-        "op2type": "json",
-        "duration": "10",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "min",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 2,
-        "x": 410,
-        "y": 640,
-        "wires": [
-            [
-                "de7ec5fa0d844b3e"
-            ],
-            [
-                "de7ec5fa0d844b3e"
-            ]
         ]
     },
     {
@@ -1792,70 +1764,6 @@
             [
                 "ad4f6520ab385207"
             ]
-        ]
-    },
-    {
-        "id": "1982bbc53713e747",
-        "type": "server-state-changed",
-        "z": "afb0f186.cfb0d",
-        "name": "office occupancy",
-        "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.office_occupancy",
-        "entityidfiltertype": "exact",
-        "outputinitially": true,
-        "state_type": "str",
-        "haltifstate": "on",
-        "halt_if_type": "num",
-        "halt_if_compare": "is",
-        "outputs": 2,
-        "output_only_on_state_change": false,
-        "for": "",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 140,
-        "y": 640,
-        "wires": [
-            [
-                "18fde90dc9b35867"
-            ],
-            []
         ]
     },
     {
@@ -3081,132 +2989,6 @@
         ]
     },
     {
-        "id": "789faa8144a6a6d9",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "light off -> on",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "switch.office_light_switch",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "propertyValue": "new_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "on"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "propertyValue": "old_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 130,
-        "y": 780,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "21798118eab977e3",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "office group",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "switch",
-        "service": "",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "group.office_group"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 550,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "dff7b73afaabfd9a",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "turn_off",
-        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 820,
-        "wires": [
-            [
-                "21798118eab977e3"
-            ]
-        ]
-    },
-    {
-        "id": "28eedb1a15fe78af",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "turn_on",
-        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 760,
-        "wires": [
-            [
-                "21798118eab977e3"
-            ]
-        ]
-    },
-    {
         "id": "4689ae8c779902cc",
         "type": "comment",
         "z": "afb0f186.cfb0d",
@@ -3798,16 +3580,6 @@
         ]
     },
     {
-        "id": "6bdf57667c5ce622",
-        "type": "comment",
-        "z": "afb0f186.cfb0d",
-        "name": "DISABLED",
-        "info": "",
-        "x": 200,
-        "y": 740,
-        "wires": []
-    },
-    {
         "id": "950f806ee77e84e4",
         "type": "server-state-changed",
         "z": "afb0f186.cfb0d",
@@ -3951,6 +3723,1574 @@
         "x": 650,
         "y": 480,
         "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa2a161f51d65d28",
+        "type": "trigger-state",
+        "z": "afb0f186.cfb0d",
+        "name": "unoccupied -> occupied",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "binary_sensor.office_occupancy",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            }
+        ],
+        "inputs": 0,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": false,
+        "x": 160,
+        "y": 680,
+        "wires": [
+            [
+                "a1ceebb6cd381b75",
+                "bc36c13ee490f021"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cf0ca8b427140ac3",
+        "type": "trigger-state",
+        "z": "afb0f186.cfb0d",
+        "name": "occupied -> unoccupied",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "binary_sensor.office_occupancy",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            }
+        ],
+        "inputs": 0,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": false,
+        "x": 160,
+        "y": 760,
+        "wires": [
+            [
+                "5dd854655a3368ba"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "aec496c709063c49",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_off",
+        "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 760,
+        "wires": [
+            [
+                "de7ec5fa0d844b3e",
+                "5b2070e801e7c8a1"
+            ]
+        ]
+    },
+    {
+        "id": "a1ceebb6cd381b75",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_on",
+        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 680,
+        "wires": [
+            [
+                "de7ec5fa0d844b3e"
+            ]
+        ]
+    },
+    {
+        "id": "5dd854655a3368ba",
+        "type": "delay",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "600",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 760,
+        "wires": [
+            [
+                "aec496c709063c49"
+            ]
+        ]
+    },
+    {
+        "id": "bc36c13ee490f021",
+        "type": "api-current-state",
+        "z": "afb0f186.cfb0d",
+        "name": "office illuminance",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "1",
+        "halt_if_type": "num",
+        "halt_if_compare": "lt",
+        "entity_id": "sensor.office_illuminance",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 410,
+        "y": 620,
+        "wires": [
+            [
+                "0bf98c34b9c79a18"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5b2070e801e7c8a1",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "office light",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.office_light_switch"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 880,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0bf98c34b9c79a18",
+        "type": "function",
+        "z": "afb0f186.cfb0d",
+        "name": "turn_on",
+        "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 620,
+        "wires": [
+            [
+                "5b2070e801e7c8a1"
+            ]
+        ]
+    },
+    {
+        "id": "f92e64aaa31fb31c",
+        "type": "mqtt in",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "topic": "zigbee2mqtt/heating_controller",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "649859a4.a17818",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "5b3374647f98755c",
+                "496540910ac73230",
+                "f1549a3d6d78367a",
+                "1ec2762dc71884a5"
+            ]
+        ]
+    },
+    {
+        "id": "f1549a3d6d78367a",
+        "type": "change",
+        "z": "cf24db3435ba68ad",
+        "name": "Current Setpoint",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.current_heating_setpoint",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b3374647f98755c",
+        "type": "change",
+        "z": "cf24db3435ba68ad",
+        "name": "Local temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.local_temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "496540910ac73230",
+        "type": "switch",
+        "z": "cf24db3435ba68ad",
+        "name": "Preset != hold",
+        "property": "payload.preset_mode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "hold",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 80,
+        "wires": [
+            [
+                "ee442106bfadffb7"
+            ]
+        ]
+    },
+    {
+        "id": "ee442106bfadffb7",
+        "type": "template",
+        "z": "cf24db3435ba68ad",
+        "name": "Set preset to hold",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"preset\": \"hold\"}",
+        "output": "str",
+        "x": 920,
+        "y": 80,
+        "wires": [
+            [
+                "ebec1787363df97e"
+            ]
+        ]
+    },
+    {
+        "id": "ebec1787363df97e",
+        "type": "delay",
+        "z": "cf24db3435ba68ad",
+        "name": "limit 5 msg/s",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 80,
+        "wires": [
+            [
+                "89cf13b4556cb961"
+            ]
+        ]
+    },
+    {
+        "id": "89cf13b4556cb961",
+        "type": "mqtt out",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "topic": "zigbee2mqtt/heating_controller/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "649859a4.a17818",
+        "x": 1510,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1ec2762dc71884a5",
+        "type": "change",
+        "z": "cf24db3435ba68ad",
+        "name": "Set system mode",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload.system_mode",
+                "pt": "msg",
+                "from": "heat",
+                "fromt": "str",
+                "to": "{\"service\":\"turn_on\"}",
+                "tot": "json"
+            },
+            {
+                "t": "change",
+                "p": "payload.system_mode",
+                "pt": "msg",
+                "from": "off",
+                "fromt": "str",
+                "to": "{\"service\":\"turn_off\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.system_mode",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d841ce2f97c502f8",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "Schedule override toggle",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "input_boolean.enable_heating_schedules",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            }
+        ],
+        "inputs": 0,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": false,
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "4aed068020384b78"
+            ],
+            [
+                "2447d1c9ace3b941"
+            ]
+        ]
+    },
+    {
+        "id": "4aed068020384b78",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Disable schedules",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.schedule_weekday",
+            "switch.schedule_weekend"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "f7e32eb6d1c2e7d6"
+            ]
+        ]
+    },
+    {
+        "id": "2447d1c9ace3b941",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Enable schedules",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.schedule_weekday",
+            "switch.schedule_weekend"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 650,
+        "y": 480,
+        "wires": [
+            [
+                "424007945ad5ab08"
+            ]
+        ]
+    },
+    {
+        "id": "dcc7804597eb25ec",
+        "type": "template",
+        "z": "cf24db3435ba68ad",
+        "name": "Wrap System Mode",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"system_mode\": \"{{payload}}\"}",
+        "output": "str",
+        "x": 1250,
+        "y": 340,
+        "wires": [
+            [
+                "89cf13b4556cb961"
+            ]
+        ]
+    },
+    {
+        "id": "424007945ad5ab08",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Run schedule",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "scheduler",
+        "service": "run_action",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.heating_controller"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 920,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7e32eb6d1c2e7d6",
+        "type": "function",
+        "z": "cf24db3435ba68ad",
+        "name": "turn_off",
+        "func": "msg.payload = \"off\"\n\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 340,
+        "wires": [
+            [
+                "dcc7804597eb25ec"
+            ]
+        ]
+    },
+    {
+        "id": "ce29b54fee8ac32e",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "home -> not_home",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "sensor.anyone_home",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "bd1afed023a81c58"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1b39e02438a1c605",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "not_home -> home",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "sensor.anyone_home",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "dde8862116e0100f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "066749878081405d",
+        "type": "comment",
+        "z": "cf24db3435ba68ad",
+        "name": "Aircon",
+        "info": "",
+        "x": 130,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a3258b5588c62c7c",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "off -> auto",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "climate.midea_ac_42880953513406",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "auto"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 140,
+        "y": 700,
+        "wires": [
+            [
+                "f0c9108db605c58f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "be27bd4df8ea1392",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Enable swing mode",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_swing_mode",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.midea_ac_42880953513406"
+        ],
+        "data": "{\"swing_mode\":\"Vertical\"}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 590,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "77cb539139b1e947",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.auto_set_aircon_mode",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 410,
+        "y": 840,
+        "wires": [
+            [
+                "0d6f721153f28d46"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f0c9108db605c58f",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.auto_enable_aircon_swing_mode",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 370,
+        "y": 700,
+        "wires": [
+            [
+                "be27bd4df8ea1392"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cdd7e2012c671703",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "off -> cool",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "climate.midea_ac_42880953513406",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "cool",
+                "propertyValue": "new_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off",
+                "propertyValue": "old_state.state"
+            }
+        ],
+        "inputs": 1,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": true,
+        "x": 140,
+        "y": 760,
+        "wires": [
+            [
+                "f0c9108db605c58f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bd1afed023a81c58",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.heating_schedule_away",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "4aed068020384b78"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "dde8862116e0100f",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.heating_schedule_away",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "2447d1c9ace3b941"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6029993ccdbde1d0",
+        "type": "bigtimer",
+        "z": "cf24db3435ba68ad",
+        "outtopic": "",
+        "outpayload1": "1",
+        "outpayload2": "",
+        "name": "2.00am every day",
+        "comment": "",
+        "lat": "51.32063880734896",
+        "lon": "-2.2089664938383327",
+        "starttime": "120",
+        "endtime": "135",
+        "starttime2": "0",
+        "endtime2": "0",
+        "startoff": "0",
+        "endoff": "0",
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "day7": "",
+        "month7": "",
+        "day8": "",
+        "month8": "",
+        "day9": "",
+        "month9": "",
+        "day10": "",
+        "month10": "",
+        "day11": "",
+        "month11": "",
+        "day12": "",
+        "month12": "",
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xday7": "",
+        "xmonth7": "",
+        "xday8": "",
+        "xmonth8": "",
+        "xday9": "",
+        "xmonth9": "",
+        "xday10": "",
+        "xmonth10": "",
+        "xday11": "",
+        "xmonth11": "",
+        "xday12": "",
+        "xmonth12": "",
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "randon1": false,
+        "randoff1": false,
+        "randon2": false,
+        "randoff2": false,
+        "repeat": false,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 350,
+        "y": 220,
+        "wires": [
+            [
+                "f7e32eb6d1c2e7d6"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "789faa8144a6a6d9",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "unoccupied -> occupied",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "binary_sensor.office_occupancy",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            }
+        ],
+        "inputs": 0,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": false,
+        "x": 180,
+        "y": 840,
+        "wires": [
+            [
+                "77cb539139b1e947"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7d5b2888c68e0320",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "occupied -> unoccupied",
+        "server": "8b52884a.b76658",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "binary_sensor.office_occupancy",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            }
+        ],
+        "inputs": 0,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": false,
+        "x": 180,
+        "y": 900,
+        "wires": [
+            [
+                "f9edfad88e5fc1c2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0d6f721153f28d46",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "fan mode",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "fan_only",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "climate.midea_ac_42880953513406",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 640,
+        "y": 840,
+        "wires": [
+            [
+                "f96177401fdd7f7f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7cced1da5dab434e",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Set mode",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_hvac_mode",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.midea_ac_42880953513406"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1040,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c0b3c0530fced4db",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "cool mode",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "cool",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "climate.midea_ac_42880953513406",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 650,
+        "y": 900,
+        "wires": [
+            [
+                "d1259e05b00b447a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d1259e05b00b447a",
+        "type": "function",
+        "z": "cf24db3435ba68ad",
+        "name": "fan_only",
+        "func": "var hvac = \"fan_only\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 900,
+        "wires": [
+            [
+                "7cced1da5dab434e"
+            ]
+        ]
+    },
+    {
+        "id": "f96177401fdd7f7f",
+        "type": "function",
+        "z": "cf24db3435ba68ad",
+        "name": "cool",
+        "func": "var hvac = \"cool\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 840,
+        "wires": [
+            [
+                "7cced1da5dab434e"
+            ]
+        ]
+    },
+    {
+        "id": "f9edfad88e5fc1c2",
+        "type": "api-current-state",
+        "z": "cf24db3435ba68ad",
+        "name": "run?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.auto_set_aircon_mode",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 410,
+        "y": 900,
+        "wires": [
+            [
+                "c0b3c0530fced4db"
+            ],
             []
         ]
     },
@@ -4841,7 +6181,7 @@
         "id": "c901e347.7a1dc",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
-        "name": "arm alarm home",
+        "name": "arm alarm away",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
@@ -5568,7 +6908,7 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "binary_sensor.office_motion_sensor_occupancy",
+        "entityidfilter": "binary_sensor.office_pir",
         "entityidfiltertype": "exact",
         "outputinitially": false,
         "state_type": "str",
@@ -6371,16 +7711,6 @@
         ]
     },
     {
-        "id": "df83a7ccb6c51af7",
-        "type": "comment",
-        "z": "4aedf9e8.044e08",
-        "name": "arm_home for dog",
-        "info": "",
-        "x": 990,
-        "y": 300,
-        "wires": []
-    },
-    {
         "id": "38ac8f49864ec03c",
         "type": "inject",
         "z": "4aedf9e8.044e08",
@@ -6418,1171 +7748,6 @@
         "x": 1030,
         "y": 800,
         "wires": []
-    },
-    {
-        "id": "f92e64aaa31fb31c",
-        "type": "mqtt in",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "topic": "zigbee2mqtt/heating_controller",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "649859a4.a17818",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 350,
-        "y": 80,
-        "wires": [
-            [
-                "5b3374647f98755c",
-                "496540910ac73230",
-                "f1549a3d6d78367a",
-                "1ec2762dc71884a5"
-            ]
-        ]
-    },
-    {
-        "id": "f1549a3d6d78367a",
-        "type": "change",
-        "z": "cf24db3435ba68ad",
-        "name": "Current Setpoint",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.current_heating_setpoint",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5b3374647f98755c",
-        "type": "change",
-        "z": "cf24db3435ba68ad",
-        "name": "Local temperature",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.local_temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "496540910ac73230",
-        "type": "switch",
-        "z": "cf24db3435ba68ad",
-        "name": "Preset != hold",
-        "property": "payload.preset_mode",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "neq",
-                "v": "hold",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 680,
-        "y": 80,
-        "wires": [
-            [
-                "ee442106bfadffb7"
-            ]
-        ]
-    },
-    {
-        "id": "ee442106bfadffb7",
-        "type": "template",
-        "z": "cf24db3435ba68ad",
-        "name": "Set preset to hold",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"preset\": \"hold\"}",
-        "output": "str",
-        "x": 920,
-        "y": 80,
-        "wires": [
-            [
-                "ebec1787363df97e"
-            ]
-        ]
-    },
-    {
-        "id": "ebec1787363df97e",
-        "type": "delay",
-        "z": "cf24db3435ba68ad",
-        "name": "limit 5 msg/s",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "5",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 1140,
-        "y": 80,
-        "wires": [
-            [
-                "89cf13b4556cb961"
-            ]
-        ]
-    },
-    {
-        "id": "89cf13b4556cb961",
-        "type": "mqtt out",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "topic": "zigbee2mqtt/heating_controller/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "649859a4.a17818",
-        "x": 1510,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "1ec2762dc71884a5",
-        "type": "change",
-        "z": "cf24db3435ba68ad",
-        "name": "Set system mode",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload.system_mode",
-                "pt": "msg",
-                "from": "heat",
-                "fromt": "str",
-                "to": "{\"service\":\"turn_on\"}",
-                "tot": "json"
-            },
-            {
-                "t": "change",
-                "p": "payload.system_mode",
-                "pt": "msg",
-                "from": "off",
-                "fromt": "str",
-                "to": "{\"service\":\"turn_off\"}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.system_mode",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d841ce2f97c502f8",
-        "type": "trigger-state",
-        "z": "cf24db3435ba68ad",
-        "name": "Schedule override toggle",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "input_boolean.enable_heating_schedules",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "propertyValue": "new_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "propertyValue": "old_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "on"
-            }
-        ],
-        "inputs": 0,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": false,
-        "x": 190,
-        "y": 400,
-        "wires": [
-            [
-                "4aed068020384b78"
-            ],
-            [
-                "2447d1c9ace3b941"
-            ]
-        ]
-    },
-    {
-        "id": "4aed068020384b78",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "name": "Disable schedules",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "switch",
-        "service": "turn_off",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "switch.schedule_weekday",
-            "switch.schedule_weekend"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 650,
-        "y": 340,
-        "wires": [
-            [
-                "f7e32eb6d1c2e7d6"
-            ]
-        ]
-    },
-    {
-        "id": "2447d1c9ace3b941",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "name": "Enable schedules",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "switch",
-        "service": "turn_on",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "switch.schedule_weekday",
-            "switch.schedule_weekend"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 650,
-        "y": 480,
-        "wires": [
-            [
-                "424007945ad5ab08"
-            ]
-        ]
-    },
-    {
-        "id": "dcc7804597eb25ec",
-        "type": "template",
-        "z": "cf24db3435ba68ad",
-        "name": "Wrap System Mode",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"system_mode\": \"{{payload}}\"}",
-        "output": "str",
-        "x": 1250,
-        "y": 340,
-        "wires": [
-            [
-                "89cf13b4556cb961"
-            ]
-        ]
-    },
-    {
-        "id": "424007945ad5ab08",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "name": "Run schedule",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "scheduler",
-        "service": "run_action",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.heating_controller"
-        ],
-        "data": "",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 920,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f7e32eb6d1c2e7d6",
-        "type": "function",
-        "z": "cf24db3435ba68ad",
-        "name": "turn_off",
-        "func": "msg.payload = \"off\"\n\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 340,
-        "wires": [
-            [
-                "dcc7804597eb25ec"
-            ]
-        ]
-    },
-    {
-        "id": "ce29b54fee8ac32e",
-        "type": "trigger-state",
-        "z": "cf24db3435ba68ad",
-        "name": "home -> not_home",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 190,
-        "y": 300,
-        "wires": [
-            [
-                "bd1afed023a81c58"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "1b39e02438a1c605",
-        "type": "trigger-state",
-        "z": "cf24db3435ba68ad",
-        "name": "not_home -> home",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 190,
-        "y": 500,
-        "wires": [
-            [
-                "dde8862116e0100f"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "066749878081405d",
-        "type": "comment",
-        "z": "cf24db3435ba68ad",
-        "name": "Aircon",
-        "info": "",
-        "x": 130,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "a3258b5588c62c7c",
-        "type": "trigger-state",
-        "z": "cf24db3435ba68ad",
-        "name": "off -> auto",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "climate.midea_ac_42880953513406",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "propertyValue": "new_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "auto"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "propertyValue": "old_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 140,
-        "y": 720,
-        "wires": [
-            [
-                "f0c9108db605c58f"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "be27bd4df8ea1392",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "name": "Enable swing mode",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "climate",
-        "service": "set_swing_mode",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.midea_ac_42880953513406"
-        ],
-        "data": "{\"swing_mode\":\"Vertical\"}",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 590,
-        "y": 720,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d8374a52df1ce549",
-        "type": "trigger",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "op1": "{\"data\":{\"temperature\":\"24\"}}",
-        "op2": "{\"data\":{\"temperature\":\"30\"}}",
-        "op1type": "json",
-        "op2type": "json",
-        "duration": "15",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "min",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 2,
-        "x": 810,
-        "y": 920,
-        "wires": [
-            [
-                "b6d7d911d1472f3a"
-            ],
-            [
-                "b6d7d911d1472f3a"
-            ]
-        ]
-    },
-    {
-        "id": "3ea5060cd8bc497d",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "name": "Set temperature",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "climate",
-        "service": "set_temperature",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.midea_ac_42880953513406"
-        ],
-        "data": "",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 1200,
-        "y": 920,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "77cb539139b1e947",
-        "type": "api-current-state",
-        "z": "cf24db3435ba68ad",
-        "name": "run?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "input_boolean.auto_set_aircon_temperature",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 410,
-        "y": 920,
-        "wires": [
-            [
-                "88e8c50a4d8547c3"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "f0c9108db605c58f",
-        "type": "api-current-state",
-        "z": "cf24db3435ba68ad",
-        "name": "run?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "input_boolean.auto_enable_aircon_swing_mode",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 370,
-        "y": 720,
-        "wires": [
-            [
-                "be27bd4df8ea1392"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "cdd7e2012c671703",
-        "type": "trigger-state",
-        "z": "cf24db3435ba68ad",
-        "name": "off -> cool",
-        "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "climate.midea_ac_42880953513406",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "cool",
-                "propertyValue": "new_state.state"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off",
-                "propertyValue": "old_state.state"
-            }
-        ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
-        "enableInput": true,
-        "x": 140,
-        "y": 780,
-        "wires": [
-            [
-                "f0c9108db605c58f"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "88e8c50a4d8547c3",
-        "type": "api-current-state",
-        "z": "cf24db3435ba68ad",
-        "name": "aircon on?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is_not",
-        "entity_id": "climate.midea_ac_42880953513406",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 590,
-        "y": 920,
-        "wires": [
-            [
-                "d8374a52df1ce549"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "b6d7d911d1472f3a",
-        "type": "rbe",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1010,
-        "y": 920,
-        "wires": [
-            [
-                "3ea5060cd8bc497d"
-            ]
-        ]
-    },
-    {
-        "id": "bd1afed023a81c58",
-        "type": "api-current-state",
-        "z": "cf24db3435ba68ad",
-        "name": "run?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "input_boolean.heating_schedule_away",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 390,
-        "y": 300,
-        "wires": [
-            [
-                "4aed068020384b78"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "dde8862116e0100f",
-        "type": "api-current-state",
-        "z": "cf24db3435ba68ad",
-        "name": "run?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "input_boolean.heating_schedule_away",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 390,
-        "y": 500,
-        "wires": [
-            [
-                "2447d1c9ace3b941"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "6029993ccdbde1d0",
-        "type": "bigtimer",
-        "z": "cf24db3435ba68ad",
-        "outtopic": "",
-        "outpayload1": "1",
-        "outpayload2": "",
-        "name": "2.00am every day",
-        "comment": "",
-        "lat": "51.32063880734896",
-        "lon": "-2.2089664938383327",
-        "starttime": "120",
-        "endtime": "135",
-        "starttime2": "0",
-        "endtime2": "0",
-        "startoff": "0",
-        "endoff": "0",
-        "startoff2": "",
-        "endoff2": "",
-        "offs": 0,
-        "outtext1": "",
-        "outtext2": "",
-        "timeout": 1440,
-        "sun": true,
-        "mon": true,
-        "tue": true,
-        "wed": true,
-        "thu": true,
-        "fri": true,
-        "sat": true,
-        "jan": true,
-        "feb": true,
-        "mar": true,
-        "apr": true,
-        "may": true,
-        "jun": true,
-        "jul": true,
-        "aug": true,
-        "sep": true,
-        "oct": true,
-        "nov": true,
-        "dec": true,
-        "day1": 0,
-        "month1": 0,
-        "day2": 0,
-        "month2": 0,
-        "day3": 0,
-        "month3": 0,
-        "day4": 0,
-        "month4": 0,
-        "day5": 0,
-        "month5": 0,
-        "day6": 0,
-        "month6": 0,
-        "day7": "",
-        "month7": "",
-        "day8": "",
-        "month8": "",
-        "day9": "",
-        "month9": "",
-        "day10": "",
-        "month10": "",
-        "day11": "",
-        "month11": "",
-        "day12": "",
-        "month12": "",
-        "d1": 0,
-        "w1": 0,
-        "d2": 0,
-        "w2": 0,
-        "d3": 0,
-        "w3": 0,
-        "d4": 0,
-        "w4": 0,
-        "d5": 0,
-        "w5": 0,
-        "d6": 0,
-        "w6": 0,
-        "xday1": 0,
-        "xmonth1": 0,
-        "xday2": 0,
-        "xmonth2": 0,
-        "xday3": 0,
-        "xmonth3": 0,
-        "xday4": 0,
-        "xmonth4": 0,
-        "xday5": 0,
-        "xmonth5": 0,
-        "xday6": 0,
-        "xmonth6": 0,
-        "xday7": "",
-        "xmonth7": "",
-        "xday8": "",
-        "xmonth8": "",
-        "xday9": "",
-        "xmonth9": "",
-        "xday10": "",
-        "xmonth10": "",
-        "xday11": "",
-        "xmonth11": "",
-        "xday12": "",
-        "xmonth12": "",
-        "xd1": 0,
-        "xw1": 0,
-        "xd2": 0,
-        "xw2": 0,
-        "xd3": 0,
-        "xw3": 0,
-        "xd4": 0,
-        "xw4": 0,
-        "xd5": 0,
-        "xw5": 0,
-        "xd6": 0,
-        "xw6": 0,
-        "suspend": false,
-        "random": false,
-        "randon1": false,
-        "randoff1": false,
-        "randon2": false,
-        "randoff2": false,
-        "repeat": false,
-        "atstart": true,
-        "odd": false,
-        "even": false,
-        "x": 350,
-        "y": 220,
-        "wires": [
-            [
-                "f7e32eb6d1c2e7d6"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "4017bebefa976bd2",
-        "type": "server-state-changed",
-        "z": "cf24db3435ba68ad",
-        "name": "russell office occupancy",
-        "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "sensor.office_person_count",
-        "entityidfiltertype": "exact",
-        "outputinitially": true,
-        "state_type": "str",
-        "haltifstate": "1",
-        "halt_if_type": "num",
-        "halt_if_compare": "gte",
-        "outputs": 2,
-        "output_only_on_state_change": false,
-        "for": "",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 180,
-        "y": 920,
-        "wires": [
-            [
-                "77cb539139b1e947"
-            ],
-            []
-        ]
     },
     {
         "id": "9c1da9ccdd10d1fd",
