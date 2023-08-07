@@ -2636,7 +2636,7 @@
         "version": 5,
         "debugenabled": false,
         "domain": "notify",
-        "service": "mobile_app_pixel_4a",
+        "service": "mobile_app_pixel_7a",
         "areaId": [],
         "deviceId": [],
         "entityId": [],
@@ -3299,7 +3299,7 @@
         "version": 5,
         "debugenabled": false,
         "domain": "notify",
-        "service": "mobile_app_pixel_4a",
+        "service": "mobile_app_pixel_7a",
         "areaId": [],
         "deviceId": [],
         "entityId": [],
@@ -3664,35 +3664,6 @@
         ]
     },
     {
-        "id": "aef2e0b31024e94d",
-        "type": "inject",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 520,
-        "y": 1080,
-        "wires": [
-            [
-                "ac1068a7cc5d90b2"
-            ]
-        ]
-    },
-    {
         "id": "e5c417a27e9298ce",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
@@ -3998,6 +3969,35 @@
         "wires": [
             [
                 "5b2070e801e7c8a1"
+            ]
+        ]
+    },
+    {
+        "id": "37436049ac7af60e",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 760,
+        "y": 1800,
+        "wires": [
+            [
+                "74dea37d901958f9"
             ]
         ]
     },
@@ -5418,7 +5418,7 @@
         "atstart": true,
         "odd": false,
         "even": false,
-        "x": 130,
+        "x": 150,
         "y": 160,
         "wires": [
             [
@@ -5495,11 +5495,11 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 100,
+        "x": 180,
+        "y": 220,
         "wires": [
             [
-                "910caaaf.b41098"
+                "cd1caa8c.300358"
             ]
         ]
     },
@@ -5906,7 +5906,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
+        "x": 1550,
         "y": 680,
         "wires": [
             [
@@ -5923,7 +5923,7 @@
         "version": 5,
         "debugenabled": false,
         "domain": "notify",
-        "service": "mobile_app_pixel_4a",
+        "service": "mobile_app_pixel_7a",
         "areaId": [],
         "deviceId": [],
         "entityId": [],
@@ -6007,52 +6007,6 @@
             [],
             [
                 "cca292a3.05942"
-            ]
-        ]
-    },
-    {
-        "id": "7cf2a0d2.f39ae",
-        "type": "api-current-state",
-        "z": "4aedf9e8.044e08",
-        "name": "not home?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "home",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "sensor.anyone_home",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 530,
-        "y": 680,
-        "wires": [
-            [],
-            [
-                "fe046407.ab0868"
             ]
         ]
     },
@@ -6408,7 +6362,7 @@
         "wires": [
             [],
             [
-                "7cf2a0d2.f39ae"
+                "fe046407.ab0868"
             ]
         ]
     },
@@ -6454,9 +6408,9 @@
         "wires": [
             [],
             [
-                "7cf2a0d2.f39ae",
                 "c28e839a592e1ad9",
-                "2d021432e7e8a5b2"
+                "2d021432e7e8a5b2",
+                "fe046407.ab0868"
             ]
         ]
     },
@@ -6544,7 +6498,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 710,
+        "x": 550,
         "y": 680,
         "wires": [
             [
@@ -6559,12 +6513,22 @@
         "name": "Alarm Disarmed",
         "server": "8b52884a.b76658",
         "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "entityid": "alarm_control_panel.alarm_panel",
         "entityidfiltertype": "exact",
         "debugenabled": false,
         "constraints": [
             {
-                "id": "u92ykgxcnd",
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
@@ -6574,7 +6538,6 @@
                 "comparatorValue": "disarmed"
             },
             {
-                "id": "2vhxcfx6q13",
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
@@ -7711,35 +7674,6 @@
         ]
     },
     {
-        "id": "38ac8f49864ec03c",
-        "type": "inject",
-        "z": "4aedf9e8.044e08",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 320,
-        "y": 840,
-        "wires": [
-            [
-                "2d021432e7e8a5b2"
-            ]
-        ]
-    },
-    {
         "id": "2e87d1b84fb9baf4",
         "type": "comment",
         "z": "4aedf9e8.044e08",
@@ -8190,7 +8124,7 @@
         "version": 5,
         "debugenabled": false,
         "domain": "notify",
-        "service": "mobile_app_pixel_4a",
+        "service": "mobile_app_pixel_7a",
         "areaId": [],
         "deviceId": [],
         "entityId": [],
