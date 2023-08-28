@@ -4593,7 +4593,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "climate.midea_ac_42880953513406"
+            "climate.midea_ac_42880953513406_2"
         ],
         "data": "{\"swing_mode\":\"Vertical\"}",
         "dataType": "jsonata",
@@ -5151,7 +5151,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "climate.midea_ac_42880953513406"
+            "climate.midea_ac_42880953513406_2"
         ],
         "data": "",
         "dataType": "jsonata",
