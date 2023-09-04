@@ -1780,6 +1780,7 @@
         "id": "ba93f0e29b5d98a1",
         "type": "http request",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "method": "POST",
         "ret": "txt",
@@ -1788,8 +1789,10 @@
         "tls": "",
         "persist": false,
         "proxy": "",
+        "insecureHTTPParser": false,
         "authType": "",
         "senderr": false,
+        "headers": [],
         "x": 1630,
         "y": 1180,
         "wires": [
