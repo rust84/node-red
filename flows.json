@@ -4545,7 +4545,7 @@
                 "value": ""
             }
         ],
-        "entityid": "climate.midea_ac_42880953513406",
+        "entityid": "climate.midea_ac_42880953513406_2",
         "entityidfiltertype": "exact",
         "debugenabled": false,
         "constraints": [
@@ -4720,7 +4720,7 @@
                 "value": ""
             }
         ],
-        "entityid": "climate.midea_ac_42880953513406",
+        "entityid": "climate.midea_ac_42880953513406_2",
         "entityidfiltertype": "exact",
         "debugenabled": false,
         "constraints": [
@@ -4728,19 +4728,19 @@
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
+                "propertyValue": "new_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "cool",
-                "propertyValue": "new_state.state"
+                "comparatorValue": "cool"
             },
             {
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "off",
-                "propertyValue": "old_state.state"
+                "comparatorValue": "off"
             }
         ],
         "inputs": 1,
@@ -5107,7 +5107,7 @@
         "halt_if": "fan_only",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "climate.midea_ac_42880953513406",
+        "entity_id": "climate.midea_ac_42880953513406_2",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -5179,7 +5179,7 @@
         "halt_if": "cool",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "climate.midea_ac_42880953513406",
+        "entity_id": "climate.midea_ac_42880953513406_2",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
