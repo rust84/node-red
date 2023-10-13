@@ -1178,21 +1178,13 @@
         "z": "afb0f186.cfb0d",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "sensor.anyone_home",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -1213,12 +1205,20 @@
                 "comparatorValue": "home"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 150,
         "y": 300,
         "wires": [
@@ -1646,27 +1646,17 @@
         "z": "afb0f186.cfb0d",
         "name": "front door",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.front_door_contact_sensor_contact",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.front_door_contact_sensor_contact",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -1823,27 +1813,17 @@
         "z": "afb0f186.cfb0d",
         "name": "shield state",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "media_player.android_tv_10_30_0_83",
-        "entityidfiltertype": "exact",
-        "outputinitially": true,
-        "state_type": "str",
-        "haltifstate": "",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 1,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "media_player.android_tv_10_30_0_83",
+        "entityIdType": "exact",
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -2795,19 +2775,9 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "server": "8b52884a.b76658",
-        "version": 2,
+        "version": 3,
+        "exposeAsEntityConfig": "",
         "eventType": "button_pressed",
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
         "waitForRunning": true,
         "outputProperties": [
             {
@@ -3189,27 +3159,17 @@
         "z": "afb0f186.cfb0d",
         "name": "russell arrive at gym",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "person.russell",
-        "entityidfiltertype": "exact",
-        "outputinitially": true,
-        "state_type": "str",
-        "haltifstate": "gym",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "person.russell",
+        "entityIdType": "exact",
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "gym",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": "",
         "forType": "num",
         "forUnits": "minutes",
@@ -3389,29 +3349,39 @@
         "z": "afb0f186.cfb0d",
         "name": "Household waste",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "updateinterval": "3600",
+        "version": 3,
+        "exposeAsEntityConfig": "",
+        "updateInterval": "3600",
         "updateIntervalType": "num",
         "updateIntervalUnits": "seconds",
-        "outputinitially": true,
-        "outputonchanged": true,
-        "entity_id": "sensor.waste_collection_household",
-        "state_type": "str",
-        "halt_if": "TOMORROW",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "outputInitially": true,
+        "outputOnChanged": true,
+        "entityId": "sensor.waste_collection_household",
+        "stateType": "str",
+        "ifState": "TOMORROW",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
         "outputs": 2,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
         "x": 120,
         "y": 2720,
         "wires": [
@@ -3427,29 +3397,39 @@
         "z": "afb0f186.cfb0d",
         "name": "Recycling waste",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "updateinterval": "3600",
+        "version": 3,
+        "exposeAsEntityConfig": "",
+        "updateInterval": "3600",
         "updateIntervalType": "num",
         "updateIntervalUnits": "seconds",
-        "outputinitially": true,
-        "outputonchanged": true,
-        "entity_id": "sensor.waste_collection_recycling",
-        "state_type": "str",
-        "halt_if": "TOMORROW",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "outputInitially": true,
+        "outputOnChanged": true,
+        "entityId": "sensor.waste_collection_recycling",
+        "stateType": "str",
+        "ifState": "TOMORROW",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
         "outputs": 2,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
         "x": 120,
         "y": 2620,
         "wires": [
@@ -3587,27 +3567,17 @@
         "z": "afb0f186.cfb0d",
         "name": "landing motion",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.landing_motion_sensor_occupancy",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.landing_motion_sensor_occupancy",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -3705,21 +3675,13 @@
         "z": "afb0f186.cfb0d",
         "name": "unoccupied -> occupied",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "binary_sensor.office_occupancy",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.office_occupancy",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -3740,12 +3702,20 @@
                 "comparatorValue": "off"
             }
         ],
-        "inputs": 0,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": false,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 160,
         "y": 680,
         "wires": [
@@ -3762,21 +3732,13 @@
         "z": "afb0f186.cfb0d",
         "name": "occupied -> unoccupied",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "binary_sensor.office_occupancy",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.office_occupancy",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -3797,12 +3759,20 @@
                 "comparatorValue": "on"
             }
         ],
-        "inputs": 0,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": false,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 160,
         "y": 760,
         "wires": [
@@ -3860,7 +3830,7 @@
         "timeout": "2",
         "timeoutUnits": "minutes",
         "rate": "1",
-        "nbRateUnits": "600",
+        "nbRateUnits": "1800",
         "rateUnits": "second",
         "randomFirst": "1",
         "randomLast": "5",
@@ -3868,7 +3838,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 400,
+        "x": 410,
         "y": 760,
         "wires": [
             [
@@ -4213,21 +4183,13 @@
         "z": "cf24db3435ba68ad",
         "name": "Schedule override toggle",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "input_boolean.enable_heating_schedules",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "input_boolean.enable_heating_schedules",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -4248,12 +4210,20 @@
                 "comparatorValue": "on"
             }
         ],
-        "inputs": 0,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": false,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 190,
         "y": 400,
         "wires": [
@@ -4410,21 +4380,13 @@
         "z": "cf24db3435ba68ad",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "sensor.anyone_home",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -4445,12 +4407,20 @@
                 "propertyValue": "old_state.state"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 190,
         "y": 300,
         "wires": [
@@ -4466,21 +4436,13 @@
         "z": "cf24db3435ba68ad",
         "name": "not_home -> home",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "sensor.anyone_home",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -4501,12 +4463,20 @@
                 "propertyValue": "old_state.state"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 190,
         "y": 500,
         "wires": [
@@ -4532,21 +4502,13 @@
         "z": "cf24db3435ba68ad",
         "name": "off -> auto",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "climate.midea_ac_42880953513406_2",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "climate.midea_ac_42880953513406_2",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -4567,12 +4529,20 @@
                 "comparatorValue": "off"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 140,
         "y": 700,
         "wires": [
@@ -4707,21 +4677,13 @@
         "z": "cf24db3435ba68ad",
         "name": "off -> cool",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "climate.midea_ac_42880953513406_2",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "climate.midea_ac_42880953513406_2",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -4742,12 +4704,20 @@
                 "comparatorValue": "off"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 140,
         "y": 760,
         "wires": [
@@ -4989,21 +4959,13 @@
         "z": "cf24db3435ba68ad",
         "name": "unoccupied -> occupied",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "binary_sensor.office_occupancy",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.office_occupancy",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -5024,12 +4986,20 @@
                 "comparatorValue": "off"
             }
         ],
-        "inputs": 0,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": false,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 180,
         "y": 840,
         "wires": [
@@ -5045,21 +5015,13 @@
         "z": "cf24db3435ba68ad",
         "name": "occupied -> unoccupied",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "binary_sensor.office_occupancy",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.office_occupancy",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -5080,12 +5042,20 @@
                 "comparatorValue": "on"
             }
         ],
-        "inputs": 0,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": false,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 180,
         "y": 900,
         "wires": [
@@ -5954,27 +5924,17 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Triggered",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "alarm_control_panel.alarm_panel",
-        "entityidfiltertype": "substring",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "triggered",
-        "halt_if_type": "str",
-        "halt_if_compare": "is_not",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": false,
+        "exposeAsEntityConfig": "",
+        "entityId": "alarm_control_panel.alarm_panel",
+        "entityIdType": "substring",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "triggered",
+        "ifStateType": "str",
+        "ifStateOperator": "is_not",
+        "outputOnlyOnStateChange": false,
         "for": "",
         "forType": "num",
         "forUnits": "minutes",
@@ -6018,21 +5978,13 @@
         "z": "4aedf9e8.044e08",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "sensor.anyone_home",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -6053,12 +6005,20 @@
                 "propertyValue": "old_state.state"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 130,
         "y": 300,
         "wires": [
@@ -6173,21 +6133,13 @@
         "z": "4aedf9e8.044e08",
         "name": "not_home -> home",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "sensor.anyone_home",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "sensor.anyone_home",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -6208,12 +6160,20 @@
                 "propertyValue": "old_state.state"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 130,
         "y": 560,
         "wires": [
@@ -6514,21 +6474,13 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Disarmed",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityid": "alarm_control_panel.alarm_panel",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "alarm_control_panel.alarm_panel",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "targetType": "this_entity",
@@ -6549,12 +6501,20 @@
                 "comparatorValue": "disarmed"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
         "x": 120,
         "y": 760,
         "wires": [
@@ -6570,10 +6530,13 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Armed",
         "server": "8b52884a.b76658",
-        "version": 2,
-        "entityid": "alarm_control_panel.alarm_panel",
-        "entityidfiltertype": "exact",
-        "debugenabled": false,
+        "version": 3,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "alarm_control_panel.alarm_panel",
+        "entityIdType": "exact",
+        "debugEnabled": false,
         "constraints": [
             {
                 "id": "ty01v74n8h",
@@ -6596,11 +6559,8 @@
                 "comparatorValue": "^armed.*"
             }
         ],
-        "inputs": 1,
-        "outputs": 2,
-        "customoutputs": [],
-        "outputinitially": false,
-        "state_type": "str",
+        "customOutputs": [],
+        "outputInitially": false,
         "enableInput": true,
         "x": 110,
         "y": 680,
@@ -6671,27 +6631,17 @@
         "z": "4aedf9e8.044e08",
         "name": "landing motion",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.landing_motion_sensor_occupancy",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.landing_motion_sensor_occupancy",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -6861,27 +6811,17 @@
         "z": "4aedf9e8.044e08",
         "name": "office motion",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.office_pir",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.office_pir",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -6925,27 +6865,17 @@
         "z": "4aedf9e8.044e08",
         "name": "lounge motion",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.lounge_motion_sensor_occupancy",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.lounge_motion_sensor_occupancy",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -6989,27 +6919,17 @@
         "z": "4aedf9e8.044e08",
         "name": "front door",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.front_door_contact_sensor_contact",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.front_door_contact_sensor_contact",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -7054,27 +6974,17 @@
         "z": "4aedf9e8.044e08",
         "name": "kitchen door",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.kitchen_contact_sensor_contact",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.kitchen_contact_sensor_contact",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -7119,27 +7029,17 @@
         "z": "4aedf9e8.044e08",
         "name": "office WIndow",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.office_contact_sensor_contact",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.office_contact_sensor_contact",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -7184,27 +7084,17 @@
         "z": "4aedf9e8.044e08",
         "name": "lounge WIndow",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.lounge_contact_sensor_contact",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.lounge_contact_sensor_contact",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -7444,27 +7334,17 @@
         "z": "4aedf9e8.044e08",
         "name": "office smoke",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.smoke_detector_office_smoke",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.smoke_detector_office_smoke",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
@@ -7508,27 +7388,17 @@
         "z": "4aedf9e8.044e08",
         "name": "front bedroom smoke",
         "server": "8b52884a.b76658",
-        "version": 4,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "binary_sensor.smoke_detector_server_smoke",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
+        "version": 5,
         "outputs": 2,
-        "output_only_on_state_change": true,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.smoke_detector_server_smoke",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
