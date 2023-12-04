@@ -1178,7 +1178,7 @@
         "z": "afb0f186.cfb0d",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -1207,6 +1207,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -3675,7 +3676,7 @@
         "z": "afb0f186.cfb0d",
         "name": "unoccupied -> occupied",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 0,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -3704,6 +3705,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": false,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -3722,62 +3724,6 @@
             [
                 "a1ceebb6cd381b75",
                 "bc36c13ee490f021"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "cf0ca8b427140ac3",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "occupied -> unoccupied",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "inputs": 0,
-        "outputs": 2,
-        "exposeAsEntityConfig": "",
-        "entityId": "binary_sensor.office_occupancy",
-        "entityIdType": "exact",
-        "debugEnabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "propertyValue": "new_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "propertyValue": "old_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "on"
-            }
-        ],
-        "customOutputs": [],
-        "outputInitially": false,
-        "enableInput": false,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "x": 160,
-        "y": 760,
-        "wires": [
-            [
-                "5dd854655a3368ba"
             ],
             []
         ]
@@ -3818,31 +3764,6 @@
         "wires": [
             [
                 "de7ec5fa0d844b3e"
-            ]
-        ]
-    },
-    {
-        "id": "5dd854655a3368ba",
-        "type": "delay",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "2",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1800",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 410,
-        "y": 760,
-        "wires": [
-            [
-                "aec496c709063c49"
             ]
         ]
     },
@@ -3970,6 +3891,158 @@
         "wires": [
             [
                 "74dea37d901958f9"
+            ]
+        ]
+    },
+    {
+        "id": "731142af522cf3d3",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "occupied -> unoccupied",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "binary_sensor.office_occupancy",
+        "entityIdType": "exact",
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "10",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": true,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 160,
+        "y": 760,
+        "wires": [
+            [
+                "aec496c709063c49"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c6f394e948817d00",
+        "type": "trigger-state",
+        "z": "afb0f186.cfb0d",
+        "name": "Light switch off -> on",
+        "server": "8b52884a.b76658",
+        "version": 4,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "switch.office_light_switch",
+        "entityIdType": "exact",
+        "debugEnabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            }
+        ],
+        "customOutputs": [],
+        "outputInitially": false,
+        "stateType": "str",
+        "enableInput": false,
+        "x": 150,
+        "y": 840,
+        "wires": [
+            [
+                "73f779437c8893b3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0479f2dec670a06c",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Brightness 50",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "light",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.office_light"
+        ],
+        "data": "{\"brightness_pct\":50}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 560,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "73f779437c8893b3",
+        "type": "delay",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 360,
+        "y": 840,
+        "wires": [
+            [
+                "0479f2dec670a06c"
             ]
         ]
     },
@@ -4183,7 +4256,7 @@
         "z": "cf24db3435ba68ad",
         "name": "Schedule override toggle",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 0,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -4212,6 +4285,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": false,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -4380,7 +4454,7 @@
         "z": "cf24db3435ba68ad",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -4409,6 +4483,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -4436,7 +4511,7 @@
         "z": "cf24db3435ba68ad",
         "name": "not_home -> home",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -4465,6 +4540,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -4502,7 +4578,7 @@
         "z": "cf24db3435ba68ad",
         "name": "off -> auto",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -4531,6 +4607,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -4677,7 +4754,7 @@
         "z": "cf24db3435ba68ad",
         "name": "off -> cool",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -4706,6 +4783,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -4959,7 +5037,7 @@
         "z": "cf24db3435ba68ad",
         "name": "unoccupied -> occupied",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 0,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -4988,6 +5066,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": false,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -5015,7 +5094,7 @@
         "z": "cf24db3435ba68ad",
         "name": "occupied -> unoccupied",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 0,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -5044,6 +5123,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": false,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -5874,6 +5954,7 @@
         "name": "Alarm Android msg",
         "func": "var action = msg.payload\n\nvar category = \"alarm\"\nvar title = \"Alarm System\"\nvar message = \"Alarm is now \" + action\n\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -5978,7 +6059,7 @@
         "z": "4aedf9e8.044e08",
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -6007,6 +6088,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -6133,7 +6215,7 @@
         "z": "4aedf9e8.044e08",
         "name": "not_home -> home",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -6162,6 +6244,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -6474,7 +6557,7 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Disarmed",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -6503,6 +6586,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "exposeToHomeAssistant": false,
         "haConfig": [
@@ -6530,7 +6614,7 @@
         "z": "4aedf9e8.044e08",
         "name": "Alarm Armed",
         "server": "8b52884a.b76658",
-        "version": 3,
+        "version": 4,
         "inputs": 1,
         "outputs": 2,
         "exposeAsEntityConfig": "",
@@ -6561,6 +6645,7 @@
         ],
         "customOutputs": [],
         "outputInitially": false,
+        "stateType": "str",
         "enableInput": true,
         "x": 110,
         "y": 680,
