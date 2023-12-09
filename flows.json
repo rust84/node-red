@@ -1163,11 +1163,11 @@
         "scheduleRndMax": 0,
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": true,
-        "x": 430,
-        "y": 140,
+        "x": 310,
+        "y": 160,
         "wires": [
             [
-                "8193de22b9225b89"
+                "f374141366c7085d"
             ],
             []
         ]
@@ -1687,73 +1687,11 @@
             }
         ],
         "x": 120,
-        "y": 140,
+        "y": 160,
         "wires": [
             [],
             [
                 "e2881d687528b305"
-            ]
-        ]
-    },
-    {
-        "id": "ad4f6520ab385207",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "hallway light",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "light",
-        "service": "",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "light.hallway"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 870,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8193de22b9225b89",
-        "type": "trigger",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "op1": "{\"service\":\"turn_on\",\"data\":{\"brightness\":181,\"rgbw_color\":[255,191,127,255]}}",
-        "op2": "{\"service\":\"turn_off\"}",
-        "op1type": "json",
-        "op2type": "json",
-        "duration": "300",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 2,
-        "x": 630,
-        "y": 160,
-        "wires": [
-            [
-                "ad4f6520ab385207"
-            ],
-            [
-                "ad4f6520ab385207"
             ]
         ]
     },
@@ -3986,7 +3924,7 @@
         "stateType": "str",
         "enableInput": false,
         "x": 150,
-        "y": 840,
+        "y": 880,
         "wires": [
             [
                 "73f779437c8893b3"
@@ -4016,7 +3954,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 560,
-        "y": 840,
+        "y": 880,
         "wires": [
             []
         ]
@@ -4039,11 +3977,102 @@
         "allowrate": false,
         "outputs": 1,
         "x": 360,
-        "y": 840,
+        "y": 880,
         "wires": [
             [
                 "0479f2dec670a06c"
             ]
+        ]
+    },
+    {
+        "id": "76fcc7b118a1e7b7",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Workaround Sonoff not responding to low voltages",
+        "info": "",
+        "x": 850,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "f374141366c7085d",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Hallway on white",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "scene",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "scene.hallway_on_white"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [
+                "87cd244ee8e19e61"
+            ]
+        ]
+    },
+    {
+        "id": "87cd244ee8e19e61",
+        "type": "delay",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 160,
+        "wires": [
+            [
+                "1c71ec4f2d9f4bf0"
+            ]
+        ]
+    },
+    {
+        "id": "1c71ec4f2d9f4bf0",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Hallway off",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "light",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.ailight_2"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 970,
+        "y": 160,
+        "wires": [
+            []
         ]
     },
     {
@@ -6454,8 +6483,8 @@
             [],
             [
                 "c28e839a592e1ad9",
-                "2d021432e7e8a5b2",
-                "fe046407.ab0868"
+                "fe046407.ab0868",
+                "d1a401b113e07049"
             ]
         ]
     },
@@ -7576,19 +7605,48 @@
         "wires": []
     },
     {
-        "id": "7cf0445018385919",
+        "id": "e99edbd1d96d2fbd",
+        "type": "inject",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 820,
+        "wires": [
+            [
+                "d1a401b113e07049"
+            ]
+        ]
+    },
+    {
+        "id": "d1a401b113e07049",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
-        "name": "Hallway green",
+        "name": "Hallway on green",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
-        "domain": "light",
-        "service": "",
+        "domain": "scene",
+        "service": "turn_on",
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "light.hallway"
+            "scene.hallway_on_green"
         ],
         "data": "",
         "dataType": "json",
@@ -7596,49 +7654,65 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 760,
-        "y": 820,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2d021432e7e8a5b2",
-        "type": "trigger",
-        "z": "4aedf9e8.044e08",
-        "name": "",
-        "op1": "{\"service\":\"turn_on\",\"data\":{\"brightness\":181,\"rgbw_color\":[0,255,64,0]}}",
-        "op2": "{\"service\":\"turn_off\"}",
-        "op1type": "json",
-        "op2type": "json",
-        "duration": "300",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 2,
-        "x": 530,
+        "x": 610,
         "y": 820,
         "wires": [
             [
-                "7cf0445018385919"
-            ],
-            [
-                "7cf0445018385919"
+                "d654e2290b46c4f3"
             ]
         ]
     },
     {
-        "id": "2e87d1b84fb9baf4",
-        "type": "comment",
+        "id": "d654e2290b46c4f3",
+        "type": "delay",
         "z": "4aedf9e8.044e08",
-        "name": "FIX: white_value not supported",
-        "info": "",
-        "x": 1030,
-        "y": 800,
-        "wires": []
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 820,
+        "y": 820,
+        "wires": [
+            [
+                "54f34cef987458d6"
+            ]
+        ]
+    },
+    {
+        "id": "54f34cef987458d6",
+        "type": "api-call-service",
+        "z": "4aedf9e8.044e08",
+        "name": "Hallway off",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "light",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.ailight_2"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1010,
+        "y": 820,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "9c1da9ccdd10d1fd",
