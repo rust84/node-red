@@ -1262,15 +1262,17 @@
             {
                 "property": "payload",
                 "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
+                "value": "payload",
+                "valueType": "msg"
             }
         ],
         "queue": "none",
         "x": 900,
         "y": 900,
         "wires": [
-            []
+            [
+                "8ead5fb51ad6d599"
+            ]
         ]
     },
     {
@@ -3570,8 +3572,8 @@
             {
                 "property": "payload",
                 "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
+                "value": "payload",
+                "valueType": "msg"
             }
         ],
         "queue": "none",
@@ -4235,6 +4237,33 @@
         "queue": "none",
         "x": 1030,
         "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ead5fb51ad6d599",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "floor lamp",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "light",
+        "service": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.floor_lamp"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1120,
+        "y": 900,
         "wires": [
             []
         ]
