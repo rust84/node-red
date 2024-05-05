@@ -203,6 +203,7 @@
         "id": "5be2ecb5576efb75",
         "type": "junction",
         "z": "f987904ca78a23d7",
+        "d": true,
         "x": 360,
         "y": 360,
         "wires": [
@@ -215,6 +216,7 @@
         "id": "7c18013c40d0c4e7",
         "type": "junction",
         "z": "f987904ca78a23d7",
+        "d": true,
         "x": 360,
         "y": 160,
         "wires": [
@@ -227,6 +229,7 @@
         "id": "d3e9ebbaa7917aca",
         "type": "junction",
         "z": "f987904ca78a23d7",
+        "d": true,
         "x": 380,
         "y": 40,
         "wires": [
@@ -1052,8 +1055,8 @@
             }
         ],
         "queue": "none",
-        "x": 1090,
-        "y": 60,
+        "x": 1070,
+        "y": 80,
         "wires": [
             []
         ]
@@ -1076,7 +1079,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 830,
-        "y": 60,
+        "y": 80,
         "wires": [
             [
                 "f0357509eda72c8d"
@@ -1098,7 +1101,7 @@
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": true,
         "x": 590,
-        "y": 60,
+        "y": 80,
         "wires": [
             [
                 "312fc9f4c564b728"
@@ -1144,7 +1147,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 360,
-        "y": 60,
+        "y": 80,
         "wires": [
             [],
             [
@@ -1267,12 +1270,10 @@
             }
         ],
         "queue": "none",
-        "x": 900,
+        "x": 1200,
         "y": 900,
         "wires": [
-            [
-                "8ead5fb51ad6d599"
-            ]
+            []
         ]
     },
     {
@@ -1384,6 +1385,7 @@
         "id": "b43cd58e779f418f",
         "type": "http request",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "method": "POST",
         "ret": "txt",
@@ -1406,6 +1408,7 @@
         "id": "5d41c143bd102136",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "format",
         "func": "var key = msg.key\nvar user = msg.user\n\n//msg.payload = \"data to post\";\nmsg.headers = {};\nmsg.headers['x-api-user'] = user;\nmsg.headers['x-api-key'] = key;\nreturn msg;",
         "outputs": 1,
@@ -1425,6 +1428,7 @@
         "id": "8895c40ab576f5c2",
         "type": "credentials",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "credentials",
         "props": [
             {
@@ -1478,6 +1482,7 @@
         "id": "eae36b37750c19e9",
         "type": "server-state-changed",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "front door",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -1542,6 +1547,7 @@
         "id": "ba93f0e29b5d98a1",
         "type": "http request",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "method": "POST",
         "ret": "txt",
@@ -1564,6 +1570,7 @@
         "id": "7a308ec0c72ccb31",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "format",
         "func": "const command = msg.payload.state;\nconst component = msg.payload.component;\nmsg.headers = {};\nmsg.headers[\"Content-Type\"] = \"application/json\";\nmsg.payload = {\n     \"command\":\"componentstate\",\n     \"componentstate\":{\n       \"component\": component,\n       \"state\":command\n     }\n    };\nreturn msg;",
         "outputs": 1,
@@ -1583,12 +1590,13 @@
         "id": "dd17a9ab4546b537",
         "type": "server-state-changed",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "shield state",
         "server": "8b52884a.b76658",
         "version": 5,
         "outputs": 1,
         "exposeAsEntityConfig": "",
-        "entityId": "media_player.android_tv_10_30_0_83",
+        "entityId": "media_player.android_tv_10_20_0_13",
         "entityIdType": "exact",
         "outputInitially": true,
         "stateType": "str",
@@ -1636,6 +1644,7 @@
         "id": "8cabbd8c69169c8b",
         "type": "switch",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "switch",
         "property": "payload",
         "propertyType": "msg",
@@ -1669,6 +1678,7 @@
         "id": "2094b6cd173dd527",
         "type": "switch",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "instance state",
         "property": "payload.info.components[0].enabled",
         "propertyType": "msg",
@@ -1698,6 +1708,7 @@
         "id": "60e2e97cef1390a9",
         "type": "switch",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "HDR state",
         "property": "payload.info.components[1].enabled",
         "propertyType": "msg",
@@ -1727,6 +1738,7 @@
         "id": "88da13a932af2a88",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "Instance Off",
         "func": "msg = {payload: {state: false, \"component\": \"ALL\"}}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -1746,6 +1758,7 @@
         "id": "e8173119d19d6f79",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "Instance On",
         "func": "msg = {payload: {state: true, \"component\": \"ALL\"}}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -1765,6 +1778,7 @@
         "id": "2d0f62af6ff45a02",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "HDR Mode On",
         "func": "msg = {payload: {state: true, \"component\": \"HDR\"}}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -1784,6 +1798,7 @@
         "id": "0c03cce0ff0b29cf",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "HDR Mode Off",
         "func": "msg = {payload: {state: false, \"component\": \"HDR\"}}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -1803,6 +1818,7 @@
         "id": "5492281fa2ad67c8",
         "type": "subflow:998559de1e6b81d6",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "x": 620,
         "y": 1400,
@@ -1816,6 +1832,7 @@
         "id": "28f932ddd23b6eaa",
         "type": "subflow:998559de1e6b81d6",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "x": 620,
         "y": 1480,
@@ -1829,6 +1846,7 @@
         "id": "685c4449f9f482aa",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "subwoofer",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -1865,6 +1883,7 @@
         "id": "2e5a11d811c61dc2",
         "type": "plex-ws-playing",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "Plex",
         "server": "06a202b01db68d7e",
         "allowUpdates": false,
@@ -1881,6 +1900,7 @@
         "id": "b9b61a1431198f1e",
         "type": "rbe",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -1901,6 +1921,7 @@
         "id": "d8f8aaaf9a8cf60c",
         "type": "switch",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "playing HDR?",
         "property": "session.Media[0].videoProfile",
         "propertyType": "msg",
@@ -1931,98 +1952,10 @@
         ]
     },
     {
-        "id": "ffe4137d2659c147",
-        "type": "mqtt in",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "topic": "rf/+/433toMQTT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "649859a4.a17818",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 1860,
-        "wires": [
-            [
-                "7e80e50f61bf41ff"
-            ]
-        ]
-    },
-    {
-        "id": "7e80e50f61bf41ff",
-        "type": "change",
-        "z": "afb0f186.cfb0d",
-        "name": "filter",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload.value",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 330,
-        "y": 1860,
-        "wires": [
-            [
-                "53e039d412778ed1"
-            ]
-        ]
-    },
-    {
-        "id": "53e039d412778ed1",
-        "type": "switch",
-        "z": "afb0f186.cfb0d",
-        "name": "A. B. C. D",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "765570",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "765576",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "765569",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "765572",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 4,
-        "x": 500,
-        "y": 1860,
-        "wires": [
-            [],
-            [],
-            [],
-            []
-        ]
-    },
-    {
         "id": "216eeb1e6b3d9e94",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "office light",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -2057,6 +1990,7 @@
         "id": "10b730be93c36924",
         "type": "comment",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "RF-Link",
         "info": "",
         "x": 90,
@@ -2064,133 +1998,10 @@
         "wires": []
     },
     {
-        "id": "4f62afe73c1c1ea8",
-        "type": "mqtt in",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "topic": "rf/+/SYStoMQTT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "649859a4.a17818",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 1760,
-        "wires": [
-            [
-                "81757dde80fa153e"
-            ]
-        ]
-    },
-    {
-        "id": "81757dde80fa153e",
-        "type": "change",
-        "z": "afb0f186.cfb0d",
-        "name": "filter",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload.actRec",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 330,
-        "y": 1760,
-        "wires": [
-            [
-                "5fa53ed157de8be1"
-            ]
-        ]
-    },
-    {
-        "id": "5fa53ed157de8be1",
-        "type": "switch",
-        "z": "afb0f186.cfb0d",
-        "name": "1. Pilight--2.RF--3.RF2",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "2",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "3",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 560,
-        "y": 1760,
-        "wires": [
-            [
-                "54ca7ed186be6f53"
-            ],
-            [],
-            [
-                "54ca7ed186be6f53"
-            ]
-        ]
-    },
-    {
-        "id": "8c3154f1147332c8",
-        "type": "mqtt out",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "topic": "rf/OpenMQTTGateway_SRFB_Direct/commands/MQTTto433",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "649859a4.a17818",
-        "x": 1180,
-        "y": 1760,
-        "wires": []
-    },
-    {
-        "id": "54ca7ed186be6f53",
-        "type": "template",
-        "z": "afb0f186.cfb0d",
-        "name": "Set RF active",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\"active\": true}",
-        "output": "str",
-        "x": 800,
-        "y": 1760,
-        "wires": [
-            [
-                "8c3154f1147332c8"
-            ]
-        ]
-    },
-    {
         "id": "ce9f1927ecf0b77c",
         "type": "api-current-state",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "light off?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -2238,6 +2049,7 @@
         "id": "b63f260cb0200bf6",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "turn_off",
         "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -2257,6 +2069,7 @@
         "id": "43b507f0a4c03a0c",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "turn_on",
         "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -2276,6 +2089,7 @@
         "id": "4b48f3e738b62edb",
         "type": "api-current-state",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "alarm not disarmed?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -2322,6 +2136,7 @@
         "id": "ba9e3e83d7bce571",
         "type": "credentials",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "alarm code",
         "props": [
             {
@@ -2341,6 +2156,7 @@
         "id": "06360ca603140fd6",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "disarm alarm",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -2372,19 +2188,10 @@
         ]
     },
     {
-        "id": "51c09c79d81e5cae",
-        "type": "comment",
-        "z": "afb0f186.cfb0d",
-        "name": "OpenMQTTGateway",
-        "info": "",
-        "x": 130,
-        "y": 1700,
-        "wires": []
-    },
-    {
         "id": "89b8ee7cc03fec61",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "notify Russell android",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -2417,6 +2224,7 @@
         "id": "26d6d10d7af28c12",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "Message",
         "func": "var message = \"Someone is at the door\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -2436,6 +2244,7 @@
         "id": "7dc7d1c6d76cbc49",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "Alexa notify",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -2461,6 +2270,7 @@
         "id": "62dc0308d6967c76",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "Format notification",
         "func": "const frigate_external_url = \"https://frigate.microserver.space\"\nconst ha_external_url  = \"https://hass.microserver.space\";\n\nmsg.event_id     = msg.payload;\nmsg.clip         = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/driveway\" + \"/clip.mp4\";\nmsg.thumbnail    = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/thumbnail.jpg?format=android\";\nmsg.uri          = \"https://frigate.microserver.space/api/driveway?h=1080\";\nmsg.message     = \"Someone is at the door\";\nmsg.payload     = { data: {'message': msg.message, data: {'image': msg.thumbnail, 'clickAction': msg.clip, 'sticky': true,'color': \"#2DF56D\", 'actions': [{'action': \"URI\",'title': \"Watch Live Stream\", 'uri': msg.uri  }],'ttl': 0, 'group': \"motion-group\", 'priority': \"High\"  }}};\nreturn msg;",
         "outputs": 1,
@@ -2480,6 +2290,7 @@
         "id": "74dea37d901958f9",
         "type": "http request",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -2502,6 +2313,7 @@
         "id": "c1627889623a1856",
         "type": "json",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "property": "payload",
         "action": "",
@@ -2518,6 +2330,7 @@
         "id": "d55eced5cfec1646",
         "type": "change",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "event id",
         "rules": [
             {
@@ -2545,6 +2358,7 @@
         "id": "18fcfd08a14d7c72",
         "type": "server-events",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -2565,7 +2379,7 @@
                 "valueType": "jsonata"
             }
         ],
-        "x": 180,
+        "x": 140,
         "y": 2120,
         "wires": [
             [
@@ -2577,6 +2391,7 @@
         "id": "6fb50a6d90e7016a",
         "type": "change",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "entity id",
         "rules": [
             {
@@ -2604,6 +2419,7 @@
         "id": "aa0889237fb55e03",
         "type": "delay",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "pauseType": "rate",
         "timeout": "2",
@@ -2629,6 +2445,7 @@
         "id": "deef176193c829dd",
         "type": "switch",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "Door bell - > A -> B -> C -> D",
         "property": "payload.entity_id",
         "propertyType": "msg",
@@ -2684,6 +2501,7 @@
         "id": "731b30d4df389a06",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "event log",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -2711,6 +2529,7 @@
         "id": "c61a5fe61b8e0a04",
         "type": "delay",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "pauseType": "delay",
         "timeout": "5",
@@ -2746,6 +2565,7 @@
         "id": "91f387a44ca991a3",
         "type": "switch",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "1. off -> 2.playing  -> 3. standby -> 4. idle -> 5. paused",
         "property": "payload",
         "propertyType": "msg",
@@ -2803,6 +2623,7 @@
         "id": "ac1068a7cc5d90b2",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "turn_on",
         "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -2823,6 +2644,7 @@
         "id": "ab743ee4b74464bf",
         "type": "function",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "turn_off",
         "func": "var service = \"turn_off\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -2837,191 +2659,6 @@
                 "88da13a932af2a88",
                 "685c4449f9f482aa"
             ]
-        ]
-    },
-    {
-        "id": "7d6a77d9e130baab",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "Parking reminder",
-        "func": "var category = \"location\"\nvar title = \"Parking reminder\"\nvar message = \"Validate parking 🚗\\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 2500,
-        "wires": [
-            [
-                "d1cd0f1f276d176d"
-            ]
-        ]
-    },
-    {
-        "id": "d1cd0f1f276d176d",
-        "type": "delay",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "2",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "30",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 620,
-        "y": 2500,
-        "wires": [
-            [
-                "77b71968d0e6d7b4"
-            ]
-        ]
-    },
-    {
-        "id": "77b71968d0e6d7b4",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "notify Russell android",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "notify",
-        "service": "mobile_app_pixel_4a",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "x": 860,
-        "y": 2500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f9286a3bcc74f537",
-        "type": "comment",
-        "z": "afb0f186.cfb0d",
-        "name": "Parking",
-        "info": "",
-        "x": 90,
-        "y": 2440,
-        "wires": []
-    },
-    {
-        "id": "f99c3256bebf7885",
-        "type": "server-state-changed",
-        "z": "afb0f186.cfb0d",
-        "name": "russell arrive at gym",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "outputs": 2,
-        "exposeAsEntityConfig": "",
-        "entityId": "person.russell",
-        "entityIdType": "exact",
-        "outputInitially": true,
-        "stateType": "str",
-        "ifState": "gym",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 130,
-        "y": 2500,
-        "wires": [
-            [
-                "7d6a77d9e130baab"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "7ba869440b93e2df",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "format Alexa",
-        "func": "var bin = msg.payload\nvar message = \"Remember to put out the \" + bin\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 2760,
-        "wires": [
-            [
-                "36109e7738361659",
-                "df68f8446cb4b10b"
-            ]
-        ]
-    },
-    {
-        "id": "76b1b01bd11dde9e",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "Alexa notify",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "notify",
-        "service": "alexa_media_everywhere",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [],
-        "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 1310,
-        "y": 2760,
-        "wires": [
-            []
         ]
     },
     {
@@ -3051,7 +2688,7 @@
         ],
         "queue": "none",
         "x": 1120,
-        "y": 2860,
+        "y": 2480,
         "wires": [
             []
         ]
@@ -3063,36 +2700,16 @@
         "name": "format Android",
         "func": "var category = \"time\"\nvar title = \"Bins reminder\"\nvar message = \"Put out the \" + msg.payload + \" 🗑\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 2860,
+        "y": 2480,
         "wires": [
             [
-                "36109e7738361659",
-                "df68f8446cb4b10b"
-            ]
-        ]
-    },
-    {
-        "id": "9a81dec186e071ac",
-        "type": "function",
-        "z": "afb0f186.cfb0d",
-        "name": "recycling",
-        "func": "msg.payload = \"recycling\"\n\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 2760,
-        "wires": [
-            [
-                "49620fe597046cdb",
-                "7ba869440b93e2df"
+                "36109e7738361659"
             ]
         ]
     },
@@ -3100,15 +2717,16 @@
         "id": "500927a9fbe19a5c",
         "type": "function",
         "z": "afb0f186.cfb0d",
-        "name": "household waste",
-        "func": "msg.payload = \"household waste\"\n\nreturn [ msg ];\n",
+        "name": "household",
+        "func": "msg.payload = \"household bin\"\n\nreturn [ msg ];\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 2860,
+        "x": 330,
+        "y": 2480,
         "wires": [
             [
                 "49620fe597046cdb"
@@ -3119,7 +2737,7 @@
         "id": "ae50607a2737d8ee",
         "type": "poll-state",
         "z": "afb0f186.cfb0d",
-        "name": "Household waste",
+        "name": "Household bin",
         "server": "8b52884a.b76658",
         "version": 3,
         "exposeAsEntityConfig": "",
@@ -3154,59 +2772,11 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 120,
-        "y": 2860,
+        "x": 110,
+        "y": 2480,
         "wires": [
             [
                 "500927a9fbe19a5c"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "44c37607e0fd11dd",
-        "type": "poll-state",
-        "z": "afb0f186.cfb0d",
-        "name": "Recycling waste",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "exposeAsEntityConfig": "",
-        "updateInterval": "3600",
-        "updateIntervalType": "num",
-        "updateIntervalUnits": "seconds",
-        "outputInitially": true,
-        "outputOnChanged": true,
-        "entityId": "sensor.waste_collection_recycling",
-        "stateType": "str",
-        "ifState": "TOMORROW",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputs": 2,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 120,
-        "y": 2760,
-        "wires": [
-            [
-                "9a81dec186e071ac"
             ],
             []
         ]
@@ -3218,28 +2788,8 @@
         "name": "Bins",
         "info": "",
         "x": 90,
-        "y": 2680,
+        "y": 2420,
         "wires": []
-    },
-    {
-        "id": "df68f8446cb4b10b",
-        "type": "time-range-switch",
-        "z": "afb0f186.cfb0d",
-        "name": "5pm-6pm",
-        "lat": "51.298530532198356",
-        "lon": "-2.2305447589418095",
-        "startTime": "17:00",
-        "endTime": "18:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 880,
-        "y": 2760,
-        "wires": [
-            [
-                "683ca2738de7a2a0"
-            ],
-            []
-        ]
     },
     {
         "id": "36109e7738361659",
@@ -3258,8 +2808,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 890,
-        "y": 2860,
+        "x": 870,
+        "y": 2480,
         "wires": [
             [
                 "51e77ba5691fca49"
@@ -3267,34 +2817,10 @@
         ]
     },
     {
-        "id": "683ca2738de7a2a0",
-        "type": "delay",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "2",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "day",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 2760,
-        "wires": [
-            [
-                "76b1b01bd11dde9e"
-            ]
-        ]
-    },
-    {
         "id": "0acbea29e9610ade",
         "type": "mqtt in",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/hyperion_button/action",
         "qos": "2",
@@ -3316,6 +2842,7 @@
         "id": "094f5926144118f9",
         "type": "mqtt in",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/push_button/action",
         "qos": "2",
@@ -3379,7 +2906,7 @@
             }
         ],
         "x": 140,
-        "y": 60,
+        "y": 80,
         "wires": [
             [],
             [
@@ -3480,8 +3007,8 @@
         "y": 900,
         "wires": [
             [
-                "de7ec5fa0d844b3e",
-                "5b2070e801e7c8a1"
+                "5b2070e801e7c8a1",
+                "8ead5fb51ad6d599"
             ]
         ]
     },
@@ -3500,7 +3027,7 @@
         "y": 820,
         "wires": [
             [
-                "de7ec5fa0d844b3e"
+                "8ead5fb51ad6d599"
             ]
         ]
     },
@@ -3557,12 +3084,12 @@
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
-        "domain": "switch",
+        "domain": "light",
         "service": "turn_off",
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "switch.office_light_switch"
+            "light.office_light"
         ],
         "data": "",
         "dataType": "json",
@@ -3606,6 +3133,7 @@
         "id": "37436049ac7af60e",
         "type": "inject",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -3684,114 +3212,6 @@
             ],
             []
         ]
-    },
-    {
-        "id": "c6f394e948817d00",
-        "type": "trigger-state",
-        "z": "afb0f186.cfb0d",
-        "name": "Light switch off -> on",
-        "server": "8b52884a.b76658",
-        "version": 4,
-        "inputs": 0,
-        "outputs": 2,
-        "exposeAsEntityConfig": "",
-        "entityId": "switch.office_light_switch",
-        "entityIdType": "exact",
-        "debugEnabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "propertyValue": "new_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "on"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "propertyValue": "old_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off"
-            }
-        ],
-        "customOutputs": [],
-        "outputInitially": false,
-        "stateType": "str",
-        "enableInput": false,
-        "x": 150,
-        "y": 1020,
-        "wires": [
-            [
-                "73f779437c8893b3"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "0479f2dec670a06c",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "Brightness 50",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "light",
-        "service": "turn_on",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "light.office_light"
-        ],
-        "data": "{\"brightness_pct\":50}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 560,
-        "y": 1020,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "73f779437c8893b3",
-        "type": "delay",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 360,
-        "y": 1020,
-        "wires": [
-            [
-                "0479f2dec670a06c"
-            ]
-        ]
-    },
-    {
-        "id": "76fcc7b118a1e7b7",
-        "type": "comment",
-        "z": "afb0f186.cfb0d",
-        "name": "Workaround Sonoff not responding to low voltages",
-        "info": "",
-        "x": 850,
-        "y": 1020,
-        "wires": []
     },
     {
         "id": "f374141366c7085d",
@@ -4009,7 +3429,7 @@
         "id": "9024635ac412c326",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
-        "name": "lounge lamp",
+        "name": "lounge background",
         "server": "8b52884a.b76658",
         "version": 5,
         "debugenabled": false,
@@ -4018,7 +3438,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "light.lounge_light"
+            "light.lounge_wall_lights"
         ],
         "data": "",
         "dataType": "json",
@@ -4033,12 +3453,10 @@
             }
         ],
         "queue": "none",
-        "x": 850,
+        "x": 870,
         "y": 600,
         "wires": [
-            [
-                "84aadc4504cf2c29"
-            ]
+            []
         ]
     },
     {
@@ -4048,6 +3466,7 @@
         "name": "turn_on",
         "func": "var service = \"turn_on\"\n\nmsg.payload = {\n    \"service\": service,\n}\nreturn [ msg ];\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -4161,30 +3580,52 @@
         ]
     },
     {
-        "id": "7701799cd91cbae9",
-        "type": "server-state-changed",
+        "id": "8ead5fb51ad6d599",
+        "type": "api-call-service",
         "z": "afb0f186.cfb0d",
-        "name": "hallway motion",
+        "name": "floor lamps",
         "server": "8b52884a.b76658",
         "version": 5,
-        "outputs": 2,
+        "debugenabled": false,
+        "domain": "light",
+        "service": "",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.left_floor_lamp",
+            "light.right_floor_lamp"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 890,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc0a39c6a5e146f3",
+        "type": "poll-state",
+        "z": "afb0f186.cfb0d",
+        "name": "Garden bin",
+        "server": "8b52884a.b76658",
+        "version": 3,
         "exposeAsEntityConfig": "",
-        "entityId": "binary_sensor.lounge_motion_sensor_occupancy",
-        "entityIdType": "exact",
-        "outputInitially": false,
+        "updateInterval": "3600",
+        "updateIntervalType": "num",
+        "updateIntervalUnits": "seconds",
+        "outputInitially": true,
+        "outputOnChanged": true,
+        "entityId": "sensor.waste_collection_garden",
         "stateType": "str",
-        "ifState": "off",
+        "ifState": "TOMORROW",
         "ifStateType": "str",
         "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
+        "outputs": 2,
         "outputProperties": [
             {
                 "property": "payload",
@@ -4196,7 +3637,7 @@
                 "property": "data",
                 "propertyType": "msg",
                 "value": "",
-                "valueType": "eventData"
+                "valueType": "entity"
             },
             {
                 "property": "topic",
@@ -4205,278 +3646,40 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 140,
-        "y": 120,
+        "x": 100,
+        "y": 2560,
         "wires": [
-            [],
             [
-                "9a771d738291330e"
-            ]
+                "38502e1bf56600ae"
+            ],
+            []
         ]
     },
     {
-        "id": "84aadc4504cf2c29",
-        "type": "api-call-service",
+        "id": "38502e1bf56600ae",
+        "type": "function",
         "z": "afb0f186.cfb0d",
-        "name": "Fairy lights",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "switch",
-        "service": "",
-        "areaId": [],
-        "deviceId": [
-            "1e061ee71115397a81c235b516b7a773"
-        ],
-        "entityId": [],
-        "data": "",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 1030,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8ead5fb51ad6d599",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "floor lamp",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "light",
-        "service": "",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "light.floor_lamp"
-        ],
-        "data": "",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 1120,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f92e64aaa31fb31c",
-        "type": "mqtt in",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "topic": "zigbee2mqtt/heating_controller",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "649859a4.a17818",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 350,
-        "y": 80,
-        "wires": [
-            [
-                "5b3374647f98755c",
-                "496540910ac73230",
-                "f1549a3d6d78367a",
-                "1ec2762dc71884a5"
-            ]
-        ]
-    },
-    {
-        "id": "f1549a3d6d78367a",
-        "type": "change",
-        "z": "cf24db3435ba68ad",
-        "name": "Current Setpoint",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.current_heating_setpoint",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5b3374647f98755c",
-        "type": "change",
-        "z": "cf24db3435ba68ad",
-        "name": "Local temperature",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.local_temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "496540910ac73230",
-        "type": "switch",
-        "z": "cf24db3435ba68ad",
-        "name": "Preset != hold",
-        "property": "payload.preset_mode",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "neq",
-                "v": "hold",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
+        "name": "garden",
+        "func": "msg.payload = \"garden bin\"\n\nreturn [ msg ];\n",
         "outputs": 1,
-        "x": 680,
-        "y": 80,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 2560,
         "wires": [
             [
-                "ee442106bfadffb7"
+                "49620fe597046cdb"
             ]
-        ]
-    },
-    {
-        "id": "ee442106bfadffb7",
-        "type": "template",
-        "z": "cf24db3435ba68ad",
-        "name": "Set preset to hold",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"preset\": \"hold\"}",
-        "output": "str",
-        "x": 920,
-        "y": 80,
-        "wires": [
-            [
-                "ebec1787363df97e"
-            ]
-        ]
-    },
-    {
-        "id": "ebec1787363df97e",
-        "type": "delay",
-        "z": "cf24db3435ba68ad",
-        "name": "limit 5 msg/s",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "5",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 1140,
-        "y": 80,
-        "wires": [
-            [
-                "89cf13b4556cb961"
-            ]
-        ]
-    },
-    {
-        "id": "89cf13b4556cb961",
-        "type": "mqtt out",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "topic": "zigbee2mqtt/heating_controller/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "649859a4.a17818",
-        "x": 1510,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "1ec2762dc71884a5",
-        "type": "change",
-        "z": "cf24db3435ba68ad",
-        "name": "Set system mode",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload.system_mode",
-                "pt": "msg",
-                "from": "heat",
-                "fromt": "str",
-                "to": "{\"service\":\"turn_on\"}",
-                "tot": "json"
-            },
-            {
-                "t": "change",
-                "p": "payload.system_mode",
-                "pt": "msg",
-                "from": "off",
-                "fromt": "str",
-                "to": "{\"service\":\"turn_off\"}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.system_mode",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 200,
-        "wires": [
-            []
         ]
     },
     {
         "id": "d841ce2f97c502f8",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
-        "name": "Schedule override toggle",
+        "name": "Toggle schedules",
         "server": "8b52884a.b76658",
         "version": 4,
         "inputs": 0,
@@ -4520,8 +3723,8 @@
                 "value": ""
             }
         ],
-        "x": 190,
-        "y": 400,
+        "x": 140,
+        "y": 180,
         "wires": [
             [
                 "4aed068020384b78"
@@ -4560,11 +3763,11 @@
             }
         ],
         "queue": "none",
-        "x": 650,
-        "y": 340,
+        "x": 610,
+        "y": 120,
         "wires": [
             [
-                "f7e32eb6d1c2e7d6"
+                "c35bd5eccd6b653b"
             ]
         ]
     },
@@ -4597,30 +3800,11 @@
             }
         ],
         "queue": "none",
-        "x": 650,
-        "y": 480,
+        "x": 610,
+        "y": 260,
         "wires": [
             [
                 "424007945ad5ab08"
-            ]
-        ]
-    },
-    {
-        "id": "dcc7804597eb25ec",
-        "type": "template",
-        "z": "cf24db3435ba68ad",
-        "name": "Wrap System Mode",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"system_mode\": \"{{payload}}\"}",
-        "output": "str",
-        "x": 1250,
-        "y": 340,
-        "wires": [
-            [
-                "89cf13b4556cb961"
             ]
         ]
     },
@@ -4645,29 +3829,10 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 920,
-        "y": 480,
+        "x": 840,
+        "y": 260,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f7e32eb6d1c2e7d6",
-        "type": "function",
-        "z": "cf24db3435ba68ad",
-        "name": "turn_off",
-        "func": "msg.payload = \"off\"\n\nreturn [ msg ];\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 340,
-        "wires": [
-            [
-                "dcc7804597eb25ec"
-            ]
         ]
     },
     {
@@ -4718,8 +3883,8 @@
                 "value": ""
             }
         ],
-        "x": 190,
-        "y": 300,
+        "x": 150,
+        "y": 80,
         "wires": [
             [
                 "bd1afed023a81c58"
@@ -4775,8 +3940,8 @@
                 "value": ""
             }
         ],
-        "x": 190,
-        "y": 500,
+        "x": 150,
+        "y": 280,
         "wires": [
             [
                 "dde8862116e0100f"
@@ -4788,16 +3953,18 @@
         "id": "066749878081405d",
         "type": "comment",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Aircon",
         "info": "",
-        "x": 130,
-        "y": 620,
+        "x": 90,
+        "y": 440,
         "wires": []
     },
     {
         "id": "a3258b5588c62c7c",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "off -> auto",
         "server": "8b52884a.b76658",
         "version": 4,
@@ -4842,8 +4009,8 @@
                 "value": ""
             }
         ],
-        "x": 140,
-        "y": 700,
+        "x": 100,
+        "y": 520,
         "wires": [
             [
                 "f0c9108db605c58f"
@@ -4855,6 +4022,7 @@
         "id": "be27bd4df8ea1392",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Enable swing mode",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -4872,8 +4040,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 590,
-        "y": 700,
+        "x": 550,
+        "y": 520,
         "wires": [
             []
         ]
@@ -4882,6 +4050,7 @@
         "id": "77cb539139b1e947",
         "type": "api-current-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -4915,8 +4084,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 410,
-        "y": 840,
+        "x": 370,
+        "y": 660,
         "wires": [
             [
                 "0d6f721153f28d46"
@@ -4928,6 +4097,7 @@
         "id": "f0c9108db605c58f",
         "type": "api-current-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -4961,8 +4131,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 370,
-        "y": 700,
+        "x": 330,
+        "y": 520,
         "wires": [
             [
                 "be27bd4df8ea1392"
@@ -4974,6 +4144,7 @@
         "id": "cdd7e2012c671703",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "off -> cool",
         "server": "8b52884a.b76658",
         "version": 4,
@@ -5018,8 +4189,8 @@
                 "value": ""
             }
         ],
-        "x": 140,
-        "y": 760,
+        "x": 100,
+        "y": 580,
         "wires": [
             [
                 "f0c9108db605c58f"
@@ -5064,8 +4235,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 390,
-        "y": 300,
+        "x": 350,
+        "y": 80,
         "wires": [
             [
                 "4aed068020384b78"
@@ -5110,8 +4281,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 390,
-        "y": 500,
+        "x": 350,
+        "y": 280,
         "wires": [
             [
                 "2447d1c9ace3b941"
@@ -5120,143 +4291,10 @@
         ]
     },
     {
-        "id": "6029993ccdbde1d0",
-        "type": "bigtimer",
-        "z": "cf24db3435ba68ad",
-        "outtopic": "",
-        "outpayload1": "1",
-        "outpayload2": "",
-        "name": "2.00am every day",
-        "comment": "",
-        "lat": "51.32063880734896",
-        "lon": "-2.2089664938383327",
-        "starttime": "120",
-        "endtime": "135",
-        "starttime2": "0",
-        "endtime2": "0",
-        "startoff": "0",
-        "endoff": "0",
-        "startoff2": "",
-        "endoff2": "",
-        "offs": 0,
-        "outtext1": "",
-        "outtext2": "",
-        "timeout": 1440,
-        "sun": true,
-        "mon": true,
-        "tue": true,
-        "wed": true,
-        "thu": true,
-        "fri": true,
-        "sat": true,
-        "jan": true,
-        "feb": true,
-        "mar": true,
-        "apr": true,
-        "may": true,
-        "jun": true,
-        "jul": true,
-        "aug": true,
-        "sep": true,
-        "oct": true,
-        "nov": true,
-        "dec": true,
-        "day1": 0,
-        "month1": 0,
-        "day2": 0,
-        "month2": 0,
-        "day3": 0,
-        "month3": 0,
-        "day4": 0,
-        "month4": 0,
-        "day5": 0,
-        "month5": 0,
-        "day6": 0,
-        "month6": 0,
-        "day7": "",
-        "month7": "",
-        "day8": "",
-        "month8": "",
-        "day9": "",
-        "month9": "",
-        "day10": "",
-        "month10": "",
-        "day11": "",
-        "month11": "",
-        "day12": "",
-        "month12": "",
-        "d1": 0,
-        "w1": 0,
-        "d2": 0,
-        "w2": 0,
-        "d3": 0,
-        "w3": 0,
-        "d4": 0,
-        "w4": 0,
-        "d5": 0,
-        "w5": 0,
-        "d6": 0,
-        "w6": 0,
-        "xday1": 0,
-        "xmonth1": 0,
-        "xday2": 0,
-        "xmonth2": 0,
-        "xday3": 0,
-        "xmonth3": 0,
-        "xday4": 0,
-        "xmonth4": 0,
-        "xday5": 0,
-        "xmonth5": 0,
-        "xday6": 0,
-        "xmonth6": 0,
-        "xday7": "",
-        "xmonth7": "",
-        "xday8": "",
-        "xmonth8": "",
-        "xday9": "",
-        "xmonth9": "",
-        "xday10": "",
-        "xmonth10": "",
-        "xday11": "",
-        "xmonth11": "",
-        "xday12": "",
-        "xmonth12": "",
-        "xd1": 0,
-        "xw1": 0,
-        "xd2": 0,
-        "xw2": 0,
-        "xd3": 0,
-        "xw3": 0,
-        "xd4": 0,
-        "xw4": 0,
-        "xd5": 0,
-        "xw5": 0,
-        "xd6": 0,
-        "xw6": 0,
-        "suspend": false,
-        "random": false,
-        "randon1": false,
-        "randoff1": false,
-        "randon2": false,
-        "randoff2": false,
-        "repeat": false,
-        "atstart": true,
-        "odd": false,
-        "even": false,
-        "x": 350,
-        "y": 220,
-        "wires": [
-            [
-                "f7e32eb6d1c2e7d6"
-            ],
-            [],
-            []
-        ]
-    },
-    {
         "id": "789faa8144a6a6d9",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "unoccupied -> occupied",
         "server": "8b52884a.b76658",
         "version": 4,
@@ -5301,8 +4339,8 @@
                 "value": ""
             }
         ],
-        "x": 180,
-        "y": 840,
+        "x": 140,
+        "y": 660,
         "wires": [
             [
                 "77cb539139b1e947"
@@ -5314,6 +4352,7 @@
         "id": "7d5b2888c68e0320",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "occupied -> unoccupied",
         "server": "8b52884a.b76658",
         "version": 4,
@@ -5358,8 +4397,8 @@
                 "value": ""
             }
         ],
-        "x": 180,
-        "y": 900,
+        "x": 140,
+        "y": 720,
         "wires": [
             [
                 "f9edfad88e5fc1c2"
@@ -5371,6 +4410,7 @@
         "id": "0d6f721153f28d46",
         "type": "api-current-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "fan mode",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -5403,8 +4443,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 640,
-        "y": 840,
+        "x": 600,
+        "y": 660,
         "wires": [
             [
                 "f96177401fdd7f7f"
@@ -5416,6 +4456,7 @@
         "id": "7cced1da5dab434e",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Set mode",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -5433,8 +4474,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 1040,
-        "y": 840,
+        "x": 1000,
+        "y": 660,
         "wires": [
             []
         ]
@@ -5443,6 +4484,7 @@
         "id": "c0b3c0530fced4db",
         "type": "api-current-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "cool mode",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -5475,8 +4517,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 650,
-        "y": 900,
+        "x": 610,
+        "y": 720,
         "wires": [
             [
                 "d1259e05b00b447a"
@@ -5488,6 +4530,7 @@
         "id": "d1259e05b00b447a",
         "type": "function",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "fan_only",
         "func": "var hvac = \"fan_only\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -5495,8 +4538,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 860,
-        "y": 900,
+        "x": 820,
+        "y": 720,
         "wires": [
             [
                 "7cced1da5dab434e"
@@ -5507,6 +4550,7 @@
         "id": "f96177401fdd7f7f",
         "type": "function",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "cool",
         "func": "var hvac = \"cool\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
         "outputs": 1,
@@ -5514,8 +4558,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
-        "y": 840,
+        "x": 810,
+        "y": 660,
         "wires": [
             [
                 "7cced1da5dab434e"
@@ -5526,6 +4570,7 @@
         "id": "f9edfad88e5fc1c2",
         "type": "api-current-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -5559,14 +4604,51 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 410,
-        "y": 900,
+        "x": 370,
+        "y": 720,
         "wires": [
             [
                 "c0b3c0530fced4db"
             ],
             []
         ]
+    },
+    {
+        "id": "c35bd5eccd6b653b",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "turn off",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.thermostat_1"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 810,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "076fb63d73d6fa3c",
+        "type": "comment",
+        "z": "cf24db3435ba68ad",
+        "name": "Hive",
+        "info": "",
+        "x": 110,
+        "y": 20,
+        "wires": []
     },
     {
         "id": "6cb23d50.77ced4",
@@ -5693,7 +4775,7 @@
         "odd": false,
         "even": false,
         "x": 150,
-        "y": 160,
+        "y": 120,
         "wires": [
             [
                 "cd1caa8c.300358",
@@ -6978,7 +6060,7 @@
             }
         ],
         "x": 120,
-        "y": 1080,
+        "y": 1320,
         "wires": [
             [],
             [
@@ -7024,7 +6106,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 480,
-        "y": 1100,
+        "y": 1340,
         "wires": [
             [
                 "9f89b06296441bf5"
@@ -7061,7 +6143,7 @@
         ],
         "queue": "none",
         "x": 750,
-        "y": 1180,
+        "y": 1420,
         "wires": [
             []
         ]
@@ -7104,7 +6186,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 470,
-        "y": 1240,
+        "y": 1480,
         "wires": [
             [
                 "9f89b06296441bf5"
@@ -7158,7 +6240,7 @@
             }
         ],
         "x": 110,
-        "y": 1140,
+        "y": 1380,
         "wires": [
             [],
             [
@@ -7212,7 +6294,7 @@
             }
         ],
         "x": 110,
-        "y": 1200,
+        "y": 1440,
         "wires": [
             [],
             [
@@ -7266,7 +6348,7 @@
             }
         ],
         "x": 100,
-        "y": 1260,
+        "y": 1500,
         "wires": [
             [],
             [
@@ -7321,7 +6403,7 @@
             }
         ],
         "x": 110,
-        "y": 1320,
+        "y": 1560,
         "wires": [
             [],
             [
@@ -7376,7 +6458,7 @@
             }
         ],
         "x": 110,
-        "y": 1380,
+        "y": 1620,
         "wires": [
             [],
             [
@@ -7431,7 +6513,7 @@
             }
         ],
         "x": 120,
-        "y": 1440,
+        "y": 1680,
         "wires": [
             [],
             [
@@ -7546,7 +6628,7 @@
         "name": "Triggers",
         "info": "",
         "x": 100,
-        "y": 1020,
+        "y": 1260,
         "wires": []
     },
     {
@@ -7639,6 +6721,7 @@
         "id": "f77b8eb2c40d940c",
         "type": "server-state-changed",
         "z": "4aedf9e8.044e08",
+        "d": true,
         "name": "office smoke",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -7680,8 +6763,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 990,
-        "y": 1120,
+        "x": 110,
+        "y": 1100,
         "wires": [
             [],
             [
@@ -7693,6 +6776,7 @@
         "id": "57fe37a14360d316",
         "type": "server-state-changed",
         "z": "4aedf9e8.044e08",
+        "d": true,
         "name": "front bedroom smoke",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -7734,8 +6818,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 1020,
-        "y": 1200,
+        "x": 140,
+        "y": 1180,
         "wires": [
             [],
             [
@@ -7760,8 +6844,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 1600,
-        "y": 1120,
+        "x": 1300,
+        "y": 1100,
         "wires": [
             [
                 "aeafe637.1aeaf8"
@@ -7779,8 +6863,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1350,
-        "y": 1120,
+        "x": 470,
+        "y": 1100,
         "wires": [
             [
                 "298ba567d33e1abb"
@@ -7793,8 +6877,8 @@
         "z": "4aedf9e8.044e08",
         "name": "Fire alarm",
         "info": "",
-        "x": 960,
-        "y": 1060,
+        "x": 100,
+        "y": 1040,
         "wires": []
     },
     {
@@ -7911,6 +6995,7 @@
         "id": "9c1da9ccdd10d1fd",
         "type": "function",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "trigger driveway camera (BI)",
         "func": "msg.payload = \"camera=driveway&trigger\";\nreturn msg;\n",
         "outputs": 1,
@@ -7930,6 +7015,7 @@
         "id": "cb33c256a819acda",
         "type": "api-current-state",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -7957,6 +7043,7 @@
         "id": "aee2e651b6f6d719",
         "type": "delay",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "",
         "pauseType": "rate",
         "timeout": "2",
@@ -7981,6 +7068,7 @@
         "id": "01798252702408b2",
         "type": "function",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "trigger lounge camera (BI)",
         "func": "msg.payload = \"camera=lounge&trigger\";\nreturn msg;\n",
         "outputs": 1,
@@ -8000,6 +7088,7 @@
         "id": "6cfd5e01f59fc792",
         "type": "delay",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "",
         "pauseType": "rate",
         "timeout": "2",
@@ -8024,6 +7113,7 @@
         "id": "31ccd6df32a58b96",
         "type": "time-range-switch",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "3am-8am",
         "lat": "51.298530532198356",
         "lon": "-2.2305447589418095",
@@ -8044,6 +7134,7 @@
         "id": "a5c0949a025c3cc9",
         "type": "api-current-state",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "home?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -8073,6 +7164,7 @@
         "id": "2c1b1b8da47eed7b",
         "type": "api-current-state",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -8100,6 +7192,7 @@
         "id": "234c33ecaf03435d",
         "type": "function",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "trigger office camera (BI)",
         "func": "msg.payload = \"camera=office&trigger\";\nreturn msg;\n",
         "outputs": 1,
@@ -8119,6 +7212,7 @@
         "id": "bd01d3d04428e4ba",
         "type": "delay",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "",
         "pauseType": "rate",
         "timeout": "2",
@@ -8143,6 +7237,7 @@
         "id": "b609caab5e577c89",
         "type": "api-current-state",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "home?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -8172,6 +7267,7 @@
         "id": "d61d36be2dadb8a9",
         "type": "api-current-state",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -8199,6 +7295,7 @@
         "id": "bbce73ee38a38d75",
         "type": "mqtt out",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "trigger blue iris",
         "topic": "BlueIris/admin",
         "qos": "",
@@ -8217,6 +7314,7 @@
         "id": "5eae183d2e8a0d8e",
         "type": "subflow:ebce7e9e955e453a",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "1. driveway 2. lounge 3. office",
         "x": 180,
         "y": 160,
@@ -8238,6 +7336,7 @@
         "id": "5b1dc6a44fd977f7",
         "type": "time-range-switch",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "3am-8am",
         "lat": "51.298530532198356",
         "lon": "-2.2305447589418095",
@@ -8258,6 +7357,7 @@
         "id": "7d14421895ba3bd2",
         "type": "api-current-state",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "home?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -8285,6 +7385,7 @@
         "id": "2da225051b82f6e6",
         "type": "function",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "Format notification",
         "func": "const ha_external_url  = \"https://hass.microserver.space\";\nconst frigate_external_url = \"https://frigate.microserver.space\"\n\nmsg.event_id     = msg.payload.after.id;\nmsg.clip         = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/\" + msg.payload.after.camera + \"/clip.mp4\";\nmsg.thumbnail    = ha_external_url + \"/api/frigate/notifications/\" + msg.event_id + \"/thumbnail.jpg?format=android\";\nmsg.topic        = msg.payload.after.camera + \"-\" + msg.payload.after.label;\nmsg.relativetime = msg.relativetime || \"7 minutes\";\n\nswitch (msg.payload.after.camera) {\n    case('office'):\n        msg.verb = \"at\";\n        msg.location = 'office';\n        msg.uri = frigate_external_url + \"/api/office?h=1080\";\n        break;\n    case('driveway'):\n        msg.verb = \"in\";\n        msg.location = \"driveway\";\n        msg.uri = frigate_external_url + \"/api/driveway?h=1080\";\n        break;    \n    case('lounge'):\n        msg.verb = \"in\";\n        msg.location = \"lounge\";\n        msg.uri = frigate_external_url + \"/api/lounge?h=1080\";\n        break;\n\n    default:\n        msg.verb = \"in\";\n        msg.location = msg.payload.after.camera;\n}\n\nmsg.message     = \"A \" + msg.payload.after.label + \" is \" + msg.verb + \" the \" + msg.location;\n\nmsg.payload     = { data: {'message': msg.message, data: {'image': msg.thumbnail, 'clickAction': msg.clip, 'sticky': true,'color': \"#2DF56D\", 'actions': [{'action': \"URI\",'title': \"Watch Live Stream\", 'uri': msg.uri  }],'ttl': 0, 'group': \"motion-group\", 'priority': \"High\"  }}};\nreturn msg;",
         "outputs": 1,
@@ -8304,6 +7405,7 @@
         "id": "a330c152d80990cd",
         "type": "rbe",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -8324,6 +7426,7 @@
         "id": "68e23051a1b891ab",
         "type": "function",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "Rate Limiter",
         "func": "// Defaults to 10 minutes, overridable with msg.ratelimitms\n// Will limit per topic (including by null ones)\nvar interval = msg.ratelimitms || (1000*60*10); // minimum interval between messages (ms)\nvar countToTrigger = msg.countToTrigger || 1;\nvar lastReleasedKey = \"lastReleased_\" + (msg.topic.replace(/ /g, \"_\") || \"null_topic\");\nvar lastHitKey = \"lastHit_\" + (msg.topic.replace(/ /g, \"_\") || \"null_topic\");\nvar cntKey = \"count_\" + (msg.topic.replace(/ /g, \"_\") || \"null_topic\");\nvar lastReleased = (context.get(lastReleasedKey) || 0);\nvar lastHit = (context.get(lastHitKey) || 0);\nvar now = Date.now();\nif (now-lastHit > interval) {\n    node.warn(\"resetting count, too far apart.\");\n    context.set(cntKey,0); // Clear hits, too far apart.\n}\ncontext.set(lastHitKey,now);\nif (now-lastReleased > interval) {\n    var count = (context.get(cntKey) || 0);\n    count++;\n    if (count >= countToTrigger) {\n        context.set(lastReleasedKey,now);\n        context.set(cntKey,0);\n        node.status({fill:\"green\",shape:\"ring\",text:\"passed on\"});\n        return msg;\n    } else {\n        node.status({fill:\"red\",shape:\"ring\",text:\"Waiting for \" + \n            (countToTrigger - count) + \" more hits.\"});\n        context.set(cntKey,count);\n        return null;\n    }\n} else {\n    var timeLeft = (interval - (now-lastReleased)) / 1000;  \n    node.status({fill:\"red\",shape:\"ring\",text:\"blocked for \" + timeLeft + \" seconds\"});\n    return null;\n}",
         "outputs": 1,
@@ -8343,6 +7446,7 @@
         "id": "207427d26215b7df",
         "type": "api-call-service",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "Notify (Android)",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -8375,6 +7479,7 @@
         "id": "0b5ecb7b1876c42c",
         "type": "switch",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "filter",
         "property": "payload.type",
         "propertyType": "msg",
@@ -8406,6 +7511,7 @@
         "id": "d650b6536e50c286",
         "type": "time-range-switch",
         "z": "f987904ca78a23d7",
+        "d": true,
         "name": "3am-8am",
         "lat": "51.298530532198356",
         "lon": "-2.2305447589418095",
