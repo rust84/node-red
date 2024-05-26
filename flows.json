@@ -2944,7 +2944,7 @@
         "inputs": 0,
         "outputs": 2,
         "exposeAsEntityConfig": "",
-        "entityId": "binary_sensor.ep1_01_7f753c_office_occupancy",
+        "entityId": "binary_sensor.ep1_01_7f753c_occupancy",
         "entityIdType": "exact",
         "debugEnabled": false,
         "constraints": [
@@ -3042,7 +3042,7 @@
         "halt_if": "1",
         "halt_if_type": "num",
         "halt_if_compare": "lt",
-        "entity_id": "sensor.ep1_01_7f753c_office_illuminance",
+        "entity_id": "sensor.ep1_01_7f753c_illuminance",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -3168,7 +3168,7 @@
         "version": 5,
         "outputs": 2,
         "exposeAsEntityConfig": "",
-        "entityId": "binary_sensor.ep1_01_7f753c_office_occupancy",
+        "entityId": "binary_sensor.ep1_01_7f753c_occupancy",
         "entityIdType": "exact",
         "outputInitially": false,
         "stateType": "str",
@@ -3314,7 +3314,7 @@
         "inputs": 0,
         "outputs": 2,
         "exposeAsEntityConfig": "",
-        "entityId": "binary_sensor.ep1_02_dac9c4_lounge_occupancy",
+        "entityId": "binary_sensor.ep1_02_dac9c4_occupancy",
         "entityIdType": "exact",
         "debugEnabled": false,
         "constraints": [
@@ -3488,7 +3488,7 @@
         "version": 5,
         "outputs": 2,
         "exposeAsEntityConfig": "",
-        "entityId": "binary_sensor.ep1_02_dac9c4_lounge_occupancy",
+        "entityId": "binary_sensor.ep1_02_dac9c4_occupancy",
         "entityIdType": "exact",
         "outputInitially": false,
         "stateType": "str",
@@ -3672,6 +3672,35 @@
         "wires": [
             [
                 "49620fe597046cdb"
+            ]
+        ]
+    },
+    {
+        "id": "3184ad531bc5404d",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 760,
+        "wires": [
+            [
+                "bc36c13ee490f021"
             ]
         ]
     },
