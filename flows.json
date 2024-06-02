@@ -1243,40 +1243,6 @@
         "wires": []
     },
     {
-        "id": "de7ec5fa0d844b3e",
-        "type": "api-call-service",
-        "z": "afb0f186.cfb0d",
-        "name": "warpcore lamp",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "switch",
-        "service": "",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "switch.sonoff_s26_2_relay"
-        ],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "payload",
-                "valueType": "msg"
-            }
-        ],
-        "queue": "none",
-        "x": 1200,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "6961a37b9fcbe07d",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
@@ -2687,8 +2653,8 @@
             }
         ],
         "queue": "none",
-        "x": 1120,
-        "y": 2480,
+        "x": 1140,
+        "y": 1740,
         "wires": [
             []
         ]
@@ -2705,8 +2671,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 2480,
+        "x": 640,
+        "y": 1740,
         "wires": [
             [
                 "36109e7738361659"
@@ -2725,8 +2691,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 2480,
+        "x": 350,
+        "y": 1740,
         "wires": [
             [
                 "49620fe597046cdb"
@@ -2772,8 +2738,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 110,
-        "y": 2480,
+        "x": 130,
+        "y": 1740,
         "wires": [
             [
                 "500927a9fbe19a5c"
@@ -2787,8 +2753,8 @@
         "z": "afb0f186.cfb0d",
         "name": "Bins",
         "info": "",
-        "x": 90,
-        "y": 2420,
+        "x": 110,
+        "y": 1680,
         "wires": []
     },
     {
@@ -2808,8 +2774,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 870,
-        "y": 2480,
+        "x": 890,
+        "y": 1740,
         "wires": [
             [
                 "51e77ba5691fca49"
@@ -3176,7 +3142,7 @@
         "ifStateType": "str",
         "ifStateOperator": "is",
         "outputOnlyOnStateChange": true,
-        "for": "2",
+        "for": "5",
         "forType": "num",
         "forUnits": "minutes",
         "ignorePrevStateNull": true,
@@ -3372,7 +3338,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
+        "x": 820,
         "y": 640,
         "wires": [
             [
@@ -3420,7 +3386,7 @@
         "y": 560,
         "wires": [
             [
-                "d0b932920b123d3e"
+                "af705b318d7b9e12"
             ],
             []
         ]
@@ -3453,7 +3419,7 @@
             }
         ],
         "queue": "none",
-        "x": 870,
+        "x": 1010,
         "y": 600,
         "wires": [
             []
@@ -3471,7 +3437,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
+        "x": 820,
         "y": 560,
         "wires": [
             [
@@ -3496,7 +3462,7 @@
         "ifStateType": "str",
         "ifStateOperator": "is",
         "outputOnlyOnStateChange": true,
-        "for": "2",
+        "for": "5",
         "forType": "num",
         "forUnits": "minutes",
         "ignorePrevStateNull": true,
@@ -3646,8 +3612,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 100,
-        "y": 2560,
+        "x": 120,
+        "y": 1820,
         "wires": [
             [
                 "38502e1bf56600ae"
@@ -3667,8 +3633,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 2560,
+        "x": 340,
+        "y": 1820,
         "wires": [
             [
                 "49620fe597046cdb"
@@ -3702,6 +3668,26 @@
             [
                 "bc36c13ee490f021"
             ]
+        ]
+    },
+    {
+        "id": "af705b318d7b9e12",
+        "type": "time-range-switch",
+        "z": "afb0f186.cfb0d",
+        "name": "12pm-6am",
+        "lat": "51.298530532198356",
+        "lon": "-2.2305447589418095",
+        "startTime": "12:00",
+        "endTime": "06:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 630,
+        "y": 560,
+        "wires": [
+            [
+                "d0b932920b123d3e"
+            ],
+            []
         ]
     },
     {
@@ -6750,7 +6736,6 @@
         "id": "f77b8eb2c40d940c",
         "type": "server-state-changed",
         "z": "4aedf9e8.044e08",
-        "d": true,
         "name": "office smoke",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -6805,7 +6790,6 @@
         "id": "57fe37a14360d316",
         "type": "server-state-changed",
         "z": "4aedf9e8.044e08",
-        "d": true,
         "name": "front bedroom smoke",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -6943,6 +6927,7 @@
         "id": "d1a401b113e07049",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
+        "d": true,
         "name": "Hallway on green",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -6972,6 +6957,7 @@
         "id": "d654e2290b46c4f3",
         "type": "delay",
         "z": "4aedf9e8.044e08",
+        "d": true,
         "name": "",
         "pauseType": "delay",
         "timeout": "5",
@@ -6997,6 +6983,7 @@
         "id": "54f34cef987458d6",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
+        "d": true,
         "name": "Hallway off",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -7018,6 +7005,35 @@
         "y": 820,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "fdd1ba877ceff313",
+        "type": "inject",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 1200,
+        "wires": [
+            [
+                "6202624186e1ae93"
+            ]
         ]
     },
     {
