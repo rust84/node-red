@@ -3926,6 +3926,7 @@
         "y": 120,
         "wires": [
             [
+                "675b954e383344a0",
                 "c35bd5eccd6b653b"
             ]
         ]
@@ -3967,7 +3968,8 @@
         "y": 260,
         "wires": [
             [
-                "424007945ad5ab08"
+                "424007945ad5ab08",
+                "a70730b0af3e436f"
             ]
         ]
     },
@@ -4023,19 +4025,19 @@
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
+                "propertyValue": "new_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "new_state.state"
+                "comparatorValue": "not_home"
             },
             {
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "old_state.state"
+                "comparatorValue": "home"
             }
         ],
         "customOutputs": [],
@@ -4820,6 +4822,7 @@
         "id": "c35bd5eccd6b653b",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "turn off",
         "server": "8b52884a.b76658",
         "version": 7,
@@ -4842,7 +4845,7 @@
         "domain": "climate",
         "service": "turn_off",
         "x": 810,
-        "y": 120,
+        "y": 60,
         "wires": [
             []
         ]
@@ -4856,6 +4859,106 @@
         "x": 110,
         "y": 20,
         "wires": []
+    },
+    {
+        "id": "3764b04581e6d025",
+        "type": "inject",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "2447d1c9ace3b941"
+            ]
+        ]
+    },
+    {
+        "id": "8e8d350a8bca3898",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "hvac_mode set",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "climate.set_hvac_mode",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.thermostat_1"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "climate",
+        "service": "set_hvac_mode",
+        "x": 1060,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "675b954e383344a0",
+        "type": "function",
+        "z": "cf24db3435ba68ad",
+        "name": "hvac off",
+        "func": "var hvac = \"off\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 120,
+        "wires": [
+            [
+                "8e8d350a8bca3898"
+            ]
+        ]
+    },
+    {
+        "id": "a70730b0af3e436f",
+        "type": "function",
+        "z": "cf24db3435ba68ad",
+        "name": "hvac heat",
+        "func": "var hvac = \"heat\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 200,
+        "wires": [
+            [
+                "8e8d350a8bca3898"
+            ]
+        ]
     },
     {
         "id": "6cb23d50.77ced4",
