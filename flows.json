@@ -3403,7 +3403,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
+        "x": 900,
         "y": 640,
         "wires": [
             [
@@ -3451,7 +3451,7 @@
         "y": 560,
         "wires": [
             [
-                "af705b318d7b9e12"
+                "3ca9d267b0d9d63a"
             ],
             []
         ]
@@ -3488,7 +3488,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_off",
-        "x": 1010,
+        "x": 1270,
         "y": 600,
         "wires": [
             []
@@ -3506,7 +3506,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
+        "x": 900,
         "y": 560,
         "wires": [
             [
@@ -3568,7 +3568,7 @@
         "y": 640,
         "wires": [
             [
-                "3ca9d267b0d9d63a"
+                "3a20c09f99eb06f8"
             ],
             []
         ]
@@ -3610,12 +3610,12 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 450,
-        "y": 640,
+        "x": 670,
+        "y": 560,
         "wires": [
             [],
             [
-                "3a20c09f99eb06f8"
+                "d0b932920b123d3e"
             ]
         ]
     },
@@ -3715,113 +3715,6 @@
         "wires": [
             [
                 "49620fe597046cdb"
-            ]
-        ]
-    },
-    {
-        "id": "3184ad531bc5404d",
-        "type": "inject",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 760,
-        "wires": [
-            [
-                "bc36c13ee490f021"
-            ]
-        ]
-    },
-    {
-        "id": "af705b318d7b9e12",
-        "type": "time-range-switch",
-        "z": "afb0f186.cfb0d",
-        "name": "12pm-6am",
-        "lat": "51.298530532198356",
-        "lon": "-2.2305447589418095",
-        "startTime": "12:00",
-        "endTime": "06:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 630,
-        "y": 560,
-        "wires": [
-            [
-                "d0b932920b123d3e"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "d15183264d897216",
-        "type": "inject",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 360,
-        "wires": [
-            [
-                "53bc270379b36276"
-            ]
-        ]
-    },
-    {
-        "id": "3035975628901cbf",
-        "type": "inject",
-        "z": "afb0f186.cfb0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 380,
-        "y": 960,
-        "wires": [
-            [
-                "0bf98c34b9c79a18"
             ]
         ]
     },
@@ -4861,35 +4754,6 @@
         "wires": []
     },
     {
-        "id": "3764b04581e6d025",
-        "type": "inject",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 440,
-        "y": 180,
-        "wires": [
-            [
-                "2447d1c9ace3b941"
-            ]
-        ]
-    },
-    {
         "id": "8e8d350a8bca3898",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
@@ -5085,7 +4949,7 @@
         "odd": false,
         "even": false,
         "x": 150,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "cd1caa8c.300358",
@@ -5133,7 +4997,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 530,
-        "y": 140,
+        "y": 180,
         "wires": [
             [],
             [
@@ -5161,11 +5025,11 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 180,
-        "y": 220,
+        "x": 280,
+        "y": 80,
         "wires": [
             [
-                "cd1caa8c.300358"
+                "910caaaf.b41098"
             ]
         ]
     },
@@ -5415,7 +5279,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 750,
-        "y": 140,
+        "y": 180,
         "wires": [
             [],
             [
@@ -5507,7 +5371,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 370,
-        "y": 140,
+        "y": 180,
         "wires": [
             [],
             [
@@ -6357,8 +6221,8 @@
         "z": "4aedf9e8.044e08",
         "name": "",
         "env": [],
-        "x": 390,
-        "y": 60,
+        "x": 490,
+        "y": 100,
         "wires": []
     },
     {
@@ -6941,7 +6805,7 @@
         "domain": "alarm_control_panel",
         "service": "alarm_arm_home",
         "x": 1220,
-        "y": 140,
+        "y": 180,
         "wires": [
             []
         ]
@@ -6958,7 +6822,7 @@
             }
         ],
         "x": 990,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "189a46476efd5beb"
