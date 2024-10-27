@@ -387,7 +387,7 @@
         "domain": "light",
         "service": "turn_off",
         "x": 400,
-        "y": 220,
+        "y": 160,
         "wires": [
             []
         ]
@@ -425,7 +425,7 @@
         "domain": "light",
         "service": "turn_off",
         "x": 420,
-        "y": 280,
+        "y": 220,
         "wires": [
             []
         ]
@@ -463,7 +463,7 @@
         "domain": "light",
         "service": "turn_off",
         "x": 410,
-        "y": 340,
+        "y": 280,
         "wires": [
             []
         ]
@@ -501,58 +501,10 @@
         "domain": "light",
         "service": "turn_off",
         "x": 410,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "89834abb.4ef668",
-        "type": "api-call-service",
-        "z": "43703bf3.b01b24",
-        "name": "lounge light",
-        "server": "8b52884a.b76658",
-        "version": 7,
-        "debugenabled": false,
-        "action": "light.turn_off",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "light.lounge_light"
-        ],
-        "labelId": [],
-        "data": "",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "domain": "light",
-        "service": "turn_off",
-        "x": 410,
         "y": 100,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "cf834f57adf1a90c",
-        "type": "comment",
-        "z": "43703bf3.b01b24",
-        "name": "Uses own schedule",
-        "info": "",
-        "x": 610,
-        "y": 100,
-        "wires": []
     },
     {
         "id": "403394b42c104bf5",
@@ -1037,7 +989,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_on",
-        "x": 1070,
+        "x": 1270,
         "y": 80,
         "wires": [
             []
@@ -1060,7 +1012,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 830,
+        "x": 1030,
         "y": 80,
         "wires": [
             [
@@ -1086,7 +1038,7 @@
         "y": 80,
         "wires": [
             [
-                "312fc9f4c564b728"
+                "816f9cdc5591aafd"
             ],
             []
         ]
@@ -1317,6 +1269,7 @@
         "id": "cc3f2a6d4b923938",
         "type": "light-scheduler",
         "z": "afb0f186.cfb0d",
+        "d": true,
         "settings": "f26da246.74a7f",
         "events": "[{\"start\":{\"dow\":1,\"mod\":5},\"end\":{\"dow\":1,\"mod\":1435}},{\"start\":{\"dow\":2,\"mod\":10},\"end\":{\"dow\":2,\"mod\":1435}},{\"start\":{\"dow\":3,\"mod\":5},\"end\":{\"dow\":3,\"mod\":1435}},{\"start\":{\"dow\":4,\"mod\":5},\"end\":{\"dow\":4,\"mod\":1435}},{\"start\":{\"dow\":5,\"mod\":5},\"end\":{\"dow\":5,\"mod\":1435}},{\"start\":{\"dow\":6,\"mod\":5},\"end\":{\"dow\":6,\"mod\":1435}},{\"start\":{\"dow\":0,\"mod\":5},\"end\":{\"dow\":0,\"mod\":1435}}]",
         "topic": "",
@@ -3488,7 +3441,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_off",
-        "x": 1270,
+        "x": 1190,
         "y": 600,
         "wires": [
             []
@@ -3715,6 +3668,216 @@
         "wires": [
             [
                 "49620fe597046cdb"
+            ]
+        ]
+    },
+    {
+        "id": "5f8b3894283e6093",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Turn on eye",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_on",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.wled"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "light",
+        "service": "turn_on",
+        "x": 530,
+        "y": 2460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da83211918e8f9a4",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "Person detected at front",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.doorbell_person_count"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "0",
+        "ifStateType": "num",
+        "ifStateOperator": "gt",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 2460,
+        "wires": [
+            [
+                "5f8b3894283e6093"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "07b2dd1df62ab8ac",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "Person detected at front -> clear",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.doorbell_person_count"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "1",
+        "ifStateType": "num",
+        "ifStateOperator": "lt",
+        "outputOnlyOnStateChange": true,
+        "for": "3",
+        "forType": "num",
+        "forUnits": "seconds",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 210,
+        "y": 2560,
+        "wires": [
+            [
+                "f73ae51be2cbb9c1"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f73ae51be2cbb9c1",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Turn off eye",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.wled"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "light",
+        "service": "turn_off",
+        "x": 530,
+        "y": 2560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4db1050f0cf42fe1",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Halloween thing",
+        "info": "",
+        "x": 120,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "816f9cdc5591aafd",
+        "type": "time-range-switch",
+        "z": "afb0f186.cfb0d",
+        "name": "12am-7am",
+        "lat": "51.29368",
+        "lon": "-2.4916",
+        "startTime": "00:00",
+        "endTime": "07:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 810,
+        "y": 80,
+        "wires": [
+            [],
+            [
+                "312fc9f4c564b728"
             ]
         ]
     },
@@ -4779,7 +4942,7 @@
         "domain": "climate",
         "service": "set_hvac_mode",
         "x": 1060,
-        "y": 100,
+        "y": 160,
         "wires": [
             []
         ]
