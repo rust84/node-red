@@ -912,7 +912,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_on",
-        "x": 730,
+        "x": 710,
         "y": 400,
         "wires": [
             []
@@ -922,7 +922,7 @@
         "id": "2f83921a8de3c8f4",
         "type": "api-current-state",
         "z": "afb0f186.cfb0d",
-        "name": "home?",
+        "name": "not home?",
         "server": "8b52884a.b76658",
         "version": 3,
         "outputs": 2,
@@ -968,7 +968,6 @@
         "id": "cc3f2a6d4b923938",
         "type": "light-scheduler",
         "z": "afb0f186.cfb0d",
-        "d": true,
         "settings": "f26da246.74a7f",
         "events": "[{\"start\":{\"dow\":1,\"mod\":5},\"end\":{\"dow\":1,\"mod\":1435}},{\"start\":{\"dow\":2,\"mod\":10},\"end\":{\"dow\":2,\"mod\":1435}},{\"start\":{\"dow\":3,\"mod\":5},\"end\":{\"dow\":3,\"mod\":1435}},{\"start\":{\"dow\":4,\"mod\":5},\"end\":{\"dow\":4,\"mod\":1435}},{\"start\":{\"dow\":5,\"mod\":5},\"end\":{\"dow\":5,\"mod\":1435}},{\"start\":{\"dow\":6,\"mod\":5},\"end\":{\"dow\":6,\"mod\":1435}},{\"start\":{\"dow\":0,\"mod\":5},\"end\":{\"dow\":0,\"mod\":1435}}]",
         "topic": "",
@@ -1063,8 +1062,8 @@
         "z": "afb0f186.cfb0d",
         "name": "Habitica complete task",
         "info": "",
-        "x": 160,
-        "y": 1140,
+        "x": 120,
+        "y": 1160,
         "wires": []
     },
     {
@@ -2570,11 +2569,11 @@
         "id": "291e7bff21a777fc",
         "type": "time-range-switch",
         "z": "afb0f186.cfb0d",
-        "name": "12am-8am",
+        "name": "11pm-7am",
         "lat": "51.298530532198356",
         "lon": "-2.2305447589418095",
-        "startTime": "00:00",
-        "endTime": "08:00",
+        "startTime": "23:00",
+        "endTime": "07:00",
         "startOffset": 0,
         "endOffset": 0,
         "x": 490,
@@ -2640,11 +2639,10 @@
             }
         ],
         "x": 160,
-        "y": 820,
+        "y": 840,
         "wires": [
             [
-                "a1ceebb6cd381b75",
-                "bc36c13ee490f021"
+                "0c08982549b67008"
             ],
             []
         ]
@@ -2661,7 +2659,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 900,
         "y": 900,
         "wires": [
             [
@@ -2682,7 +2680,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 900,
         "y": 820,
         "wires": [
             [
@@ -2726,8 +2724,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 410,
-        "y": 760,
+        "x": 710,
+        "y": 720,
         "wires": [
             [
                 "0bf98c34b9c79a18"
@@ -2767,7 +2765,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_off",
-        "x": 880,
+        "x": 1120,
         "y": 760,
         "wires": [
             []
@@ -2785,7 +2783,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 900,
         "y": 760,
         "wires": [
             [
@@ -3296,7 +3294,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "",
-        "x": 880,
+        "x": 1120,
         "y": 900,
         "wires": [
             []
@@ -3415,10 +3413,10 @@
         "id": "816f9cdc5591aafd",
         "type": "time-range-switch",
         "z": "afb0f186.cfb0d",
-        "name": "12am-7am",
+        "name": "11pm-7am",
         "lat": "51.29368",
         "lon": "-2.4916",
-        "startTime": "00:00",
+        "startTime": "23:00",
         "endTime": "07:00",
         "startOffset": 0,
         "endOffset": 0,
@@ -3435,10 +3433,10 @@
         "id": "0edc6027c8a03d35",
         "type": "time-range-switch",
         "z": "afb0f186.cfb0d",
-        "name": "12am-7am",
+        "name": "11pm-7am",
         "lat": "51.29368",
         "lon": "-2.4916",
-        "startTime": "00:00",
+        "startTime": "23:00",
         "endTime": "07:00",
         "startOffset": 0,
         "endOffset": 0,
@@ -3757,7 +3755,7 @@
         "z": "afb0f186.cfb0d",
         "outtopic": "",
         "outpayload1": "1",
-        "outpayload2": "",
+        "outpayload2": "0",
         "name": "Standup",
         "comment": "",
         "lat": "51.32063880734896",
@@ -3771,8 +3769,8 @@
         "startoff2": 0,
         "endoff2": 0,
         "offs": 0,
-        "outtext1": "on",
-        "outtext2": "off",
+        "outtext1": "",
+        "outtext2": "",
         "timeout": 1440,
         "sun": false,
         "mon": true,
@@ -3875,11 +3873,11 @@
         "atstart": true,
         "odd": false,
         "even": false,
-        "x": 120,
+        "x": 320,
         "y": 1040,
         "wires": [
             [
-                "e0c3bcba76c6cc8f"
+                "3c4e305494c302d7"
             ],
             [],
             []
@@ -3910,7 +3908,7 @@
         "blockInputOverrides": true,
         "domain": "scene",
         "service": "turn_on",
-        "x": 650,
+        "x": 1050,
         "y": 1000,
         "wires": [
             []
@@ -3941,7 +3939,7 @@
         "blockInputOverrides": true,
         "domain": "scene",
         "service": "turn_on",
-        "x": 660,
+        "x": 1060,
         "y": 1080,
         "wires": [
             []
@@ -3957,19 +3955,19 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "on",
-                "vt": "str"
+                "v": "1",
+                "vt": "num"
             },
             {
                 "t": "eq",
-                "v": "off",
-                "vt": "str"
+                "v": "0",
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 380,
+        "x": 780,
         "y": 1040,
         "wires": [
             [
@@ -4007,6 +4005,405 @@
             [
                 "53bc270379b36276"
             ]
+        ]
+    },
+    {
+        "id": "3c4e305494c302d7",
+        "type": "api-current-state",
+        "z": "afb0f186.cfb0d",
+        "name": "hexa off?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.glide_hexa",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 540,
+        "y": 1040,
+        "wires": [
+            [],
+            [
+                "e0c3bcba76c6cc8f"
+            ]
+        ]
+    },
+    {
+        "id": "fa0f38968fb7e244",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "x": 130,
+        "y": 1080,
+        "wires": [
+            [
+                "0f5ec4d827651734"
+            ]
+        ]
+    },
+    {
+        "id": "b2014ae2e758c30d",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "x": 130,
+        "y": 1040,
+        "wires": [
+            [
+                "0f5ec4d827651734"
+            ]
+        ]
+    },
+    {
+        "id": "4b14019036776ac3",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "auto",
+        "payloadType": "str",
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "0f5ec4d827651734"
+            ]
+        ]
+    },
+    {
+        "id": "af203991a57978f9",
+        "type": "time-range-switch",
+        "z": "afb0f186.cfb0d",
+        "name": "11pm-7am",
+        "lat": "51.29368",
+        "lon": "-2.4916",
+        "startTime": "23:00",
+        "endTime": "07:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 530,
+        "y": 840,
+        "wires": [
+            [],
+            [
+                "bc36c13ee490f021",
+                "a1ceebb6cd381b75"
+            ]
+        ]
+    },
+    {
+        "id": "0c08982549b67008",
+        "type": "api-current-state",
+        "z": "afb0f186.cfb0d",
+        "name": "home?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "home",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "sensor.anyone_home",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 370,
+        "y": 840,
+        "wires": [
+            [],
+            [
+                "af203991a57978f9"
+            ]
+        ]
+    },
+    {
+        "id": "cb662e200a793f08",
+        "type": "bigtimer",
+        "z": "afb0f186.cfb0d",
+        "outtopic": "",
+        "outpayload1": "1",
+        "outpayload2": "0",
+        "name": "Turn off at 11pm",
+        "comment": "",
+        "lat": "51.32063880734896",
+        "lon": "-2.2089664938383327",
+        "starttime": "1380",
+        "endtime": "1395",
+        "starttime2": "0",
+        "endtime2": "0",
+        "startoff": 0,
+        "endoff": 0,
+        "startoff2": 0,
+        "endoff2": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "day7": 0,
+        "month7": 0,
+        "day8": 0,
+        "month8": 0,
+        "day9": 0,
+        "month9": 0,
+        "day10": 0,
+        "month10": 0,
+        "day11": 0,
+        "month11": 0,
+        "day12": 0,
+        "month12": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xday7": 0,
+        "xmonth7": 0,
+        "xday8": 0,
+        "xmonth8": 0,
+        "xday9": 0,
+        "xmonth9": 0,
+        "xday10": 0,
+        "xmonth10": 0,
+        "xday11": 0,
+        "xmonth11": 0,
+        "xday12": 0,
+        "xmonth12": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": true,
+        "randon1": false,
+        "randoff1": false,
+        "randon2": false,
+        "randoff2": false,
+        "repeat": true,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 1000,
+        "y": 400,
+        "wires": [
+            [
+                "b2ae450762d5761e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b2ae450762d5761e",
+        "type": "api-current-state",
+        "z": "afb0f186.cfb0d",
+        "name": "not home?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "home",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "sensor.anyone_home",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 1210,
+        "y": 400,
+        "wires": [
+            [
+                "f1028e1c233c0ec7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f1028e1c233c0ec7",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "turn off lounge light",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "light",
+        "service": "turn_off",
+        "x": 1410,
+        "y": 400,
+        "wires": [
+            []
         ]
     },
     {
