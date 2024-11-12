@@ -703,7 +703,7 @@
         "op2": "{\"service\":\"turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "120",
+        "duration": "60",
         "extend": true,
         "overrideDelay": false,
         "units": "s",
@@ -3462,7 +3462,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "select.wled_preset"
+            "select.dig_quad_v3_preset"
         ],
         "labelId": [],
         "data": "",
@@ -3493,7 +3493,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "select.wled_preset"
+            "select.dig_quad_v3_preset"
         ],
         "labelId": [],
         "data": "",
@@ -3581,7 +3581,7 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "pauseType": "delay",
-        "timeout": "5",
+        "timeout": "15",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -3690,7 +3690,7 @@
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "light.wled"
+                "light.dig_quad_v3"
             ],
             "substring": [],
             "regex": []
