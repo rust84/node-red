@@ -3381,7 +3381,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "light.wled"
+            "light.dig_quad_v3"
         ],
         "labelId": [],
         "data": "",
@@ -3393,8 +3393,8 @@
         "blockInputOverrides": true,
         "domain": "light",
         "service": "turn_off",
-        "x": 370,
-        "y": 2540,
+        "x": 350,
+        "y": 2440,
         "wires": [
             []
         ]
@@ -3475,7 +3475,7 @@
         "domain": "select",
         "service": "select_first",
         "x": 970,
-        "y": 2740,
+        "y": 2600,
         "wires": [
             []
         ]
@@ -3506,7 +3506,7 @@
         "domain": "select",
         "service": "select_last",
         "x": 590,
-        "y": 2740,
+        "y": 2600,
         "wires": [
             [
                 "da8c75c20b9dbd64"
@@ -3567,7 +3567,7 @@
             }
         ],
         "x": 150,
-        "y": 2780,
+        "y": 2640,
         "wires": [
             [
                 "7b32370c09eb0e4e"
@@ -3581,7 +3581,7 @@
         "z": "afb0f186.cfb0d",
         "name": "",
         "pauseType": "delay",
-        "timeout": "15",
+        "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -3593,7 +3593,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 780,
-        "y": 2740,
+        "y": 2600,
         "wires": [
             [
                 "a586ea72360f6b11"
@@ -3622,7 +3622,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 400,
-        "y": 2660,
+        "y": 2520,
         "wires": [
             [
                 "35e10f42241e51f1"
@@ -3640,8 +3640,8 @@
         "scheduleRndMax": 0,
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": true,
-        "x": 130,
-        "y": 2540,
+        "x": 110,
+        "y": 2440,
         "wires": [
             [],
             [
@@ -3671,7 +3671,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 780,
-        "y": 2840,
+        "y": 2700,
         "wires": [
             [
                 "a586ea72360f6b11"
@@ -3721,7 +3721,7 @@
         "stateType": "str",
         "enableInput": false,
         "x": 760,
-        "y": 2640,
+        "y": 2500,
         "wires": [
             [
                 "a586ea72360f6b11"
@@ -3741,7 +3741,7 @@
         "sunElevationThreshold": "0",
         "sunShowElevationInStatus": true,
         "x": 410,
-        "y": 2740,
+        "y": 2600,
         "wires": [
             [
                 "35e10f42241e51f1"
@@ -3877,7 +3877,7 @@
         "y": 1040,
         "wires": [
             [
-                "3c4e305494c302d7"
+                "b91207c71348b1a0"
             ],
             [],
             []
@@ -3908,7 +3908,7 @@
         "blockInputOverrides": true,
         "domain": "scene",
         "service": "turn_on",
-        "x": 1050,
+        "x": 1230,
         "y": 1000,
         "wires": [
             []
@@ -3939,7 +3939,7 @@
         "blockInputOverrides": true,
         "domain": "scene",
         "service": "turn_on",
-        "x": 1060,
+        "x": 1240,
         "y": 1080,
         "wires": [
             []
@@ -3967,7 +3967,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 780,
+        "x": 960,
         "y": 1040,
         "wires": [
             [
@@ -4037,7 +4037,7 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 540,
+        "x": 720,
         "y": 1040,
         "wires": [
             [],
@@ -4133,7 +4133,7 @@
         "startOffset": 0,
         "endOffset": 0,
         "x": 530,
-        "y": 840,
+        "y": 800,
         "wires": [
             [],
             [
@@ -4312,7 +4312,7 @@
         "atstart": true,
         "odd": false,
         "even": false,
-        "x": 1000,
+        "x": 960,
         "y": 400,
         "wires": [
             [
@@ -4359,7 +4359,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 1210,
+        "x": 1170,
         "y": 400,
         "wires": [
             [
@@ -4400,9 +4400,48 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_off",
-        "x": 1410,
+        "x": 1370,
         "y": 400,
         "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b91207c71348b1a0",
+        "type": "api-current-state",
+        "z": "afb0f186.cfb0d",
+        "name": "enabled?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.auto_enable_call_lighting",
+        "state_type": "str",
+        "blockInputOverrides": true,
+        "outputProperties": [
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 520,
+        "y": 1040,
+        "wires": [
+            [
+                "3c4e305494c302d7"
+            ],
             []
         ]
     },
@@ -4507,8 +4546,7 @@
         "y": 120,
         "wires": [
             [
-                "675b954e383344a0",
-                "c35bd5eccd6b653b"
+                "675b954e383344a0"
             ]
         ]
     },
@@ -4533,24 +4571,17 @@
         "dataType": "json",
         "mergeContext": "",
         "mustacheAltTags": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "data"
-            }
-        ],
+        "outputProperties": [],
         "queue": "none",
         "blockInputOverrides": false,
         "domain": "switch",
         "service": "turn_on",
-        "x": 610,
+        "x": 590,
         "y": 260,
         "wires": [
             [
                 "424007945ad5ab08",
-                "a70730b0af3e436f"
+                "e7a3956752206bc2"
             ]
         ]
     },
@@ -4558,7 +4589,7 @@
         "id": "424007945ad5ab08",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
-        "name": "Run schedule",
+        "name": "Run Weekday schedule",
         "server": "8b52884a.b76658",
         "version": 7,
         "debugenabled": false,
@@ -4568,8 +4599,8 @@
         "deviceId": [],
         "entityId": [],
         "labelId": [],
-        "data": "",
-        "dataType": "jsonata",
+        "data": "{\"entity_id\":\"switch.schedule_weekday\"}",
+        "dataType": "json",
         "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
@@ -4577,7 +4608,7 @@
         "blockInputOverrides": false,
         "domain": "scheduler",
         "service": "run_action",
-        "x": 840,
+        "x": 1010,
         "y": 260,
         "wires": [
             []
@@ -4668,19 +4699,19 @@
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
+                "propertyValue": "new_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "new_state.state"
+                "comparatorValue": "home"
             },
             {
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "old_state.state"
+                "comparatorValue": "not_home"
             }
         ],
         "customOutputs": [],
@@ -4699,7 +4730,7 @@
             }
         ],
         "x": 150,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "dde8862116e0100f"
@@ -5054,7 +5085,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 350,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "2447d1c9ace3b941"
@@ -5400,38 +5431,6 @@
         ]
     },
     {
-        "id": "c35bd5eccd6b653b",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "d": true,
-        "name": "turn off",
-        "server": "8b52884a.b76658",
-        "version": 7,
-        "debugenabled": false,
-        "action": "climate.turn_off",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.thermostat_1"
-        ],
-        "labelId": [],
-        "data": "",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "domain": "climate",
-        "service": "turn_off",
-        "x": 810,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "076fb63d73d6fa3c",
         "type": "comment",
         "z": "cf24db3435ba68ad",
@@ -5466,8 +5465,8 @@
         "blockInputOverrides": false,
         "domain": "climate",
         "service": "set_hvac_mode",
-        "x": 1060,
-        "y": 160,
+        "x": 1040,
+        "y": 120,
         "wires": [
             []
         ]
@@ -5507,9 +5506,36 @@
         "x": 820,
         "y": 200,
         "wires": [
-            [
-                "8e8d350a8bca3898"
-            ]
+            []
+        ]
+    },
+    {
+        "id": "e7a3956752206bc2",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Run Weekend schedule",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "scheduler.run_action",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"entity_id\":\"switch.schedule_weekend\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "scheduler",
+        "service": "run_action",
+        "x": 1010,
+        "y": 340,
+        "wires": [
+            []
         ]
     },
     {
