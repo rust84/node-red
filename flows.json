@@ -2768,6 +2768,192 @@
         ]
     },
     {
+        "id": "6842a88d9e1f9e42",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "kitchen => on",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "light.kitchen_bottom_1",
+                "light.kitchen_bottom_2",
+                "light.kitchen_top_1",
+                "light.kitchen_top_2"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 1190,
+        "y": 180,
+        "wires": [
+            [
+                "cbf47b0a1b2cd6a8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cbf47b0a1b2cd6a8",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Turn on cupboards",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_on",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.kitchen_left",
+            "light.kitchen_right"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "light",
+        "service": "turn_on",
+        "x": 1470,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63d91a0ce4435845",
+        "type": "server-state-changed",
+        "z": "afb0f186.cfb0d",
+        "name": "kitchen => off",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "light.kitchen_top_1",
+                "light.kitchen_top_2"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is_not",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 1190,
+        "y": 260,
+        "wires": [
+            [
+                "a76abc4d27ebdbee"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a76abc4d27ebdbee",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Turn off cupboards",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.kitchen_left",
+            "light.kitchen_right"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "light",
+        "service": "turn_off",
+        "x": 1470,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "d841ce2f97c502f8",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
@@ -3811,24 +3997,6 @@
             [
                 "8e8d350a8bca3898"
             ]
-        ]
-    },
-    {
-        "id": "a70730b0af3e436f",
-        "type": "function",
-        "z": "cf24db3435ba68ad",
-        "name": "hvac heat",
-        "func": "var hvac = \"heat\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 820,
-        "y": 200,
-        "wires": [
-            []
         ]
     },
     {
