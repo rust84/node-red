@@ -59,6 +59,12 @@
                     },
                     {
                         "id": "6778550e67dae48c"
+                    },
+                    {
+                        "id": "e1ef31c3c725967b"
+                    },
+                    {
+                        "id": "6c869c1f5fa74cb2"
                     }
                 ]
             }
@@ -440,6 +446,44 @@
         "id": "e1ef31c3c725967b",
         "type": "api-call-service",
         "z": "43703bf3.b01b24",
+        "name": "Kitchen cupboard group",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "group.cupboard_group"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "light",
+        "service": "turn_off",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c869c1f5fa74cb2",
+        "type": "api-call-service",
+        "z": "43703bf3.b01b24",
         "name": "Bedroom group",
         "server": "8b52884a.b76658",
         "version": 7,
@@ -449,7 +493,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.kitchen_group"
+            "group.bedroom_group"
         ],
         "labelId": [],
         "data": "",
@@ -469,7 +513,7 @@
         "domain": "light",
         "service": "turn_off",
         "x": 420,
-        "y": 400,
+        "y": 460,
         "wires": [
             []
         ]
@@ -1389,7 +1433,7 @@
         "server": "8b52884a.b76658",
         "version": 3,
         "outputs": 2,
-        "halt_if": "2",
+        "halt_if": "10",
         "halt_if_type": "num",
         "halt_if_compare": "lt",
         "entity_id": "sensor.ep1_01_7f753c_illuminance",
@@ -1638,8 +1682,8 @@
         "z": "afb0f186.cfb0d",
         "name": "Lounge automation",
         "info": "",
-        "x": 150,
-        "y": 480,
+        "x": 110,
+        "y": 460,
         "wires": []
     },
     {
@@ -2952,6 +2996,190 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "b177197f2621929d",
+        "type": "inject",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 520,
+        "y": 680,
+        "wires": [
+            [
+                "bc36c13ee490f021"
+            ]
+        ]
+    },
+    {
+        "id": "8ea739f308c5adfb",
+        "type": "trigger-state",
+        "z": "afb0f186.cfb0d",
+        "name": "Wall lights -> On",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "light.lounge_wall_lights"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "debugEnabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            }
+        ],
+        "customOutputs": [],
+        "outputInitially": false,
+        "stateType": "str",
+        "enableInput": false,
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "246fa932fc815084"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "246fa932fc815084",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Set to Warm White",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "scene.turn_on",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "scene.wall_lights_on_white"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "scene",
+        "service": "turn_on",
+        "x": 410,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4cb8e4b220039a61",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "Decking Light",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.h7075_1c56"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "payload",
+                "valueType": "msg"
+            }
+        ],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "light",
+        "service": "turn_on",
+        "x": 340,
+        "y": 1480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be134a2187368252",
+        "type": "light-scheduler",
+        "z": "afb0f186.cfb0d",
+        "settings": "f26da246.74a7f",
+        "events": "[{\"start\":{\"dow\":6,\"mod\":540},\"end\":{\"dow\":0,\"mod\":0}},{\"start\":{\"dow\":1,\"mod\":540},\"end\":{\"dow\":2,\"mod\":0}},{\"start\":{\"dow\":2,\"mod\":540},\"end\":{\"dow\":3,\"mod\":0}},{\"start\":{\"dow\":3,\"mod\":540},\"end\":{\"dow\":4,\"mod\":0}},{\"start\":{\"dow\":4,\"mod\":540},\"end\":{\"dow\":5,\"mod\":0}},{\"start\":{\"dow\":5,\"mod\":540},\"end\":{\"dow\":6,\"mod\":0}},{\"start\":{\"dow\":0,\"mod\":540},\"end\":{\"dow\":1,\"mod\":780}}]",
+        "topic": "",
+        "name": "Light Schedule",
+        "onPayload": "{\"action\": \"light.turn_on\"}",
+        "onPayloadType": "json",
+        "offPayload": "{\"action\": \"light.turn_off\"}",
+        "offPayloadType": "json",
+        "onlyWhenDark": true,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": 6,
+        "sunShowElevationInStatus": false,
+        "outputfreq": "output.statechange.startup",
+        "x": 140,
+        "y": 1480,
+        "wires": [
+            [
+                "4cb8e4b220039a61"
+            ]
+        ]
+    },
+    {
+        "id": "fba191b3528158d3",
+        "type": "comment",
+        "z": "afb0f186.cfb0d",
+        "name": "Garden",
+        "info": "",
+        "x": 110,
+        "y": 1420,
+        "wires": []
     },
     {
         "id": "d841ce2f97c502f8",
