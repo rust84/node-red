@@ -4734,12 +4734,12 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 610,
-        "y": 160,
+        "x": 630,
+        "y": 140,
         "wires": [
             [],
             [
-                "8d782ee4.3daf1"
+                "1dde5c1655806646"
             ]
         ]
     },
@@ -4750,12 +4750,12 @@
         "outtopic": "",
         "outpayload1": "1",
         "outpayload2": "",
-        "name": "7am every day",
+        "name": "6am every day",
         "comment": "",
         "lat": "51.32063880734896",
         "lon": "-2.2089664938383327",
-        "starttime": "420",
-        "endtime": "435",
+        "starttime": "360",
+        "endtime": "375",
         "starttime2": "0",
         "endtime2": "0",
         "startoff": "0",
@@ -4943,11 +4943,11 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 480,
+        "x": 120,
+        "y": 500,
         "wires": [
             [
-                "b15d162c.105c28"
+                "7f300b61.5a4044"
             ]
         ]
     },
@@ -4988,8 +4988,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 830,
-        "y": 160,
+        "x": 1010,
+        "y": 140,
         "wires": [
             [],
             [
@@ -5001,7 +5001,7 @@
         "id": "f36487b8.7e8c48",
         "type": "api-current-state",
         "z": "4aedf9e8.044e08",
-        "name": "alarm not disarmed?",
+        "name": "alarm disarmed?",
         "server": "8b52884a.b76658",
         "version": 3,
         "outputs": 2,
@@ -5034,8 +5034,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 760,
-        "y": 420,
+        "x": 570,
+        "y": 560,
         "wires": [
             [],
             [
@@ -5080,8 +5080,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 450,
-        "y": 160,
+        "x": 470,
+        "y": 140,
         "wires": [
             [],
             [
@@ -5147,11 +5147,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1550,
+        "x": 810,
         "y": 680,
         "wires": [
             [
-                "aeafe637.1aeaf8"
+                "2e21fe95824d7621"
             ]
         ]
     },
@@ -5185,7 +5185,7 @@
         "blockInputOverrides": false,
         "domain": "notify",
         "service": "mobile_app_pixel_7a",
-        "x": 1800,
+        "x": 1420,
         "y": 680,
         "wires": [
             []
@@ -5242,7 +5242,7 @@
             }
         ],
         "x": 120,
-        "y": 920,
+        "y": 840,
         "wires": [
             [],
             [
@@ -5304,7 +5304,7 @@
             }
         ],
         "x": 130,
-        "y": 260,
+        "y": 240,
         "wires": [
             [
                 "ccda8ca7.269df"
@@ -5350,7 +5350,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 350,
-        "y": 260,
+        "y": 240,
         "wires": [
             [],
             [
@@ -5370,7 +5370,7 @@
             }
         ],
         "x": 550,
-        "y": 260,
+        "y": 240,
         "wires": [
             [
                 "c901e347.7a1dc"
@@ -5410,7 +5410,7 @@
         "domain": "alarm_control_panel",
         "service": "alarm_arm_away",
         "x": 740,
-        "y": 260,
+        "y": 240,
         "wires": [
             []
         ]
@@ -5438,19 +5438,19 @@
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "current_state",
+                "propertyValue": "new_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "home",
-                "propertyValue": "new_state.state"
+                "comparatorValue": "home"
             },
             {
                 "targetType": "this_entity",
                 "targetValue": "",
                 "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
                 "comparatorType": "is",
                 "comparatorValueDatatype": "str",
-                "comparatorValue": "not_home",
-                "propertyValue": "old_state.state"
+                "comparatorValue": "not_home"
             }
         ],
         "customOutputs": [],
@@ -5514,12 +5514,12 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 350,
+        "x": 330,
         "y": 560,
         "wires": [
             [],
             [
-                "81c2d258.033ce"
+                "f36487b8.7e8c48"
             ]
         ]
     },
@@ -5534,7 +5534,7 @@
                 "type": "msg"
             }
         ],
-        "x": 1010,
+        "x": 810,
         "y": 560,
         "wires": [
             [
@@ -5574,7 +5574,7 @@
         "blockInputOverrides": false,
         "domain": "alarm_control_panel",
         "service": "alarm_disarm",
-        "x": 1230,
+        "x": 1030,
         "y": 560,
         "wires": [
             []
@@ -5668,8 +5668,8 @@
         "wires": [
             [],
             [
-                "c28e839a592e1ad9",
-                "fe046407.ab0868"
+                "fe046407.ab0868",
+                "c28e839a592e1ad9"
             ]
         ]
     },
@@ -5710,8 +5710,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 470,
-        "y": 900,
+        "x": 330,
+        "y": 840,
         "wires": [
             [],
             [
@@ -5887,15 +5887,16 @@
         "name": "Alarm Triggerred Android msg",
         "func": "var category = \"alarm\"\nvar title = \"🚨 INTRUDER ALARM TRIGGERED! 🚨\"\nvar message = \"INTRUDER ALARM HAS TRIGGERED! OMG WTFBBQ!!!!111 🔥 \\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
-        "y": 980,
+        "x": 590,
+        "y": 880,
         "wires": [
             [
-                "e2f0bf60.7c222"
+                "6529d1c46782bfcc"
             ]
         ]
     },
@@ -5916,8 +5917,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 1300,
-        "y": 980,
+        "x": 1200,
+        "y": 680,
         "wires": [
             [
                 "aeafe637.1aeaf8"
@@ -5975,7 +5976,7 @@
             }
         ],
         "x": 120,
-        "y": 1340,
+        "y": 1200,
         "wires": [
             [],
             [
@@ -6021,7 +6022,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 480,
-        "y": 1500,
+        "y": 1360,
         "wires": [
             [
                 "9f89b06296441bf5"
@@ -6061,8 +6062,8 @@
         "blockInputOverrides": false,
         "domain": "alarm_control_panel",
         "service": "alarm_trigger",
-        "x": 750,
-        "y": 1420,
+        "x": 710,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -6105,7 +6106,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 470,
-        "y": 1360,
+        "y": 1220,
         "wires": [
             [
                 "9f89b06296441bf5"
@@ -6164,7 +6165,7 @@
             }
         ],
         "x": 110,
-        "y": 1400,
+        "y": 1260,
         "wires": [
             [],
             [
@@ -6223,7 +6224,7 @@
             }
         ],
         "x": 110,
-        "y": 1460,
+        "y": 1320,
         "wires": [
             [],
             [
@@ -6282,7 +6283,7 @@
             }
         ],
         "x": 100,
-        "y": 1740,
+        "y": 1600,
         "wires": [
             [],
             [
@@ -6342,7 +6343,7 @@
             }
         ],
         "x": 110,
-        "y": 1800,
+        "y": 1660,
         "wires": [
             [],
             [
@@ -6383,8 +6384,8 @@
         "blockInputOverrides": false,
         "domain": "alarm_control_panel",
         "service": "alarm_arm_home",
-        "x": 1260,
-        "y": 160,
+        "x": 1440,
+        "y": 140,
         "wires": [
             []
         ]
@@ -6400,8 +6401,8 @@
                 "type": "msg"
             }
         ],
-        "x": 1050,
-        "y": 160,
+        "x": 1230,
+        "y": 140,
         "wires": [
             [
                 "189a46476efd5beb"
@@ -6431,8 +6432,8 @@
         "blockInputOverrides": false,
         "domain": "notify",
         "service": "alexa_media_everywhere",
-        "x": 910,
-        "y": 880,
+        "x": 770,
+        "y": 820,
         "wires": [
             [
                 "a16755e15d896fc1"
@@ -6444,14 +6445,15 @@
         "type": "function",
         "z": "4aedf9e8.044e08",
         "name": "Message",
-        "func": "var message = \"Please vacate the premises, the authorities have been contacted\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
+        "func": "var message = \"Please vacate the premises, the authorities have been alerted.\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 880,
+        "x": 540,
+        "y": 820,
         "wires": [
             [
                 "d1dcac1eeeb1de5c"
@@ -6465,7 +6467,7 @@
         "name": "upstairs PIR",
         "info": "",
         "x": 110,
-        "y": 1300,
+        "y": 1160,
         "wires": []
     },
     {
@@ -6475,7 +6477,7 @@
         "name": "Activate alarm",
         "info": "",
         "x": 110,
-        "y": 60,
+        "y": 40,
         "wires": []
     },
     {
@@ -6485,7 +6487,7 @@
         "name": "Deactivate alarm",
         "info": "",
         "x": 120,
-        "y": 360,
+        "y": 320,
         "wires": []
     },
     {
@@ -6512,7 +6514,7 @@
         "correl": "",
         "expiry": "",
         "broker": "649859a4.a17818",
-        "x": 1420,
+        "x": 1380,
         "y": 760,
         "wires": []
     },
@@ -6527,8 +6529,8 @@
         "syntax": "mustache",
         "template": "{\n    \"warning\": {\n        \"level\": \"low\",\n        \"duration\": 300, \n        \"mode\": \"emergency\", \n        \"strobe\": true,\n        \"strobe_duty_cycle\": 1,\n        \"strobe_level\": \"very_high\"\n    }\n}",
         "output": "str",
-        "x": 1170,
-        "y": 880,
+        "x": 1110,
+        "y": 820,
         "wires": [
             [
                 "581603c66ffcc56c"
@@ -6546,7 +6548,7 @@
         "syntax": "mustache",
         "template": "{\n    \"warning\": {\n        \"mode\": \"stop\",\n        \"strobe\": false\n    }\n}",
         "output": "str",
-        "x": 1160,
+        "x": 1100,
         "y": 760,
         "wires": [
             [
@@ -6605,36 +6607,11 @@
             }
         ],
         "x": 110,
-        "y": 1100,
+        "y": 1080,
         "wires": [
             [],
             [
                 "6202624186e1ae93"
-            ]
-        ]
-    },
-    {
-        "id": "298ba567d33e1abb",
-        "type": "delay",
-        "z": "4aedf9e8.044e08",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "2",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "30",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 1300,
-        "y": 1100,
-        "wires": [
-            [
-                "aeafe637.1aeaf8"
             ]
         ]
     },
@@ -6649,11 +6626,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1100,
+        "x": 370,
+        "y": 1080,
         "wires": [
             [
-                "298ba567d33e1abb"
+                "5024eb29f1ce0b1a"
             ]
         ]
     },
@@ -6664,37 +6641,8 @@
         "name": "Fire alarm",
         "info": "",
         "x": 100,
-        "y": 1040,
+        "y": 1020,
         "wires": []
-    },
-    {
-        "id": "fdd1ba877ceff313",
-        "type": "inject",
-        "z": "4aedf9e8.044e08",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 380,
-        "y": 1200,
-        "wires": [
-            [
-                "6202624186e1ae93"
-            ]
-        ]
     },
     {
         "id": "f44bdbe9bc774810",
@@ -6747,7 +6695,7 @@
             }
         ],
         "x": 110,
-        "y": 1560,
+        "y": 1420,
         "wires": [
             [],
             [
@@ -6807,7 +6755,7 @@
             }
         ],
         "x": 120,
-        "y": 1620,
+        "y": 1480,
         "wires": [
             [],
             [
@@ -6823,7 +6771,7 @@
         "name": "Contact",
         "info": "",
         "x": 90,
-        "y": 1700,
+        "y": 1560,
         "wires": []
     },
     {
@@ -6833,7 +6781,7 @@
         "name": "downstairs PIR",
         "info": "",
         "x": 120,
-        "y": 1520,
+        "y": 1380,
         "wires": []
     },
     {
@@ -6881,7 +6829,7 @@
             }
         ],
         "x": 110,
-        "y": 160,
+        "y": 140,
         "wires": [
             [
                 "3144c43313354558"
@@ -6901,7 +6849,7 @@
         "startOffset": 0,
         "endOffset": 0,
         "x": 290,
-        "y": 160,
+        "y": 140,
         "wires": [
             [
                 "cd1caa8c.300358"
@@ -6916,7 +6864,7 @@
         "name": "Home",
         "info": "",
         "x": 90,
-        "y": 120,
+        "y": 100,
         "wires": []
     },
     {
@@ -6926,7 +6874,345 @@
         "name": "Away",
         "info": "",
         "x": 90,
-        "y": 220,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1dde5c1655806646",
+        "type": "api-current-state",
+        "z": "4aedf9e8.044e08",
+        "name": "ana in?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "False",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "sensor.ana_home_status",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "x": 800,
+        "y": 140,
+        "wires": [
+            [],
+            [
+                "8d782ee4.3daf1"
+            ]
+        ]
+    },
+    {
+        "id": "f14b5800d398c3d7",
+        "type": "trigger-state",
+        "z": "4aedf9e8.044e08",
+        "name": "pixel charging => discharging",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.pixel_7a_is_charging"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "debugEnabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "on"
+            }
+        ],
+        "customOutputs": [],
+        "outputInitially": false,
+        "stateType": "str",
+        "enableInput": false,
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "73c30e71.e8d46"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "17c4236cbba2b0c2",
+        "type": "server-state-changed",
+        "z": "4aedf9e8.044e08",
+        "name": "Alarm Pending",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [],
+            "substring": [
+                "alarm_control_panel.alarm_panel"
+            ],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "pending",
+        "ifStateType": "str",
+        "ifStateOperator": "is_not",
+        "outputOnlyOnStateChange": false,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 120,
+        "y": 940,
+        "wires": [
+            [],
+            [
+                "c85448c0fde92f57"
+            ]
+        ]
+    },
+    {
+        "id": "555044cee562afbd",
+        "type": "api-call-service",
+        "z": "4aedf9e8.044e08",
+        "name": "Notify through Alexa Kitchen",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "notify.alexa_media_kitchen",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "notify",
+        "service": "alexa_media_kitchen",
+        "x": 560,
+        "y": 940,
+        "wires": [
+            [
+                "3b8b92c3741b86f6"
+            ]
+        ]
+    },
+    {
+        "id": "c85448c0fde92f57",
+        "type": "function",
+        "z": "4aedf9e8.044e08",
+        "name": "20 seconds...",
+        "func": "var message = \"Alarm activated. You have 20 seconds to comply.\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 940,
+        "wires": [
+            [
+                "555044cee562afbd"
+            ]
+        ]
+    },
+    {
+        "id": "3b8b92c3741b86f6",
+        "type": "delay",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 940,
+        "wires": [
+            [
+                "47970d34ca8fcdef"
+            ]
+        ]
+    },
+    {
+        "id": "47970d34ca8fcdef",
+        "type": "function",
+        "z": "4aedf9e8.044e08",
+        "name": "10 seconds...",
+        "func": "var message = \"Alarm activated. You have 10 seconds to comply.\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 940,
+        "wires": [
+            [
+                "503043e6b2373087"
+            ]
+        ]
+    },
+    {
+        "id": "503043e6b2373087",
+        "type": "api-call-service",
+        "z": "4aedf9e8.044e08",
+        "name": "Notify through Alexa Kitchen",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "notify.alexa_media_kitchen",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{ \"message\": \"{{payload}}\", \"data\": { \"type\": \"announce\" }, \"target\": \"{{service}}\" }",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "notify",
+        "service": "alexa_media_kitchen",
+        "x": 1260,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5024eb29f1ce0b1a",
+        "type": "link out",
+        "z": "4aedf9e8.044e08",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "651cf36dfd9ea601"
+        ],
+        "x": 535,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "651cf36dfd9ea601",
+        "type": "link in",
+        "z": "4aedf9e8.044e08",
+        "name": "link in 2",
+        "links": [
+            "5024eb29f1ce0b1a",
+            "6529d1c46782bfcc",
+            "2e21fe95824d7621"
+        ],
+        "x": 1065,
+        "y": 680,
+        "wires": [
+            [
+                "e2f0bf60.7c222"
+            ]
+        ]
+    },
+    {
+        "id": "6529d1c46782bfcc",
+        "type": "link out",
+        "z": "4aedf9e8.044e08",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "651cf36dfd9ea601"
+        ],
+        "x": 785,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "2e21fe95824d7621",
+        "type": "link out",
+        "z": "4aedf9e8.044e08",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "651cf36dfd9ea601"
+        ],
+        "x": 985,
+        "y": 680,
         "wires": []
     },
     {
