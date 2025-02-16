@@ -3385,7 +3385,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "light.h7075_1c56"
+            "light.garden_light"
         ],
         "labelId": [],
         "data": "",
@@ -3750,22 +3750,6 @@
         ]
     },
     {
-        "id": "428b0b94d55b8017",
-        "type": "plex-ws-playing",
-        "z": "afb0f186.cfb0d",
-        "name": "Plex",
-        "server": "06a202b01db68d7e",
-        "allowUpdates": false,
-        "filters": [],
-        "x": 630,
-        "y": 540,
-        "wires": [
-            [
-                "bf32148190399df8"
-            ]
-        ]
-    },
-    {
         "id": "bf32148190399df8",
         "type": "switch",
         "z": "afb0f186.cfb0d",
@@ -3792,7 +3776,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 890,
+        "x": 990,
         "y": 540,
         "wires": [
             [
@@ -3831,10 +3815,12 @@
         "blockInputOverrides": true,
         "domain": "light",
         "service": "turn_on",
-        "x": 1410,
+        "x": 1510,
         "y": 500,
         "wires": [
-            []
+            [
+                "2f2afe4ebadaf169"
+            ]
         ]
     },
     {
@@ -3862,10 +3848,12 @@
         "blockInputOverrides": true,
         "domain": "light",
         "service": "turn_on",
-        "x": 1410,
+        "x": 1510,
         "y": 560,
         "wires": [
-            []
+            [
+                "9d9b9cfc58cb8795"
+            ]
         ]
     },
     {
@@ -3905,7 +3893,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 1200,
+        "x": 1300,
         "y": 500,
         "wires": [
             [
@@ -3951,7 +3939,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 1200,
+        "x": 1300,
         "y": 560,
         "wires": [
             [
@@ -3959,6 +3947,121 @@
             ],
             []
         ]
+    },
+    {
+        "id": "2f2afe4ebadaf169",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "lamp off",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "light",
+        "service": "turn_off",
+        "x": 1720,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d9b9cfc58cb8795",
+        "type": "api-call-service",
+        "z": "afb0f186.cfb0d",
+        "name": "lamp on",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_on",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "light.lounge_light"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "light",
+        "service": "turn_on",
+        "x": 1720,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3b9f6c92b47935b",
+        "type": "rbe",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 750,
+        "y": 540,
+        "wires": [
+            [
+                "bf32148190399df8"
+            ]
+        ]
+    },
+    {
+        "id": "a03e926985a4518f",
+        "type": "plex-ws-playing",
+        "z": "afb0f186.cfb0d",
+        "name": "Plex",
+        "server": "06a202b01db68d7e",
+        "allowUpdates": false,
+        "filters": [],
+        "x": 610,
+        "y": 540,
+        "wires": [
+            [
+                "a3b9f6c92b47935b",
+                "fe894b329acae8cb"
+            ]
+        ]
+    },
+    {
+        "id": "fe894b329acae8cb",
+        "type": "debug",
+        "z": "afb0f186.cfb0d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 460,
+        "wires": []
     },
     {
         "id": "d841ce2f97c502f8",
@@ -7637,6 +7740,127 @@
         ],
         "x": 110,
         "y": 1720,
+        "wires": [
+            [],
+            [
+                "9637fd97fca06cc2",
+                "57d24fab2cc21bf7"
+            ]
+        ]
+    },
+    {
+        "id": "c0307b82767a5553",
+        "type": "server-state-changed",
+        "z": "4aedf9e8.044e08",
+        "name": "dining windows",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.dining_room_contact_l_contact",
+                "binary_sensor.dining_room_contact_r_contact"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 120,
+        "y": 1780,
+        "wires": [
+            [],
+            [
+                "9637fd97fca06cc2",
+                "57d24fab2cc21bf7"
+            ]
+        ]
+    },
+    {
+        "id": "58ab7aded9d726f1",
+        "type": "server-state-changed",
+        "z": "4aedf9e8.044e08",
+        "name": "lounge windows",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.lounge_window_contact_l_contact"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "off",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 120,
+        "y": 1840,
         "wires": [
             [],
             [
