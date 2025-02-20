@@ -7396,11 +7396,11 @@
         "stateType": "str",
         "ifState": "pending",
         "ifStateType": "str",
-        "ifStateOperator": "is_not",
+        "ifStateOperator": "is",
         "outputOnlyOnStateChange": false,
-        "for": "",
+        "for": "40",
         "forType": "num",
-        "forUnits": "minutes",
+        "forUnits": "seconds",
         "ignorePrevStateNull": false,
         "ignorePrevStateUnknown": false,
         "ignorePrevStateUnavailable": false,
@@ -7429,17 +7429,17 @@
         "x": 120,
         "y": 940,
         "wires": [
-            [],
             [
-                "bc8cfc0a308c08dc"
-            ]
+                "c85448c0fde92f57"
+            ],
+            []
         ]
     },
     {
         "id": "555044cee562afbd",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
-        "name": "Notify through Alexa Kitchen",
+        "name": "Notify Alexa everywhere",
         "server": "8b52884a.b76658",
         "version": 7,
         "debugenabled": false,
@@ -7458,11 +7458,11 @@
         "blockInputOverrides": false,
         "domain": "notify",
         "service": "alexa_media_everywhere",
-        "x": 720,
+        "x": 570,
         "y": 940,
         "wires": [
             [
-                "3b8b92c3741b86f6"
+                "8f0cae300c03f28d"
             ]
         ]
     },
@@ -7478,36 +7478,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 350,
         "y": 940,
         "wires": [
             [
                 "555044cee562afbd"
-            ]
-        ]
-    },
-    {
-        "id": "3b8b92c3741b86f6",
-        "type": "delay",
-        "z": "4aedf9e8.044e08",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 960,
-        "y": 940,
-        "wires": [
-            [
-                "47970d34ca8fcdef"
             ]
         ]
     },
@@ -7523,7 +7498,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1150,
         "y": 940,
         "wires": [
             [
@@ -7535,11 +7510,11 @@
         "id": "503043e6b2373087",
         "type": "api-call-service",
         "z": "4aedf9e8.044e08",
-        "name": "Notify through Alexa Kitchen",
+        "name": "Notify Alexa everywhere",
         "server": "8b52884a.b76658",
         "version": 7,
         "debugenabled": false,
-        "action": "notify.alexa_media_kitchen",
+        "action": "notify.alexa_media_everywhere",
         "floorId": [],
         "areaId": [],
         "deviceId": [],
@@ -7553,8 +7528,8 @@
         "queue": "none",
         "blockInputOverrides": false,
         "domain": "notify",
-        "service": "alexa_media_kitchen",
-        "x": 1420,
+        "service": "alexa_media_everywhere",
+        "x": 1370,
         "y": 940,
         "wires": [
             []
@@ -7664,31 +7639,6 @@
         ]
     },
     {
-        "id": "bc8cfc0a308c08dc",
-        "type": "delay",
-        "z": "4aedf9e8.044e08",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "40",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 320,
-        "y": 940,
-        "wires": [
-            [
-                "c85448c0fde92f57"
-            ]
-        ]
-    },
-    {
         "id": "9be81bff399ad3a2",
         "type": "server-state-changed",
         "z": "4aedf9e8.044e08",
@@ -7699,7 +7649,7 @@
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "binary_sensor.lounge_contact_sensor_contact"
+                "binary_sensor.lounge_door_contact_sensor_contact"
             ],
             "substring": [],
             "regex": []
@@ -7866,6 +7816,76 @@
             [
                 "9637fd97fca06cc2",
                 "57d24fab2cc21bf7"
+            ]
+        ]
+    },
+    {
+        "id": "09990574cfea180b",
+        "type": "api-current-state",
+        "z": "4aedf9e8.044e08",
+        "name": "disarmed?",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "disarmed",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "alarm_control_panel.alarm_panel",
+        "state_type": "str",
+        "blockInputOverrides": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "",
+        "forType": "num",
+        "forUnits": "seconds",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 950,
+        "y": 940,
+        "wires": [
+            [],
+            [
+                "47970d34ca8fcdef"
+            ]
+        ]
+    },
+    {
+        "id": "8f0cae300c03f28d",
+        "type": "delay",
+        "z": "4aedf9e8.044e08",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 780,
+        "y": 940,
+        "wires": [
+            [
+                "09990574cfea180b"
             ]
         ]
     },
