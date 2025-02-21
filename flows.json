@@ -1005,7 +1005,7 @@
         "name": "Leave home routing",
         "info": "",
         "x": 150,
-        "y": 240,
+        "y": 260,
         "wires": []
     },
     {
@@ -1281,7 +1281,7 @@
         "finalize": "",
         "libs": [],
         "x": 1100,
-        "y": 940,
+        "y": 920,
         "wires": [
             [
                 "5b2070e801e7c8a1",
@@ -1434,7 +1434,7 @@
         "ifStateType": "str",
         "ifStateOperator": "is",
         "outputOnlyOnStateChange": true,
-        "for": "1",
+        "for": "5",
         "forType": "num",
         "forUnits": "minutes",
         "ignorePrevStateNull": true,
@@ -1478,7 +1478,7 @@
         "name": "Lounge automation",
         "info": "",
         "x": 150,
-        "y": 480,
+        "y": 500,
         "wires": []
     },
     {
@@ -1689,7 +1689,7 @@
         "ifStateType": "str",
         "ifStateOperator": "is",
         "outputOnlyOnStateChange": true,
-        "for": "1",
+        "for": "5",
         "forType": "num",
         "forUnits": "minutes",
         "ignorePrevStateNull": true,
@@ -3442,7 +3442,7 @@
         "name": "Garden",
         "info": "",
         "x": 570,
-        "y": 240,
+        "y": 260,
         "wires": []
     },
     {
@@ -3527,7 +3527,7 @@
         "name": "Security light",
         "info": "",
         "x": 130,
-        "y": 360,
+        "y": 380,
         "wires": []
     },
     {
@@ -3647,8 +3647,8 @@
         "blockInputOverrides": true,
         "domain": "media_player",
         "service": "play_media",
-        "x": 430,
-        "y": 1920,
+        "x": 330,
+        "y": 1900,
         "wires": [
             []
         ]
@@ -3674,8 +3674,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 1920,
+        "x": 140,
+        "y": 1900,
         "wires": [
             [
                 "361dc94cadb6200d"
@@ -3714,8 +3714,8 @@
         "blockInputOverrides": true,
         "domain": "media_player",
         "service": "media_stop",
-        "x": 550,
-        "y": 2020,
+        "x": 310,
+        "y": 1960,
         "wires": [
             []
         ]
@@ -3741,8 +3741,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 320,
-        "y": 2020,
+        "x": 140,
+        "y": 1960,
         "wires": [
             [
                 "4dc09f17ec5909f3"
@@ -4042,26 +4042,9 @@
         "y": 540,
         "wires": [
             [
-                "a3b9f6c92b47935b",
-                "fe894b329acae8cb"
+                "a3b9f6c92b47935b"
             ]
         ]
-    },
-    {
-        "id": "fe894b329acae8cb",
-        "type": "debug",
-        "z": "afb0f186.cfb0d",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "d841ce2f97c502f8",
@@ -5390,7 +5373,7 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 1010,
+        "x": 830,
         "y": 140,
         "wires": [
             [],
@@ -6294,7 +6277,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 610,
         "y": 880,
         "wires": [
             [
@@ -6786,7 +6769,7 @@
         "blockInputOverrides": false,
         "domain": "alarm_control_panel",
         "service": "alarm_arm_home",
-        "x": 1440,
+        "x": 1260,
         "y": 140,
         "wires": [
             []
@@ -6803,7 +6786,7 @@
                 "type": "msg"
             }
         ],
-        "x": 1230,
+        "x": 1050,
         "y": 140,
         "wires": [
             [
@@ -7280,52 +7263,6 @@
         "wires": []
     },
     {
-        "id": "1dde5c1655806646",
-        "type": "api-current-state",
-        "z": "4aedf9e8.044e08",
-        "name": "ana in?",
-        "server": "8b52884a.b76658",
-        "version": 3,
-        "outputs": 2,
-        "halt_if": "False",
-        "halt_if_type": "str",
-        "halt_if_compare": "is_not",
-        "entity_id": "sensor.ana_home_status",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "x": 800,
-        "y": 140,
-        "wires": [
-            [],
-            [
-                "8d782ee4.3daf1"
-            ]
-        ]
-    },
-    {
         "id": "f14b5800d398c3d7",
         "type": "trigger-state",
         "z": "4aedf9e8.044e08",
@@ -7458,7 +7395,7 @@
         "blockInputOverrides": false,
         "domain": "notify",
         "service": "alexa_media_everywhere",
-        "x": 570,
+        "x": 530,
         "y": 940,
         "wires": [
             [
@@ -7478,7 +7415,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 310,
         "y": 940,
         "wires": [
             [
@@ -7498,7 +7435,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
+        "x": 1090,
         "y": 940,
         "wires": [
             [
@@ -7529,7 +7466,7 @@
         "blockInputOverrides": false,
         "domain": "notify",
         "service": "alexa_media_everywhere",
-        "x": 1370,
+        "x": 1310,
         "y": 940,
         "wires": [
             []
@@ -7634,7 +7571,7 @@
         "wires": [
             [],
             [
-                "1dde5c1655806646"
+                "8d782ee4.3daf1"
             ]
         ]
     },
@@ -7855,7 +7792,7 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 950,
+        "x": 910,
         "y": 940,
         "wires": [
             [],
@@ -7881,7 +7818,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 780,
+        "x": 740,
         "y": 940,
         "wires": [
             [
