@@ -5054,7 +5054,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "climate.thermostat_1"
+            "climate.hive_receiver_heat"
         ],
         "labelId": [],
         "data": "",
