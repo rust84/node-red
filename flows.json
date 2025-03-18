@@ -65,6 +65,9 @@
                     },
                     {
                         "id": "6c869c1f5fa74cb2"
+                    },
+                    {
+                        "id": "35120a6bb4c8411b"
                     }
                 ]
             }
@@ -157,7 +160,7 @@
         "rejectUnauthorizedCerts": true,
         "ha_boolean": "y|yes|true|on|home|open",
         "connectionDelay": true,
-        "cacheJson": true,
+        "cacheJson": false,
         "heartbeat": false,
         "heartbeatInterval": "30",
         "areaSelector": "friendlyName",
@@ -515,6 +518,44 @@
         "service": "turn_off",
         "x": 280,
         "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35120a6bb4c8411b",
+        "type": "api-call-service",
+        "z": "43703bf3.b01b24",
+        "name": "Diningroom",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "light.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "group.diningroom_group"
+        ],
+        "labelId": [],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "light",
+        "service": "turn_off",
+        "x": 270,
+        "y": 520,
         "wires": [
             []
         ]
@@ -4023,7 +4064,7 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 750,
+        "x": 770,
         "y": 540,
         "wires": [
             [
@@ -4032,14 +4073,29 @@
         ]
     },
     {
-        "id": "a03e926985a4518f",
+        "id": "773f00f39635d835",
         "type": "plex-ws-playing",
         "z": "afb0f186.cfb0d",
-        "name": "Plex",
+        "name": "Lounge",
         "server": "06a202b01db68d7e",
         "allowUpdates": false,
-        "filters": [],
-        "x": 610,
+        "filters": [
+            {
+                "idx": 0,
+                "key": "Player.local",
+                "operator": "eq",
+                "value": "true",
+                "valueType": "str"
+            },
+            {
+                "idx": 1,
+                "key": "Player.title",
+                "operator": "eq",
+                "value": "SHIELD Android TV",
+                "valueType": "str"
+            }
+        ],
+        "x": 630,
         "y": 540,
         "wires": [
             [
@@ -4145,7 +4201,7 @@
         "domain": "switch",
         "service": "turn_off",
         "x": 590,
-        "y": 80,
+        "y": 100,
         "wires": [
             [
                 "7ec8e0266c2aa99d"
@@ -4179,7 +4235,7 @@
         "domain": "switch",
         "service": "turn_on",
         "x": 590,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "424007945ad5ab08",
@@ -4210,8 +4266,8 @@
         "blockInputOverrides": false,
         "domain": "scheduler",
         "service": "run_action",
-        "x": 930,
-        "y": 260,
+        "x": 910,
+        "y": 220,
         "wires": [
             []
         ]
@@ -4332,7 +4388,7 @@
             }
         ],
         "x": 150,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "dde8862116e0100f"
@@ -4348,7 +4404,7 @@
         "name": "Aircon",
         "info": "",
         "x": 110,
-        "y": 720,
+        "y": 420,
         "wires": []
     },
     {
@@ -4406,7 +4462,7 @@
             }
         ],
         "x": 120,
-        "y": 800,
+        "y": 500,
         "wires": [
             [
                 "f0c9108db605c58f"
@@ -4441,7 +4497,7 @@
         "domain": "climate",
         "service": "set_swing_mode",
         "x": 570,
-        "y": 800,
+        "y": 500,
         "wires": [
             []
         ]
@@ -4485,7 +4541,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 390,
-        "y": 940,
+        "y": 640,
         "wires": [
             [
                 "0d6f721153f28d46"
@@ -4532,7 +4588,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 350,
-        "y": 800,
+        "y": 500,
         "wires": [
             [
                 "be27bd4df8ea1392"
@@ -4595,7 +4651,7 @@
             }
         ],
         "x": 120,
-        "y": 860,
+        "y": 560,
         "wires": [
             [
                 "f0c9108db605c58f"
@@ -4686,8 +4742,8 @@
         "for": 0,
         "forType": "num",
         "forUnits": "minutes",
-        "x": 330,
-        "y": 320,
+        "x": 350,
+        "y": 280,
         "wires": [
             [
                 "2447d1c9ace3b941"
@@ -4750,7 +4806,7 @@
             }
         ],
         "x": 160,
-        "y": 940,
+        "y": 640,
         "wires": [
             [
                 "77cb539139b1e947"
@@ -4813,7 +4869,7 @@
             }
         ],
         "x": 160,
-        "y": 1000,
+        "y": 700,
         "wires": [
             [
                 "f9edfad88e5fc1c2"
@@ -4859,7 +4915,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 620,
-        "y": 940,
+        "y": 640,
         "wires": [
             [
                 "f96177401fdd7f7f"
@@ -4894,7 +4950,7 @@
         "domain": "climate",
         "service": "set_hvac_mode",
         "x": 1020,
-        "y": 940,
+        "y": 640,
         "wires": [
             []
         ]
@@ -4937,7 +4993,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 630,
-        "y": 1000,
+        "y": 700,
         "wires": [
             [
                 "d1259e05b00b447a"
@@ -4958,7 +5014,7 @@
         "finalize": "",
         "libs": [],
         "x": 840,
-        "y": 1000,
+        "y": 700,
         "wires": [
             [
                 "7cced1da5dab434e"
@@ -4978,7 +5034,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 940,
+        "y": 640,
         "wires": [
             [
                 "7cced1da5dab434e"
@@ -5024,7 +5080,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 390,
-        "y": 1000,
+        "y": 700,
         "wires": [
             [
                 "c0b3c0530fced4db"
@@ -5041,38 +5097,6 @@
         "x": 110,
         "y": 20,
         "wires": []
-    },
-    {
-        "id": "8e8d350a8bca3898",
-        "type": "api-call-service",
-        "z": "cf24db3435ba68ad",
-        "d": true,
-        "name": "hvac_mode set",
-        "server": "8b52884a.b76658",
-        "version": 7,
-        "debugenabled": false,
-        "action": "climate.set_hvac_mode",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.hive_receiver_heat"
-        ],
-        "labelId": [],
-        "data": "",
-        "dataType": "jsonata",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "domain": "climate",
-        "service": "set_hvac_mode",
-        "x": 1020,
-        "y": 120,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "e7a3956752206bc2",
@@ -5097,38 +5121,10 @@
         "blockInputOverrides": false,
         "domain": "scheduler",
         "service": "run_action",
-        "x": 930,
-        "y": 340,
+        "x": 910,
+        "y": 280,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "25377eb8c9aa5471",
-        "type": "change",
-        "z": "cf24db3435ba68ad",
-        "d": true,
-        "name": "hvac off",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"data\":{\"hvac_mode\":\"off\"}}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 840,
-        "y": 120,
-        "wires": [
-            [
-                "8e8d350a8bca3898"
-            ]
         ]
     },
     {
@@ -5145,8 +5141,8 @@
         "correl": "",
         "expiry": "",
         "broker": "649859a4.a17818",
-        "x": 770,
-        "y": 520,
+        "x": 1690,
+        "y": 100,
         "wires": []
     },
     {
@@ -5160,192 +5156,12 @@
         "syntax": "mustache",
         "template": "{\n    \"system_mode_heat\": \"off\",\n    \"temperature_setpoint_hold_heat\": 0\n}",
         "output": "str",
-        "x": 410,
-        "y": 480,
+        "x": 910,
+        "y": 100,
         "wires": [
             [
-                "7fe79f7de8931c66"
-            ]
-        ]
-    },
-    {
-        "id": "f7d19a0d536d6640",
-        "type": "trigger-state",
-        "z": "cf24db3435ba68ad",
-        "name": "off -> heat",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "inputs": 1,
-        "outputs": 2,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "climate.hive_receiver_heat"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "debugEnabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "propertyValue": "new_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "heat"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "propertyValue": "old_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off"
-            }
-        ],
-        "customOutputs": [],
-        "outputInitially": false,
-        "stateType": "str",
-        "enableInput": true,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "x": 120,
-        "y": 420,
-        "wires": [
-            [
-                "991c11a786ac490a"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "991c11a786ac490a",
-        "type": "template",
-        "z": "cf24db3435ba68ad",
-        "name": "Set heating mode to ON",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"system_mode_heat\": \"heat\",\n    \"temperature_setpoint_hold_heat\": 1,\n    \"occupied_heating_setpoint_heat\": 20.5\n}",
-        "output": "str",
-        "x": 410,
-        "y": 420,
-        "wires": [
-            [
-                "7fe79f7de8931c66"
-            ]
-        ]
-    },
-    {
-        "id": "256dec831a1a9367",
-        "type": "trigger-state",
-        "z": "cf24db3435ba68ad",
-        "name": "heat -> off",
-        "server": "8b52884a.b76658",
-        "version": 5,
-        "inputs": 1,
-        "outputs": 2,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "climate.hive_receiver_heat"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "debugEnabled": false,
-        "constraints": [
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "current_state",
-                "propertyValue": "new_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "off"
-            },
-            {
-                "targetType": "this_entity",
-                "targetValue": "",
-                "propertyType": "previous_state",
-                "propertyValue": "old_state.state",
-                "comparatorType": "is",
-                "comparatorValueDatatype": "str",
-                "comparatorValue": "heat"
-            }
-        ],
-        "customOutputs": [],
-        "outputInitially": false,
-        "stateType": "str",
-        "enableInput": true,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "x": 120,
-        "y": 480,
-        "wires": [
-            [
-                "7ec8e0266c2aa99d"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "59bf89f8eaedd736",
-        "type": "template",
-        "z": "cf24db3435ba68ad",
-        "name": "Boost heat for 30 mins",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\n   \"system_mode_heat\":\"emergency_heating\",\n   \"temperature_setpoint_hold_duration_heat\":30,\n   \"temperature_setpoint_hold_heat\":1,\n   \"occupied_heating_setpoint_heat\":21\n}",
-        "output": "str",
-        "x": 400,
-        "y": 600,
-        "wires": [
-            [
-                "7fe79f7de8931c66"
-            ]
-        ]
-    },
-    {
-        "id": "29ca827e39142a0c",
-        "type": "template",
-        "z": "cf24db3435ba68ad",
-        "name": "Boost water for 30 mins",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\n   \"system_mode_water\":\"emergency_heating\",\n   \"temperature_setpoint_hold_duration_water\":30,\n   \"temperature_setpoint_hold_water\":1\n}",
-        "output": "str",
-        "x": 410,
-        "y": 540,
-        "wires": [
-            [
-                "7fe79f7de8931c66"
+                "7fe79f7de8931c66",
+                "76f04810f8e99fe6"
             ]
         ]
     },
@@ -5370,56 +5186,27 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 540,
+        "x": 1140,
+        "y": 160,
         "wires": [
             [
-                "29ca827e39142a0c"
+                "379e2926901a187a"
             ]
         ]
     },
     {
-        "id": "9a8274724f5fe925",
-        "type": "inject",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 600,
-        "wires": [
-            [
-                "59bf89f8eaedd736"
-            ]
-        ]
-    },
-    {
-        "id": "bdeea56f2fab8e48",
+        "id": "379e2926901a187a",
         "type": "template",
         "z": "cf24db3435ba68ad",
-        "name": "Cancel water boost",
+        "name": "Set heating mode to ON",
         "field": "payload",
         "fieldType": "msg",
-        "format": "handlebars",
+        "format": "json",
         "syntax": "mustache",
-        "template": "{\n   \"system_mode_water\":\"auto\",\n   \"temperature_setpoint_hold_water\":0\n}",
+        "template": "{\n    \"system_mode\": \"heat\",\n    \"temperature_setpoint_hold_heat\": 1,\n    \"occupied_heating_setpoint_heat\": 20\n}",
         "output": "str",
-        "x": 390,
-        "y": 660,
+        "x": 1350,
+        "y": 160,
         "wires": [
             [
                 "7fe79f7de8931c66"
@@ -5427,31 +5214,46 @@
         ]
     },
     {
-        "id": "e235f8957eb5b739",
-        "type": "inject",
+        "id": "76f04810f8e99fe6",
+        "type": "delay",
         "z": "cf24db3435ba68ad",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 660,
+        "pauseType": "delay",
+        "timeout": "0.5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1170,
+        "y": 40,
         "wires": [
             [
-                "bdeea56f2fab8e48"
+                "f6539d3e06185755"
+            ]
+        ]
+    },
+    {
+        "id": "f6539d3e06185755",
+        "type": "template",
+        "z": "cf24db3435ba68ad",
+        "name": "Frost prevention",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"occupied_heating_setpoint_heat\": 12,\n    \"temperature_setpoint_hold_duration_heat\": 65535,\n    \"temperature_setpoint_hold_heat\": 1\n}",
+        "output": "str",
+        "x": 1360,
+        "y": 40,
+        "wires": [
+            [
+                "7fe79f7de8931c66"
             ]
         ]
     },
