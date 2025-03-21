@@ -231,7 +231,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.office_group"
+            "light.office_group"
         ],
         "labelId": [],
         "data": "",
@@ -383,7 +383,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.lounge_group"
+            "light.lounge_group"
         ],
         "labelId": [],
         "data": "",
@@ -421,7 +421,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.kitchen_group"
+            "light.kitchen_group"
         ],
         "labelId": [],
         "data": "",
@@ -459,7 +459,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.cupboard_group"
+            "light.kitchen_cupboard_group"
         ],
         "labelId": [],
         "data": "",
@@ -497,7 +497,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.bedroom_group"
+            "light.bedroom_group"
         ],
         "labelId": [],
         "data": "",
@@ -535,7 +535,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.diningroom_group"
+            "light.diningroom"
         ],
         "labelId": [],
         "data": "",
@@ -1827,7 +1827,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.office_rgb"
+            "light.office_rgb"
         ],
         "labelId": [],
         "data": "",
@@ -2614,7 +2614,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "group.kitchen_group"
+            "light.kitchen_group"
         ],
         "labelId": [],
         "data": "",
