@@ -152,6 +152,39 @@
         "color": "#DDAA99"
     },
     {
+        "id": "313a4c87880bc70e",
+        "type": "subflow",
+        "name": "sleep?",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 100,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "fbdcb6b5258c20ed"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 640,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "9c6f1ec5ec56d9a9",
+                        "port": 1
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
         "id": "8b52884a.b76658",
         "type": "server",
         "name": "Home Assistant",
@@ -705,6 +738,69 @@
         "wires": []
     },
     {
+        "id": "fbdcb6b5258c20ed",
+        "type": "time-range-switch",
+        "z": "313a4c87880bc70e",
+        "name": "12am-7am",
+        "lat": "51.293768",
+        "lon": "-2.491740",
+        "startTime": "00:00",
+        "endTime": "07:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [],
+            [
+                "9c6f1ec5ec56d9a9"
+            ]
+        ]
+    },
+    {
+        "id": "9c6f1ec5ec56d9a9",
+        "type": "api-current-state",
+        "z": "313a4c87880bc70e",
+        "name": "Phone charging",
+        "server": "8b52884a.b76658",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "binary_sensor.pixel_7a_is_charging",
+        "state_type": "str",
+        "blockInputOverrides": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
         "id": "f0357509eda72c8d",
         "type": "api-call-service",
         "z": "afb0f186.cfb0d",
@@ -736,7 +832,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_on",
-        "x": 1270,
+        "x": 1210,
         "y": 60,
         "wires": [
             []
@@ -759,7 +855,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 1030,
+        "x": 970,
         "y": 60,
         "wires": [
             [
@@ -785,7 +881,7 @@
         "y": 60,
         "wires": [
             [
-                "816f9cdc5591aafd"
+                "3f441d82b7b9c273"
             ],
             []
         ]
@@ -1810,7 +1906,7 @@
         "wires": [
             [],
             [
-                "0edc6027c8a03d35"
+                "48c93798086b9a02"
             ]
         ]
     },
@@ -1891,46 +1987,6 @@
                 "8f10bf20fa4f02e1"
             ],
             []
-        ]
-    },
-    {
-        "id": "816f9cdc5591aafd",
-        "type": "time-range-switch",
-        "z": "afb0f186.cfb0d",
-        "name": "02:00-9am",
-        "lat": "51.293768",
-        "lon": "-2.491740",
-        "startTime": "02:00",
-        "endTime": "09:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 810,
-        "y": 60,
-        "wires": [
-            [],
-            [
-                "312fc9f4c564b728"
-            ]
-        ]
-    },
-    {
-        "id": "0edc6027c8a03d35",
-        "type": "time-range-switch",
-        "z": "afb0f186.cfb0d",
-        "name": "02:00-9am",
-        "lat": "51.293768",
-        "lon": "-2.491740",
-        "startTime": "02:00",
-        "endTime": "09:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 790,
-        "y": 620,
-        "wires": [
-            [],
-            [
-                "d0b932920b123d3e"
-            ]
         ]
     },
     {
@@ -2277,27 +2333,6 @@
         ]
     },
     {
-        "id": "af203991a57978f9",
-        "type": "time-range-switch",
-        "z": "afb0f186.cfb0d",
-        "name": "02:00-9am",
-        "lat": "51.293768",
-        "lon": "-2.491740",
-        "startTime": "02:00",
-        "endTime": "09:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 600,
-        "y": 860,
-        "wires": [
-            [],
-            [
-                "bc36c13ee490f021",
-                "a1ceebb6cd381b75"
-            ]
-        ]
-    },
-    {
         "id": "0c08982549b67008",
         "type": "api-current-state",
         "z": "afb0f186.cfb0d",
@@ -2339,7 +2374,7 @@
         "wires": [
             [],
             [
-                "af203991a57978f9"
+                "e09953f8f0cf357a"
             ]
         ]
     },
@@ -2760,27 +2795,7 @@
         "wires": [
             [],
             [
-                "abc2c3f3a85353ee"
-            ]
-        ]
-    },
-    {
-        "id": "abc2c3f3a85353ee",
-        "type": "time-range-switch",
-        "z": "afb0f186.cfb0d",
-        "name": "02:00-9am",
-        "lat": "51.293768",
-        "lon": "-2.491740",
-        "startTime": "02:00",
-        "endTime": "09:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 790,
-        "y": 1220,
-        "wires": [
-            [],
-            [
-                "2a3494931e8858ce"
+                "b43443b687bb7289"
             ]
         ]
     },
@@ -3061,7 +3076,7 @@
         "blockInputOverrides": false,
         "domain": "light",
         "service": "turn_on",
-        "x": 1270,
+        "x": 1210,
         "y": 120,
         "wires": [
             []
@@ -3084,7 +3099,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 1030,
+        "x": 970,
         "y": 120,
         "wires": [
             [
@@ -3110,7 +3125,7 @@
         "y": 120,
         "wires": [
             [
-                "19897b73b8809d71"
+                "3317bd48222fa0b1"
             ],
             []
         ]
@@ -3158,26 +3173,6 @@
             [],
             [
                 "56201e012813590b"
-            ]
-        ]
-    },
-    {
-        "id": "19897b73b8809d71",
-        "type": "time-range-switch",
-        "z": "afb0f186.cfb0d",
-        "name": "02:00-9am",
-        "lat": "51.293768",
-        "lon": "-2.491740",
-        "startTime": "02:00",
-        "endTime": "09:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 810,
-        "y": 120,
-        "wires": [
-            [],
-            [
-                "a36287ac55bfdec7"
             ]
         ]
     },
@@ -3670,7 +3665,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "media_player.office_echo"
+            "media_player.bedroom_echo"
         ],
         "labelId": [],
         "data": "{\"media_content_type\":\"skill\",\"media_content_id\":\"amzn1.ask.skill.89bb8c9b-6f47-4f93-9a40-7c572ade7ea3\"}",
@@ -3737,7 +3732,7 @@
         "areaId": [],
         "deviceId": [],
         "entityId": [
-            "media_player.office_echo"
+            "media_player.bedroom_echo"
         ],
         "labelId": [],
         "data": "",
@@ -4100,6 +4095,72 @@
         "wires": [
             [
                 "a3b9f6c92b47935b"
+            ]
+        ]
+    },
+    {
+        "id": "3f441d82b7b9c273",
+        "type": "subflow:313a4c87880bc70e",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "x": 780,
+        "y": 60,
+        "wires": [
+            [
+                "312fc9f4c564b728"
+            ]
+        ]
+    },
+    {
+        "id": "3317bd48222fa0b1",
+        "type": "subflow:313a4c87880bc70e",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "x": 780,
+        "y": 120,
+        "wires": [
+            [
+                "a36287ac55bfdec7"
+            ]
+        ]
+    },
+    {
+        "id": "48c93798086b9a02",
+        "type": "subflow:313a4c87880bc70e",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "x": 800,
+        "y": 620,
+        "wires": [
+            [
+                "d0b932920b123d3e"
+            ]
+        ]
+    },
+    {
+        "id": "e09953f8f0cf357a",
+        "type": "subflow:313a4c87880bc70e",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "x": 600,
+        "y": 860,
+        "wires": [
+            [
+                "bc36c13ee490f021",
+                "a1ceebb6cd381b75"
+            ]
+        ]
+    },
+    {
+        "id": "b43443b687bb7289",
+        "type": "subflow:313a4c87880bc70e",
+        "z": "afb0f186.cfb0d",
+        "name": "",
+        "x": 780,
+        "y": 1220,
+        "wires": [
+            [
+                "2a3494931e8858ce"
             ]
         ]
     },
