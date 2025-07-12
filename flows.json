@@ -176,6 +176,10 @@
                     {
                         "id": "9c6f1ec5ec56d9a9",
                         "port": 1
+                    },
+                    {
+                        "id": "fbdcb6b5258c20ed",
+                        "port": 1
                     }
                 ]
             }
@@ -741,20 +745,20 @@
         "id": "fbdcb6b5258c20ed",
         "type": "time-range-switch",
         "z": "313a4c87880bc70e",
-        "name": "3am-6am",
+        "name": "12am-8am",
         "lat": "51.293768",
         "lon": "-2.491740",
-        "startTime": "03:00",
-        "endTime": "06:00",
+        "startTime": "0:00",
+        "endTime": "08:00",
         "startOffset": 0,
         "endOffset": 0,
-        "x": 260,
+        "x": 270,
         "y": 140,
         "wires": [
-            [],
             [
                 "9c6f1ec5ec56d9a9"
-            ]
+            ],
+            []
         ]
     },
     {
@@ -794,11 +798,21 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 480,
-        "y": 140,
+        "y": 80,
         "wires": [
             [],
             []
         ]
+    },
+    {
+        "id": "34a6d2364a72c3fe",
+        "type": "comment",
+        "z": "313a4c87880bc70e",
+        "name": "in bed?",
+        "info": "",
+        "x": 450,
+        "y": 40,
+        "wires": []
     },
     {
         "id": "f0357509eda72c8d",
@@ -2595,11 +2609,11 @@
         "id": "e7a301f368e1d25d",
         "type": "api-current-state",
         "z": "afb0f186.cfb0d",
-        "name": "illuminance < 5",
+        "name": "dark?",
         "server": "8b52884a.b76658",
         "version": 3,
         "outputs": 2,
-        "halt_if": "5",
+        "halt_if": "40",
         "halt_if_type": "num",
         "halt_if_compare": "lt",
         "entity_id": "sensor.everything_presence_one_042214_illuminance",
@@ -2627,7 +2641,7 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 400,
+        "x": 370,
         "y": 1220,
         "wires": [
             [
@@ -2716,9 +2730,9 @@
         "ifStateType": "str",
         "ifStateOperator": "is",
         "outputOnlyOnStateChange": true,
-        "for": "0",
+        "for": "1",
         "forType": "num",
-        "forUnits": "seconds",
+        "forUnits": "minutes",
         "ignorePrevStateNull": true,
         "ignorePrevStateUnknown": true,
         "ignorePrevStateUnavailable": true,
@@ -3091,7 +3105,7 @@
         "op2": "{\"action\":\"light.turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "60",
+        "duration": "300",
         "extend": true,
         "overrideDelay": false,
         "units": "s",
