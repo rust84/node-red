@@ -4182,6 +4182,7 @@
         "id": "d841ce2f97c502f8",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Toggle schedules",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -4246,6 +4247,7 @@
         "id": "4aed068020384b78",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Disable schedules",
         "server": "8b52884a.b76658",
         "version": 7,
@@ -4287,6 +4289,7 @@
         "id": "2447d1c9ace3b941",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Enable schedules",
         "server": "8b52884a.b76658",
         "version": 7,
@@ -4322,6 +4325,7 @@
         "id": "424007945ad5ab08",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Run Weekday schedule",
         "server": "8b52884a.b76658",
         "version": 7,
@@ -4351,6 +4355,7 @@
         "id": "ce29b54fee8ac32e",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "home -> not_home",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -4413,6 +4418,7 @@
         "id": "1b39e02438a1c605",
         "type": "trigger-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "not_home -> home",
         "server": "8b52884a.b76658",
         "version": 5,
@@ -4479,7 +4485,7 @@
         "name": "Aircon",
         "info": "",
         "x": 110,
-        "y": 420,
+        "y": 600,
         "wires": []
     },
     {
@@ -4537,7 +4543,7 @@
             }
         ],
         "x": 120,
-        "y": 500,
+        "y": 680,
         "wires": [
             [
                 "f0c9108db605c58f"
@@ -4572,7 +4578,7 @@
         "domain": "climate",
         "service": "set_swing_mode",
         "x": 570,
-        "y": 500,
+        "y": 680,
         "wires": [
             []
         ]
@@ -4616,7 +4622,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 390,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "0d6f721153f28d46"
@@ -4663,7 +4669,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 350,
-        "y": 500,
+        "y": 680,
         "wires": [
             [
                 "be27bd4df8ea1392"
@@ -4726,7 +4732,7 @@
             }
         ],
         "x": 120,
-        "y": 560,
+        "y": 740,
         "wires": [
             [
                 "f0c9108db605c58f"
@@ -4738,6 +4744,7 @@
         "id": "bd1afed023a81c58",
         "type": "api-current-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -4784,6 +4791,7 @@
         "id": "dde8862116e0100f",
         "type": "api-current-state",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "run?",
         "server": "8b52884a.b76658",
         "version": 3,
@@ -4881,7 +4889,7 @@
             }
         ],
         "x": 160,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "77cb539139b1e947"
@@ -4944,7 +4952,7 @@
             }
         ],
         "x": 160,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "f9edfad88e5fc1c2"
@@ -4990,7 +4998,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 620,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "f96177401fdd7f7f"
@@ -5025,7 +5033,7 @@
         "domain": "climate",
         "service": "set_hvac_mode",
         "x": 1020,
-        "y": 640,
+        "y": 820,
         "wires": [
             []
         ]
@@ -5068,7 +5076,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 630,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "d1259e05b00b447a"
@@ -5089,7 +5097,7 @@
         "finalize": "",
         "libs": [],
         "x": 840,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "7cced1da5dab434e"
@@ -5104,12 +5112,13 @@
         "name": "cool",
         "func": "var hvac = \"cool\"\n\nmsg.payload = { data:{\"hvac_mode\": hvac }}\nreturn [ msg ];\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "7cced1da5dab434e"
@@ -5155,7 +5164,7 @@
         "forType": "num",
         "forUnits": "minutes",
         "x": 390,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "c0b3c0530fced4db"
@@ -5177,6 +5186,7 @@
         "id": "e7a3956752206bc2",
         "type": "api-call-service",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Run Weekend schedule",
         "server": "8b52884a.b76658",
         "version": 7,
@@ -5206,6 +5216,7 @@
         "id": "7fe79f7de8931c66",
         "type": "mqtt out",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/Hive Receiver/set",
         "qos": "",
@@ -5224,6 +5235,7 @@
         "id": "7ec8e0266c2aa99d",
         "type": "template",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Set heating mode to OFF",
         "field": "payload",
         "fieldType": "msg",
@@ -5241,38 +5253,10 @@
         ]
     },
     {
-        "id": "67bc7133f23fd51c",
-        "type": "inject",
-        "z": "cf24db3435ba68ad",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1140,
-        "y": 160,
-        "wires": [
-            [
-                "379e2926901a187a"
-            ]
-        ]
-    },
-    {
         "id": "379e2926901a187a",
         "type": "template",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Set heating mode to ON",
         "field": "payload",
         "fieldType": "msg",
@@ -5292,6 +5276,7 @@
         "id": "76f04810f8e99fe6",
         "type": "delay",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "",
         "pauseType": "delay",
         "timeout": "0.5",
@@ -5317,6 +5302,7 @@
         "id": "f6539d3e06185755",
         "type": "template",
         "z": "cf24db3435ba68ad",
+        "d": true,
         "name": "Frost prevention",
         "field": "payload",
         "fieldType": "msg",
@@ -5330,6 +5316,281 @@
             [
                 "7fe79f7de8931c66"
             ]
+        ]
+    },
+    {
+        "id": "67fbe8347833d36a",
+        "type": "inject",
+        "z": "cf24db3435ba68ad",
+        "d": true,
+        "name": "every 1 min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 610,
+        "y": 340,
+        "wires": [
+            [
+                "424007945ad5ab08",
+                "e7a3956752206bc2"
+            ]
+        ]
+    },
+    {
+        "id": "e7b2b2b030765c52",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "home -> not_home",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.anyone_home"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "debugEnabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home"
+            }
+        ],
+        "customOutputs": [],
+        "outputInitially": false,
+        "stateType": "str",
+        "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "9c6b885bb5ea4135"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "443be9307f7da3e9",
+        "type": "trigger-state",
+        "z": "cf24db3435ba68ad",
+        "name": "not_home -> home",
+        "server": "8b52884a.b76658",
+        "version": 5,
+        "inputs": 1,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.anyone_home"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "debugEnabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home"
+            }
+        ],
+        "customOutputs": [],
+        "outputInitially": false,
+        "stateType": "str",
+        "enableInput": true,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "b1c59a3c38d404eb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fb71f0f8aa987548",
+        "type": "inject",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 360,
+        "wires": [
+            [
+                "9c6b885bb5ea4135"
+            ]
+        ]
+    },
+    {
+        "id": "c6e8e1c1e71dc2b5",
+        "type": "inject",
+        "z": "cf24db3435ba68ad",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "b1c59a3c38d404eb"
+            ]
+        ]
+    },
+    {
+        "id": "9c6b885bb5ea4135",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Set mode off",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "climate.set_hvac_mode",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.hive_climate_climate"
+        ],
+        "labelId": [],
+        "data": "{\"hvac_mode\":\"off\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "climate",
+        "service": "set_hvac_mode",
+        "x": 470,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1c59a3c38d404eb",
+        "type": "api-call-service",
+        "z": "cf24db3435ba68ad",
+        "name": "Set mode auto",
+        "server": "8b52884a.b76658",
+        "version": 7,
+        "debugenabled": false,
+        "action": "climate.set_hvac_mode",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.hive_climate_climate"
+        ],
+        "labelId": [],
+        "data": "{\"hvac_mode\":\"auto\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "climate",
+        "service": "set_hvac_mode",
+        "x": 480,
+        "y": 520,
+        "wires": [
+            []
         ]
     },
     {
