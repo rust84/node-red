@@ -4107,7 +4107,7 @@
                 "idx": 1,
                 "key": "Player.title",
                 "operator": "eq",
-                "value": "SHIELD Android TV",
+                "value": "Kodi",
                 "valueType": "str"
             }
         ],
