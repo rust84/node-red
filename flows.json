@@ -868,7 +868,7 @@
         "op2": "{\"action\":\"light.turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "60",
+        "duration": "20",
         "extend": true,
         "overrideDelay": false,
         "units": "s",
@@ -3112,7 +3112,7 @@
         "op2": "{\"action\":\"light.turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "300",
+        "duration": "20",
         "extend": true,
         "overrideDelay": false,
         "units": "s",
@@ -4098,13 +4098,6 @@
         "filters": [
             {
                 "idx": 0,
-                "key": "Player.local",
-                "operator": "eq",
-                "value": "true",
-                "valueType": "str"
-            },
-            {
-                "idx": 1,
                 "key": "Player.title",
                 "operator": "eq",
                 "value": "Kodi",
@@ -7965,7 +7958,8 @@
         "links": [
             "5024eb29f1ce0b1a",
             "6529d1c46782bfcc",
-            "2e21fe95824d7621"
+            "2e21fe95824d7621",
+            "58d0ab8f031d7996"
         ],
         "x": 1065,
         "y": 680,
@@ -8295,6 +8289,177 @@
         "wires": [
             [
                 "09990574cfea180b"
+            ]
+        ]
+    },
+    {
+        "id": "f1323fb9a9853da0",
+        "type": "server-state-changed",
+        "z": "4aedf9e8.044e08",
+        "name": "water leak upstairs",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.leak_sensor_upstairs_cupboard_water_leak"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "dry",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": true,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "office",
+                "valueType": "str"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 750,
+        "y": 1100,
+        "wires": [
+            [],
+            [
+                "6a9d7b9c8ee82065"
+            ]
+        ]
+    },
+    {
+        "id": "6a9d7b9c8ee82065",
+        "type": "function",
+        "z": "4aedf9e8.044e08",
+        "name": "Alarm Triggerred Android msg",
+        "func": "var detector = msg.payload\nvar category = \"alarm\"\nvar title = \"🌊 WATER LEAK! 🌊\"\nvar message = detector + \" UPSTAIRS CUPBOARD LEAK DETECTED 💦 \\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 1100,
+        "wires": [
+            [
+                "58d0ab8f031d7996"
+            ]
+        ]
+    },
+    {
+        "id": "58d0ab8f031d7996",
+        "type": "link out",
+        "z": "4aedf9e8.044e08",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "651cf36dfd9ea601"
+        ],
+        "x": 1255,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "95351c4e6284b9d1",
+        "type": "server-state-changed",
+        "z": "4aedf9e8.044e08",
+        "name": "water leak downstairs",
+        "server": "8b52884a.b76658",
+        "version": 6,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.leak_sensor_downstairs_cupboard_water_leak"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "dry",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": true,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "office",
+                "valueType": "str"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 740,
+        "y": 1020,
+        "wires": [
+            [],
+            [
+                "ef9796474b4dad04"
+            ]
+        ]
+    },
+    {
+        "id": "ef9796474b4dad04",
+        "type": "function",
+        "z": "4aedf9e8.044e08",
+        "name": "Alarm Triggerred Android msg",
+        "func": "var detector = msg.payload\nvar category = \"alarm\"\nvar title = \"🌊 WATER LEAK! 🌊\"\nvar message = detector + \" DOWNSTAIRS CUPBOARD LEAK DETECTED 💦 \\n\"\n\nmsg.payload = {\n    \"data\": {\n        message,\n        title,\n        data: {\n            push: {\n                category: category,\n                sound: {\n                  name: \"ct-error.caf\",\n                  critical: 1,\n                  volume: 1.0\n                }\n            }\n        }\n    }\n}\nreturn [ msg ];\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 1020,
+        "wires": [
+            [
+                "58d0ab8f031d7996"
             ]
         ]
     },
