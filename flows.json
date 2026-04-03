@@ -779,14 +779,14 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "binary_sensor.pixel_7a_is_charging",
+        "entity_id": "binary_sensor.pixel_9_is_charging",
         "state_type": "str",
         "blockInputOverrides": true,
         "outputProperties": [
             {
                 "property": "payload",
                 "propertyType": "msg",
-                "value": "",
+                "value": "string",
                 "valueType": "entityState"
             },
             {
@@ -868,7 +868,7 @@
         "op2": "{\"action\":\"light.turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "20",
+        "duration": "60",
         "extend": true,
         "overrideDelay": false,
         "units": "s",
@@ -3112,7 +3112,7 @@
         "op2": "{\"action\":\"light.turn_off\"}",
         "op1type": "json",
         "op2type": "json",
-        "duration": "20",
+        "duration": "60",
         "extend": true,
         "overrideDelay": false,
         "units": "s",
@@ -3284,7 +3284,7 @@
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "binary_sensor.pixel_7a_is_charging"
+                "binary_sensor.pixel_9_is_charging"
             ],
             "substring": [],
             "regex": []
@@ -3307,7 +3307,7 @@
             {
                 "property": "payload",
                 "propertyType": "msg",
-                "value": "",
+                "value": "string",
                 "valueType": "entityState"
             },
             {
